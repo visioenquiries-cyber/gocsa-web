@@ -53,6 +53,8 @@ export interface CollectionConfig {
   /** Which publishing lane governs access (docs/12 §0.4). */
   lane: PublishingLane;
   upload?: boolean;
+  /** Payload auth collection (users). */
+  auth?: boolean;
   versions?: { drafts: boolean; retainAll?: boolean };
   localizedFields?: string[];
   fields: Field[];
@@ -62,5 +64,14 @@ export interface GlobalConfig {
   slug: string;
   admin?: { group?: string; description?: string };
   lane: PublishingLane;
+  fields: Field[];
+}
+
+/** A page-builder block (docs/12 §4, docs/16) — schema only in Sprint 3. */
+export interface Block {
+  slug: string;
+  labels: { singular: string };
+  /** Plain-language editor guidance on when to use this block. */
+  description: string;
   fields: Field[];
 }

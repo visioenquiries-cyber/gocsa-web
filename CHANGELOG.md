@@ -2,6 +2,31 @@
 
 All notable changes to the GOCSA platform. Newest first.
 
+## [Unreleased] — Sprint 3 in progress (CMS foundation)
+
+### Added — `@gocsa/cms` (framework-agnostic, fully tested)
+
+- **Reusable access-control layer** (`access/`): 8 roles (DEC-027) × 3 lanes × site scope;
+  one `can()`/`accessFor()`/`collectionAccess()` policy — no ad-hoc per-collection logic.
+- **Publishing workflow state machine** (`workflow/`): draft → in-review → changes-requested
+  → approved → published → archived; illegal transitions rejected; scheduled-publish gated to approved.
+- **Validation gates** (`validation/`): alt-text, person-consent, link-destination-conflict,
+  form-consent. **Localisation** (`i18n/`): EN/EL, visible fallback, parity report.
+- **Schema:** shared field groups (seo/cta/link/address), 15 page-builder blocks, foundational +
+  representative collections (users, media, service-groups, services, funding-programs, faqs,
+  testimonials, downloads, pages) + globals (settings, navigation, footer).
+- **47 tests; 100% statements/lines/functions** on access/workflow/validation/i18n. Vitest wired.
+
+### Decisions
+
+- **DEC-026** Payload 3 ⇒ Next 15 + React 19 in `apps/web`; live Postgres required to run
+  (app/DB bring-up gated, R16). **DEC-027** role taxonomy reconciled to the 8-role Sprint-3 set.
+
+### Accepted limitations
+
+- Payload runtime, `apps/web`, migrations, and seed require a database not present in the
+  authoring sandbox — implemented as the next bounded step, reported honestly (R16).
+
 ## [foundation-ui-v1.0] — Sprint 2 complete (Visual Foundation)
 
 The design-token system and the full UI primitive library, verified against the

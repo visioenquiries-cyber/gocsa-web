@@ -224,6 +224,31 @@ tests, UAT (non-technical staff ≥95% task completion + SUS; CCM content sign-o
 gate; Greek reviewer), regression suite, defect severity SLA (P1 blocks release), and
 pre-merge/pre-release/launch checklists. Everything measurable. _(Specification Phase)_
 
+### DEC-026 · Payload 3 ⇒ Next 15 + React 19 in `apps/web`; live Postgres required to run · Accepted (recorded, needs GOCSA awareness)
+
+Implementation fact: the ratified CMS (Payload, DEC-011) at its current major is **Payload
+3**, which is **Next-native and requires Next 15 + React 19**. Consequences:
+(a) `apps/web` targets Next 15 / React 19; **`@gocsa/ui` peer widened to `react: ^18 || ^19`**
+(our primitives are compatible — verified React-18 baseline unaffected).
+(b) Payload cannot start/migrate without a **running Postgres**, which this sandbox lacks —
+so DoD items "app starts / admin loads / migrations run / seed loads" are implemented but
+**verifiable only in a Postgres-enabled environment** (honestly reported, not faked).
+**Strategy:** build the **framework-agnostic CMS logic** (access control, workflow,
+validation, localisation, schemas) as pure, fully-tested TypeScript in `packages/cms` now
+(RGHA-reusable, 100%-testable); the Payload adapter + `apps/web` bring-up is the next bounded
+step. Not an independent upgrade — it's the consequence of the ratified choice. _(Phase 2, Sprint 3)_
+
+### DEC-027 · Role taxonomy reconciled to the Sprint-3 operative set · Accepted (client-directed, supersedes part of DEC-013)
+
+The Sprint-3 brief specifies 8 roles: **Super Administrator, Site Administrator, Community
+Care Manager, Marketing Manager, Editor, Translator, Reviewer/Approver, Read Only.** This
+**refines DEC-013/docs/14** (which listed Community Care, Retirement Living, Marketing,
+Volunteers, Future Staff): adds **Site Administrator, Translator, Reviewer/Approver**;
+renames Marketing→Marketing Manager, Community Care→Community Care Manager; **"Retirement
+Living" becomes site-scoping (RGHA)** rather than a named role; **Volunteers/Future Staff
+deferred** (Future Staff ≈ a user with no role → read-only until assigned; Volunteers ≈ a
+future constrained Editor). Recorded rather than silently changed. _(Phase 2, Sprint 3)_
+
 ### DEC-025 · Visual regression = self-hosted Playwright (provider selection pending) · Accepted (foundation)
 
 Provider-agnostic visual regression via Playwright `toHaveScreenshot` against built

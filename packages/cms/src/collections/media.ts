@@ -38,7 +38,13 @@ export const media: CollectionConfig = {
           : "Alt text is required (or mark the image decorative).",
     },
     { name: "caption", type: "text", localized: true },
-    { name: "credit", type: "text" },
+    { name: "credit", type: "text", admin: { description: "Photographer or source." } },
+    {
+      name: "rights",
+      type: "text",
+      localized: false,
+      admin: { description: "Usage/rights notes (e.g. licence, expiry)." },
+    },
     {
       name: "consentOnFile",
       type: "checkbox",
@@ -46,5 +52,13 @@ export const media: CollectionConfig = {
       admin: { description: "Required when the image shows identifiable people (privacy R9)." },
     },
     { name: "tags", type: "text", hasMany: true },
+    {
+      name: "archived",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description: "Hide from the picker without deleting. Cannot archive an asset still in use.",
+      },
+    },
   ],
 };
