@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      # ── Gate: dependencies (fails on a stale lockfile) ──
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      # ── Gate: formatting ──
+      - name: Format check
+        run: pnpm format:check
+
+      # ── Gate: lint (zero warnings — enforced in each package's lint script) ──
+      - name: Lint
+        run: pnpm -r run lint
+
+      # ── Gate: types ──
+      - name: Typecheck
+        run: pnpm -r run typecheck
+
+      # ── Gate: unit + accessibility (axe) tests with coverage thresholds ──
+      - name: Test + coverage (packages/ui)
+        run: pnpm --filter @gocsa/ui exec vitest run --coverage
+
+      # ── Gate: Storybook builds (the library's build artefact until apps/web exists) ──
+      - name: Build Storybook
+        run: pnpm --filter @gocsa/ui run build-storybook
+
+      # NOTE: a separate application/package build gate lands in Sprint 3 with `apps/web`.
+      # Source packages are consumed as TypeScript (transpiled by the app), so "build"
+      # for them is covered by Typecheck + Build Storybook above — no placeholder step.
+
+      # ── Gate: visual regression ──
+      # SCAFFOLDED, NOT YET ENFORCED (docs/22 §Visual). Provider selection is PENDING
+      # (self-hosted Playwright vs a hosted service). Baselines must be generated in the
+      # CI OS first. Enable by uncommenting once baselines are committed:
+      # - name: Visual regression
+      #   run: pnpm --filter @gocsa/ui run test:visual

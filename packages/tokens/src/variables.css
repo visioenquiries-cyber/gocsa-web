@@ -1,0 +1,266 @@
+/**
+ * GOCSA Design Tokens — runtime CSS custom properties.
+ * The single source of truth for styling across GOCSA Community Care, RGHA
+ * Retirement Living, and future GOCSA apps. Values from docs/10 (WCAG-verified).
+ *
+ * Scopes (docs/10 §0.3, docs/13 §8):
+ *   [data-brand]  → brand primitives (RGHA re-themes here — see bottom)
+ *   [data-theme]  → light/dark
+ *   [data-site]   → optional per-site nuance (defaults inherit brand)
+ * Components consume SEMANTIC tokens only, never the raw primitives.
+ */
+
+:root,
+:root[data-brand="gocsa"] {
+  /* ── Colour · brand primitives (raw; not used directly by components) ──────── */
+  --color-blue-800: #083d72;
+  --color-blue-700: #0a4b8c;
+  --color-blue-600: #0d5eaf; /* Greek Blue (Brand Kit) */
+  --color-blue-500: #397bbd;
+  --color-blue-100: #d3e2f1;
+  --color-blue-50: #ecf2f9;
+  --color-aegean-400: #5cb8e6; /* Aegean Sky */
+  --color-gold-400: #d4af37; /* Heritage Gold */
+  --color-neutral-900: #24323f; /* Charcoal */
+  --color-neutral-700: #5a646d;
+  --color-neutral-500: #848c92;
+  --color-neutral-300: #c4c8ca;
+  --color-neutral-200: #dcdede;
+  --color-neutral-100: #edeeed;
+  --color-warm-white: #fafaf8;
+  --color-soft-grey: #f2f4f7;
+  --color-white: #ffffff;
+
+  /* Feedback primitives (text-safe on warm white) */
+  --color-success-600: #1e7a46;
+  --color-warning-700: #8a5a00;
+  --color-error-600: #b3261e;
+  --color-info-600: #0d5eaf;
+  --color-success-50: #e9f3ed;
+  --color-warning-50: #f5efe1;
+  --color-error-50: #f7e9e8;
+  --color-info-50: #ecf2f9;
+
+  /* ── Colour · semantic (components use ONLY these) ────────────────────────── */
+  --color-bg: var(--color-warm-white);
+  --color-surface: var(--color-soft-grey);
+  --color-surface-raised: var(--color-white);
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-700);
+  --color-text-on-primary: var(--color-white);
+  --color-text-on-accent: var(--color-neutral-900); /* Charcoal on gold — DEC-007 */
+  --color-primary: var(--color-blue-600);
+  --color-primary-hover: var(--color-blue-700);
+  --color-primary-active: var(--color-blue-800);
+  --color-secondary: var(--color-aegean-400);
+  --color-accent: var(--color-gold-400);
+  --color-link: var(--color-blue-600);
+  --color-border: var(--color-neutral-500); /* functional borders ≥3:1 */
+  --color-divider: var(--color-neutral-300); /* decorative only */
+  --color-focus: var(--color-blue-600);
+  --color-scrim: rgba(36, 50, 63, 0.56);
+
+  /* Status semantic */
+  --color-success: var(--color-success-600);
+  --color-warning: var(--color-warning-700);
+  --color-error: var(--color-error-600);
+  --color-info: var(--color-info-600);
+  --color-success-surface: var(--color-success-50);
+  --color-warning-surface: var(--color-warning-50);
+  --color-error-surface: var(--color-error-50);
+  --color-info-surface: var(--color-info-50);
+
+  /* ── Typography ───────────────────────────────────────────────────────────── */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --text-xs: 0.75rem; /* 12 — metadata min */
+  --text-sm: 0.875rem; /* 14 — UI/captions */
+  --text-base: 1.0625rem; /* 17 — body (D8) */
+  --text-md: 1.1875rem; /* 19 — lead */
+  --text-lg: 1.5rem; /* 24 — H3 */
+  --text-xl: 2rem; /* 32 — H2 */
+  --text-2xl: 2.5rem; /* 40 — H1 */
+  --text-display: clamp(2.5rem, 6vw, 3.25rem); /* fluid display */
+  --leading-tight: 1.15;
+  --leading-heading: 1.25;
+  --leading-body: 1.6;
+  --leading-ui: 1.4;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+
+  /* ── Spacing (4px base) ───────────────────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-section: clamp(4rem, 8vw, 6rem);
+  --space-gutter: 1rem; /* mobile page gutter */
+  --space-gutter-lg: 2rem; /* desktop page gutter */
+
+  /* ── Radius ───────────────────────────────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* ── Elevation / shadow (calm) ────────────────────────────────────────────── */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(36, 50, 63, 0.06);
+  --shadow-2: 0 2px 8px rgba(36, 50, 63, 0.08);
+  --shadow-3: 0 6px 20px rgba(36, 50, 63, 0.1);
+  --shadow-4: 0 12px 32px rgba(36, 50, 63, 0.14);
+
+  /* ── Borders ──────────────────────────────────────────────────────────────── */
+  --border-width-hair: 1px;
+  --border-width-base: 1.5px;
+  --border-width-strong: 2px;
+  --border-focus: 3px;
+
+  /* ── Opacity ──────────────────────────────────────────────────────────────── */
+  --opacity-disabled: 0.4;
+  --opacity-muted: 0.64;
+  --opacity-hover-overlay: 0.08;
+  --opacity-scrim: 0.56;
+
+  /* ── Motion · durations, curves, timing ──────────────────────────────────── */
+  --motion-instant: 0ms;
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --motion-slower: 480ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --motion-shift-sm: 4px;
+  --motion-shift-md: 8px;
+
+  /* ── Z-index ──────────────────────────────────────────────────────────────── */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-overlay: 400;
+  --z-drawer: 500;
+  --z-modal: 600;
+  --z-popover: 700;
+  --z-toast: 800;
+  --z-tooltip: 900;
+
+  /* ── Icon sizes ───────────────────────────────────────────────────────────── */
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+  --icon-stroke: 2px;
+
+  /* ── Image ratios ─────────────────────────────────────────────────────────── */
+  --ratio-square: 1 / 1;
+  --ratio-4-3: 4 / 3;
+  --ratio-3-2: 3 / 2;
+  --ratio-16-9: 16 / 9;
+  --ratio-og: 1200 / 630;
+
+  /* ── Content widths / containers ─────────────────────────────────────────── */
+  --container-prose: 68ch;
+  --container-narrow: 40rem;
+  --container-base: 64rem;
+  --container-wide: 75rem;
+
+  /* ── Component sizing ─────────────────────────────────────────────────────── */
+  --control-height-sm: 36px;
+  --control-height-md: 44px; /* default touch target */
+  --control-height-lg: 52px;
+  --nav-height: 72px;
+  --nav-height-scrolled: 60px;
+  --field-height: 44px;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+/* ── Dark mode readiness (scaffold — re-verify contrast per docs/10 §18) ─────── */
+:root[data-theme="dark"] {
+  --color-bg: #141b21;
+  --color-surface: #1e2830;
+  --color-surface-raised: #232f38;
+  --color-text: #eaecee;
+  --color-text-muted: #aeb6bc;
+  --color-primary: var(--color-blue-500);
+  --color-primary-hover: #4d8ac9;
+  --color-border: #3a454e;
+  --color-divider: #2c363e;
+  --color-scrim: rgba(0, 0, 0, 0.6);
+}
+
+/* Respect the OS preference when no explicit theme is set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #141b21;
+    --color-surface: #1e2830;
+    --color-surface-raised: #232f38;
+    --color-text: #eaecee;
+    --color-text-muted: #aeb6bc;
+    --color-primary: var(--color-blue-500);
+    --color-border: #3a454e;
+    --color-divider: #2c363e;
+    --color-scrim: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ── Reduced motion (docs/10 §7) ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+    --motion-slower: 0ms;
+    --motion-shift-sm: 0px;
+    --motion-shift-md: 0px;
+  }
+}
+
+/* ── Print readiness ────────────────────────────────────────────────────────── */
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-raised: #ffffff;
+    --color-text: #000000;
+    --color-text-muted: #333333;
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-3: none;
+    --shadow-4: none;
+  }
+}
+
+/* ── Future RGHA brand override (docs/10 §19) ───────────────────────────────────
+ * RGHA re-themes by overriding ONLY tier-1 primitives; every semantic token and
+ * component inherits unchanged. New primary/accent MUST be re-verified for WCAG.
+ *
+ * :root[data-brand="rgha"] {
+ *   --color-blue-600: <rgha primary>;
+ *   --color-blue-700: <rgha primary hover>;
+ *   --color-blue-800: <rgha primary active>;
+ *   --color-gold-400: <rgha accent>;
+ *   --font-display: <rgha display font>;
+ * }
+ * ─────────────────────────────────────────────────────────────────────────────── */

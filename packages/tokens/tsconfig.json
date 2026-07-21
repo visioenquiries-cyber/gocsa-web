@@ -1,0 +1,7 @@
+{
+  "extends": "@gocsa/config/typescript",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src"]
+}

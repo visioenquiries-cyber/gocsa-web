@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -)",
+      "WebFetch(domain:www.yellowdoorcare.com.au)",
+      "WebSearch",
+      "WebFetch(domain:gocsacommunitycare.com.au)",
+      "Bash(node --check packages/config/eslint/base.mjs)",
+      "Bash(node --check packages/config/tailwind/preset.mjs)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('package.json'\\)\\); JSON.parse\\(require\\('fs'\\).readFileSync\\('turbo.json'\\)\\); JSON.parse\\(require\\('fs'\\).readFileSync\\('packages/config/typescript/base.json'\\)\\); console.log\\('root+config JSON valid'\\)\")",
+      "Bash(node -e \"['packages/tokens/package.json','packages/ui/package.json'].forEach\\(f=>{JSON.parse\\(require\\('fs'\\).readFileSync\\(f\\)\\);}\\); console.log\\('package.json files valid JSON'\\)\")"
+    ]
+  }
+}

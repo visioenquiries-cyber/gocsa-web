@@ -1,0 +1,23 @@
+{
+  "name": "@gocsa/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tailwind": "./src/tailwind.ts",
+    "./variables.css": "./src/variables.css"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"(tokens) contrast tests run with vitest in Sprint 2 pass 2\" && exit 0"
+  },
+  "devDependencies": {
+    "@gocsa/config": "workspace:*",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
+  }
+}

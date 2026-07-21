@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+storybook-static/
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# Test / coverage
+coverage/
+playwright-report/
+test-results/
+
+# Environment — NEVER commit real secrets (see .env.example)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.preview
+.env.staging
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Payload / uploads (local dev media)
+/apps/web/media/
