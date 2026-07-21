@@ -2,7 +2,34 @@
 
 All notable changes to the GOCSA platform. Newest first.
 
-## [Unreleased] — Sprint 3 in progress (CMS foundation)
+## [Unreleased] — Sprint 3 runtime (apps/web + Payload)
+
+### Added — the real application (`apps/web`)
+
+- **Next 15.4.11 + Payload 3.86.0 + React 19.2.8** (DEC-026 ratified), `@payloadcms/db-postgres`.
+- `payload.config.ts` composes `@gocsa/cms` collections/globals via a seam→Payload mapper;
+  wires the **tested access policy** into Payload access; reads all config from `@gocsa/env`
+  `getEnv()` (no hardcoded secrets/URLs). Localisation en/el, drafts/versions, lexical editor.
+- Routes: Payload **admin** + REST + GraphQL, **health**, and a public **`/[locale]`** dev
+  shell (tokens + `@gocsa/ui`, CMS query with safe degradation).
+- **Seed** (idempotent, env-guarded, demo-only, bilingual, draft + published) + **migrations** dir.
+- **Local DB**: `docker-compose.yml` (Postgres 16, volume, healthcheck); root scripts
+  `db:up/down/reset/migrate/migrate:create/seed`, `dev`.
+- **Integration tests** (`test:integration`, Postgres-backed) — schema, access enforcement, auth.
+- **CI**: new `cms-runtime` job with a Postgres service runs generate:types → migrate → seed
+  → integration → build. `@gocsa/env` gains `ALLOW_SEED` + `isSeedAllowed`.
+- Docs: **local development guide (docs/24)** with exact commands.
+
+### Verified (authoring sandbox, no DB)
+
+typecheck 0 · lint 0 · `payload generate:types` · **`next build` ✓** · 166 unit tests · format.
+
+### Not executed here (R16 — no Docker/Postgres)
+
+migrations, seed, admin login, integration tests — wired to run via docker-compose (docs/24)
+and CI's Postgres job. **Sprint 3 is not marked complete until that runtime is observed to pass.**
+
+## [Unreleased] — Sprint 3 (CMS foundation)
 
 ### Added — `@gocsa/cms` (framework-agnostic, fully tested)
 

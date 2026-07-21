@@ -15,47 +15,77 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
-
-      # ── Gate: dependencies (fails on a stale lockfile) ──
       - name: Install
         run: pnpm install --frozen-lockfile
-
-      # ── Gate: formatting ──
       - name: Format check
         run: pnpm format:check
-
-      # ── Gate: lint (zero warnings — enforced in each package's lint script) ──
-      - name: Lint
+      - name: Lint (zero warnings)
         run: pnpm -r run lint
-
-      # ── Gate: types ──
       - name: Typecheck
         run: pnpm -r run typecheck
-
-      # ── Gate: unit + accessibility (axe) tests with coverage thresholds ──
-      - name: Test + coverage (packages/ui)
+      - name: Unit + accessibility tests (packages/ui)
         run: pnpm --filter @gocsa/ui exec vitest run --coverage
-
-      # ── Gate: Storybook builds (the library's build artefact until apps/web exists) ──
+      - name: CMS security-logic tests (packages/cms)
+        run: pnpm --filter @gocsa/cms exec vitest run --coverage
       - name: Build Storybook
         run: pnpm --filter @gocsa/ui run build-storybook
 
-      # NOTE: a separate application/package build gate lands in Sprint 3 with `apps/web`.
-      # Source packages are consumed as TypeScript (transpiled by the app), so "build"
-      # for them is covered by Typecheck + Build Storybook above — no placeholder step.
+  cms-runtime:
+    name: CMS + app (Postgres-backed)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: gocsa
+          POSTGRES_PASSWORD: gocsa_dev_password
+          POSTGRES_DB: gocsa
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U gocsa -d gocsa"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      APP_ENV: development
+      NEXT_PUBLIC_BRAND: gocsa
+      NEXT_PUBLIC_SITE_ID: gocsa-community-care
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_CMS_URL: http://localhost:3000
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api
+      NEXT_PUBLIC_ASSET_URL: http://localhost:3000
+      PAYLOAD_SECRET: ci-secret-ci-secret-ci-secret-01
+      DATABASE_URI: postgres://gocsa:gocsa_dev_password@localhost:5432/gocsa
+      ALLOW_SEED: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Generate Payload types
+        run: pnpm --filter @gocsa/web run generate:types
+      - name: Run migrations (create + apply against the CI database)
+        run: |
+          pnpm --filter @gocsa/web exec payload migrate:create ci_init
+          pnpm --filter @gocsa/web run db:migrate
+      - name: Seed development data
+        run: pnpm --filter @gocsa/web run db:seed
+      - name: Integration tests (against the running CMS)
+        run: pnpm --filter @gocsa/web run test:integration
+      - name: Build application
+        run: pnpm --filter @gocsa/web run build
 
-      # ── Gate: visual regression ──
-      # SCAFFOLDED, NOT YET ENFORCED (docs/22 §Visual). Provider selection is PENDING
-      # (self-hosted Playwright vs a hosted service). Baselines must be generated in the
-      # CI OS first. Enable by uncommenting once baselines are committed:
-      # - name: Visual regression
-      #   run: pnpm --filter @gocsa/ui run test:visual
+  # Visual regression (scaffolded; provider/baselines pending — docs/22, DEC-025). Enable
+  # once baselines are committed:
+  # - run: pnpm --filter @gocsa/ui run test:visual

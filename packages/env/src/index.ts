@@ -66,6 +66,9 @@ const schema = z.object({
 
   PREVIEW_SECRET: z.string().optional(),
   REVALIDATE_SECRET: z.string().optional(),
+
+  // Seed guard — seeding runs only when this is "true" AND APP_ENV=development.
+  ALLOW_SEED: z.enum(["true", "false"]).default("false"),
 });
 
 export type Env = z.infer<typeof schema>;
@@ -102,3 +105,7 @@ export const isPreviewLike = (e: Env): boolean =>
   e.APP_ENV === "development" || e.APP_ENV === "preview" || e.APP_ENV === "staging";
 /** Non-production environments must never be indexed (docs/18). */
 export const shouldAllowIndexing = (e: Env): boolean => e.APP_ENV === "production";
+
+/** Seeding is permitted only in development and only when explicitly allowed. */
+export const isSeedAllowed = (e: Env): boolean =>
+  e.APP_ENV === "development" && e.ALLOW_SEED === "true";

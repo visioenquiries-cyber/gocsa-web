@@ -13,7 +13,14 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,md,yml,yaml}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,md,yml,yaml}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,md,yml,yaml}\"",
+    "dev": "pnpm --filter @gocsa/web dev",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d",
+    "db:migrate": "pnpm --filter @gocsa/web db:migrate",
+    "db:migrate:create": "pnpm --filter @gocsa/web db:migrate:create",
+    "db:seed": "pnpm --filter @gocsa/web db:seed"
   },
   "devDependencies": {
     "@gocsa/config": "workspace:*",

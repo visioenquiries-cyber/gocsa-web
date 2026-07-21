@@ -1,0 +1,25 @@
+# Local development PostgreSQL — provider-neutral (DEC-021/DEC-026).
+# Development credentials only. NOT for production; production Postgres is selected at the
+# deployment phase and swapped purely via DATABASE_URI. No secrets are committed here — these
+# are throwaway local values, and the app reads DATABASE_URI from the environment.
+services:
+  db:
+    image: postgres:16
+    container_name: gocsa-dev-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gocsa
+      POSTGRES_PASSWORD: gocsa_dev_password
+      POSTGRES_DB: gocsa
+    ports:
+      - "5432:5432" # localhost only
+    volumes:
+      - gocsa_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gocsa -d gocsa"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  gocsa_pgdata:

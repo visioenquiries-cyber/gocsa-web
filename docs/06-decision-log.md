@@ -224,7 +224,15 @@ tests, UAT (non-technical staff ≥95% task completion + SUS; CCM content sign-o
 gate; Greek reviewer), regression suite, defect severity SLA (P1 blocks release), and
 pre-merge/pre-release/launch checklists. Everything measurable. _(Specification Phase)_
 
-### DEC-026 · Payload 3 ⇒ Next 15 + React 19 in `apps/web`; live Postgres required to run · Accepted (recorded, needs GOCSA awareness)
+### DEC-026 · Payload 3 ⇒ Next 15 + React 19 in `apps/web` · **RATIFIED by client**
+
+Client ratified DEC-026 as the application architecture. Installed + verified:
+**Payload 3.86.0 · Next 15.4.11 · React 19.2.8 · @payloadcms/db-postgres**. `@gocsa/ui`
+peer widened to `react ^18 || ^19` (React-18 test baseline unaffected — still 119 green).
+App **typechecks, generates Payload types, lints, and `next build`s** without a database;
+the DB-backed runtime (migrations/seed/login/integration) runs against Postgres locally
+(docker-compose, docs/24) and in CI (`cms-runtime` job with a Postgres service). Major
+versions pinned; no independent upgrades. _(Phase 2, Sprint 3)_
 
 Implementation fact: the ratified CMS (Payload, DEC-011) at its current major is **Payload
 3**, which is **Next-native and requires Next 15 + React 19**. Consequences:

@@ -1,0 +1,41 @@
+{
+  "name": "@gocsa/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "generate:types": "payload generate:types",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "db:migrate": "payload migrate",
+    "db:migrate:create": "payload migrate:create",
+    "db:seed": "tsx src/seed/run.ts"
+  },
+  "dependencies": {
+    "@gocsa/cms": "workspace:*",
+    "@gocsa/env": "workspace:*",
+    "@gocsa/platform": "workspace:*",
+    "@gocsa/tokens": "workspace:*",
+    "@gocsa/ui": "workspace:*",
+    "@payloadcms/db-postgres": "^3.37.0",
+    "@payloadcms/next": "^3.37.0",
+    "@payloadcms/richtext-lexical": "^3.37.0",
+    "next": "~15.4.11",
+    "payload": "^3.37.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@gocsa/config": "workspace:*",
+    "@types/node": "^20.16.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  }
+}
