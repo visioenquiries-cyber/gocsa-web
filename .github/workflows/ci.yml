@@ -28,6 +28,8 @@ jobs:
         run: pnpm format:check
       - name: Lint (zero warnings)
         run: pnpm -r run lint
+      - name: Brand colour scan (no literal colours in the public app)
+        run: pnpm scan:colors
       - name: Typecheck
         run: pnpm -r run typecheck
       - name: Unit + accessibility tests (packages/ui)

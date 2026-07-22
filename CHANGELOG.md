@@ -2,6 +2,35 @@
 
 All notable changes to the GOCSA platform. Newest first.
 
+## [Unreleased] — Sprint 4 (customer homepage preview)
+
+### Added — GOCSA Community Care homepage preview (`apps/web`)
+
+- **Public shell**: root layout with approved Brand Kit V1 fonts (Playfair Display + Inter)
+  mapped to tokens, brand scope, skip link, sticky **Header** (desktop nav + accessible
+  **mobile Drawer** with Accordion), **Footer**, not-found/error/loading, noindex preview metadata.
+- **13 homepage sections** (hero, heritage band, who-we-are, services, independence,
+  care-journey timeline, funding, why-choose, testimonials, policies, FAQs, contact) —
+  composing `@gocsa/ui` primitives; **all colour from `@gocsa/tokens`** (no literals).
+- **Content architecture**: typed `HomepageContentSource` (`LocalHomepageContentSource`
+  fixtures now + `PayloadHomepageContentSource` seam) — content fully separated from
+  presentation; every fixture carries a `ContentStatus`.
+- **Motion**: token-driven fade-and-rise `Reveal` + statistic `CountUp`, reduced-motion-safe.
+- **Client review mode** (`NEXT_PUBLIC_REVIEW_MODE`, non-production only) showing content
+  status chips; **brand colour scanner** (`pnpm scan:colors`) wired into CI.
+- Tailwind wired to the approved token preset; single `@types/react` (19) via pnpm override.
+- Docs: **homepage preview handoff (docs/25)** — client inputs, temporary media, presentation flow.
+
+### Verified
+
+color scan ✔ · format ✔ · lint 0 ✔ · typecheck 0 ✔ · 166 unit tests ✔ · Storybook ✔ ·
+**`next build` ✔** (homepage compiles with Tailwind + fonts).
+
+### Honesty notes
+
+No fabricated facts presented as confirmed; testimonials are demonstration-only; logo is the
+raster lockup pending vector (D6); phone/services marked confirm-with-client. Preview is noindex.
+
 ## [Unreleased] — Sprint 3 runtime (apps/web + Payload)
 
 ### Added — the real application (`apps/web`)
