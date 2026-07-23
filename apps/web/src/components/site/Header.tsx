@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { buttonVariants, cn, Drawer } from "@gocsa/ui";
 import type { SiteChrome } from "../../content/homepage/types";
@@ -27,7 +27,15 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
-export function Header({ chrome }: { chrome: SiteChrome }) {
+export function Header({
+  chrome,
+  homeHref = "/",
+  logo,
+}: {
+  chrome: SiteChrome;
+  homeHref?: string;
+  logo?: ReactNode;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -65,11 +73,11 @@ export function Header({ chrome }: { chrome: SiteChrome }) {
     >
       <div className="mx-auto flex h-nav w-full max-w-wide items-center justify-between gap-4 px-gutter md:px-gutter-lg">
         <Link
-          href="/"
-          aria-label="GOCSA Community Care — home"
+          href={homeHref}
+          aria-label={`${chrome.brand.name} — home`}
           className="rounded-md focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus"
         >
-          <Logo priority />
+          {logo ?? <Logo priority />}
         </Link>
 
         <Drawer
@@ -82,9 +90,7 @@ export function Header({ chrome }: { chrome: SiteChrome }) {
           className="left-0 right-0 w-screen max-w-none overflow-y-auto bg-bg"
         >
           <div className="mx-auto flex w-full max-w-2xl flex-col px-2 pb-10 pt-2 sm:px-4">
-            <div className="mb-8">
-              <Logo />
-            </div>
+            <div className="mb-8">{logo ?? <Logo />}</div>
 
             {/* Every nav item as a single stacked tab. */}
             <nav aria-label="Primary" className="flex flex-col border-t-hair border-divider">

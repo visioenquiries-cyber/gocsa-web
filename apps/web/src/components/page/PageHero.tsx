@@ -9,14 +9,14 @@ import { BrandImage } from "../site/BrandImage";
  * Interior-page header — a warm cream band with a breadcrumb, gold eyebrow, oversized
  * serif title and lead. Optionally carries a documentary banner image below.
  */
-export function PageHero({ page }: { page: InteriorPage }) {
+export function PageHero({ page, homeHref = "/" }: { page: InteriorPage; homeHref?: string }) {
   return (
     <>
       <section className="bg-bg pb-10 pt-12 md:pb-14 md:pt-16">
         <Container size="base">
           <Reveal>
             <nav aria-label="Breadcrumb" className="mb-6 font-body text-sm text-ink-muted">
-              <Link href="/" className="hover:text-primary">
+              <Link href={homeHref} className="hover:text-primary">
                 Home
               </Link>
               <span aria-hidden className="px-2 text-divider">

@@ -1066,6 +1066,9 @@ function serviceDetail(
 
 const bySlug = new Map(list.map((p) => [p.slug, p]));
 
+/** Raw base pages — reused (rebranded) by the RGHA preview site. */
+export const basePages = list;
+
 export const pageSource: PageSource = {
   getPage: (slug) => bySlug.get(slug),
   allSlugs: () => list.map((p) => p.slug),

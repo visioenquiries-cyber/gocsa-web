@@ -7,14 +7,15 @@ import { NextResponse, type NextRequest } from "next/server";
  * clean (`/contact`) and, crucially, no 3xx hop breaks Next's RSC prefetch — so navigation
  * stays soft/client-side. Payload's routes (/admin, /api) and static assets are excluded.
  */
-const LOCALES = ["en", "el"] as const;
 const DEFAULT_LOCALE = "en";
+/** First segments that already have their own route tree (locales + the RGHA brand). */
+const PASS_THROUGH = ["en", "el", "rgha"];
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const firstSegment = pathname.split("/")[1] ?? "";
 
-  if ((LOCALES as readonly string[]).includes(firstSegment)) {
+  if (PASS_THROUGH.includes(firstSegment)) {
     return NextResponse.next();
   }
 

@@ -75,7 +75,7 @@ export const siteChrome: SiteChrome = {
     org: "Greek Orthodox Community of South Australia Incorporated",
     acknowledgement:
       "We acknowledge the Traditional Owners of the land on which we live and work, and pay our respects to Elders past and present.",
-    rghaCrossLink: { label: "RGHA Retirement Living (coming soon)", href: "#", kind: "internal" },
+    rghaCrossLink: { label: "RGHA Retirement Living", href: "/rgha", kind: "internal" },
   },
 };
 

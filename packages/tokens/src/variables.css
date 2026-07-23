@@ -276,15 +276,32 @@
   }
 }
 
-/* ── Future RGHA brand override (docs/10 §19) ───────────────────────────────────
- * RGHA re-themes by overriding ONLY tier-1 primitives; every semantic token and
- * component inherits unchanged. New primary/accent MUST be re-verified for WCAG.
- *
- * :root[data-brand="rgha"] {
- *   --color-blue-600: <rgha primary>;
- *   --color-blue-700: <rgha primary hover>;
- *   --color-blue-800: <rgha primary active>;
- *   --color-gold-400: <rgha accent>;
- *   --font-display: <rgha display font>;
- * }
- * ─────────────────────────────────────────────────────────────────────────────── */
+/* ── RGHA Retirement Living brand (docs/10 §19) ─────────────────────────────────
+ * PREVIEW theme. RGHA re-themes by overriding ONLY tier-1 primitives; every semantic
+ * token and component inherits unchanged. Brighter, sunnier than GOCSA Community Care —
+ * a fresh azure + warm gold on a lighter ivory. Final RGHA brand kit pending (confirm-
+ * with-client); new primary/accent must be re-verified for WCAG before launch. */
+:root[data-brand="rgha"] {
+  /* Fresh, brighter azure primary */
+  --color-blue-800: #0f5688;
+  --color-blue-700: #14639f;
+  --color-blue-600: #1e88c9;
+  --color-blue-500: #4aa3d8;
+  --color-blue-100: #d6ebf7;
+  --color-blue-50: #eef7fc;
+  --color-aegean-400: #63c3e6;
+  /* Warmer, brighter gold */
+  --color-gold-400: #e0b93b;
+  --color-gold-500: #cf9f2b;
+  --color-gold-700: #866412;
+  /* Lighter, sunnier ivory canvas */
+  --color-cream: #fbf6ea;
+  --color-sand: #f4ecd8;
+  --color-parchment: #fefcf6;
+  --color-hairline: #ece1c8;
+  /* Cinematic media — brighter warmth */
+  --media-glow: rgba(224, 185, 59, 0.42);
+  --media-vignette: rgba(20, 99, 159, 0.4);
+  --media-scrim-strong: rgba(14, 66, 102, 0.8);
+  --media-scrim-mid: rgba(14, 66, 102, 0.28);
+}
