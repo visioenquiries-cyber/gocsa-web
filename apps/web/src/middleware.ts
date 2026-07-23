@@ -2,9 +2,10 @@ import { NextResponse, type NextRequest } from "next/server";
 
 /**
  * Locale prefixing. Every public route lives under `/[locale]/…` (en/el). Internal links
- * are written locale-less (`/contact`, `/services/personal-care`) so content stays portable;
- * this redirects any un-prefixed public path to the default locale so those links resolve.
- * Payload's own routes (/admin, /api) and static assets are excluded via the matcher.
+ * are written locale-less (`/contact`, `/services/personal-care`) so content stays portable.
+ * We REWRITE (not redirect) un-prefixed public paths to the default locale: the URL stays
+ * clean (`/contact`) and, crucially, no 3xx hop breaks Next's RSC prefetch — so navigation
+ * stays soft/client-side. Payload's routes (/admin, /api) and static assets are excluded.
  */
 const LOCALES = ["en", "el"] as const;
 const DEFAULT_LOCALE = "en";
@@ -19,7 +20,7 @@ export function middleware(req: NextRequest) {
 
   const url = req.nextUrl.clone();
   url.pathname = pathname === "/" ? `/${DEFAULT_LOCALE}` : `/${DEFAULT_LOCALE}${pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.rewrite(url);
 }
 
 export const config = {

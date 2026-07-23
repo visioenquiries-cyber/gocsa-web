@@ -13,7 +13,7 @@ automatically (via `BrandImage` → `next/image`). No component changes needed.
 
 | Slot | Suggested filename | Ratio (guide) | Subject |
 | --- | --- | --- | --- |
-| Hero (full-bleed) | `hero.jpg` | landscape, ~16:9+ | Warm gathering / family — Greek Orthodox community, golden hour |
+| Hero (full-bleed) | `hero.jpg` + `hero.mp4` | landscape, ~16:9+ | Warm gathering / family — golden hour. `hero.mp4` is a looping motion version (poster = `hero.jpg`); reduced-motion viewers see the still. Any banner can take a `video` the same way. |
 | Heritage (archival) | `heritage.jpg` | 3:2 | Historic / community heritage image |
 | Who we are | `who-we-are.jpg` | 4:5 portrait | Elder + carer, at home, in language |
 | Care in Motion (full-bleed) | `care-in-motion.jpg` | landscape | Carer arriving at the door / in the kitchen or garden |

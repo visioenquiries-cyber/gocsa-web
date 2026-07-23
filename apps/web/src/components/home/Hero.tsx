@@ -5,6 +5,7 @@ import { Eyebrow } from "../site/Eyebrow";
 import { Reveal } from "../site/Reveal";
 import { BrandImage } from "../site/BrandImage";
 import { EmphasisHeading } from "../site/EmphasisHeading";
+import { ParallaxLayer } from "../site/ParallaxLayer";
 
 /**
  * Cinematic opening chapter — a full-bleed documentary field with an editorial overlay:
@@ -14,16 +15,20 @@ import { EmphasisHeading } from "../site/EmphasisHeading";
 export function Hero({ content }: { content: HeroContent }) {
   return (
     <section className="relative isolate overflow-hidden bg-primary text-on-primary">
-      <BrandImage
-        ratio=""
-        className="absolute inset-0 rounded-none"
-        overlay
-        showLabel={false}
-        keyMotif={false}
-        priority
-        src={content.image?.src}
-        alt={content.image?.alt}
-      />
+      <ParallaxLayer scale={1.12} amount={4}>
+        <BrandImage
+          ratio=""
+          className="absolute inset-0 rounded-none"
+          overlay
+          showLabel={false}
+          keyMotif={false}
+          priority
+          src={content.image?.src}
+          alt={content.image?.alt}
+          videoSrc={content.image?.video}
+          objectPosition={content.image?.objectPosition}
+        />
+      </ParallaxLayer>
       <Container
         size="wide"
         className="relative flex min-h-[86svh] flex-col justify-end pb-16 pt-32 md:min-h-[92svh] md:pb-24"

@@ -11,6 +11,7 @@ import { Eyebrow } from "../site/Eyebrow";
 import { Reveal } from "../site/Reveal";
 import { ReviewBadge } from "../site/ReviewBadge";
 import { BrandImage } from "../site/BrandImage";
+import { ParallaxLayer } from "../site/ParallaxLayer";
 
 export function Testimonials({ content }: { content: TestimonialsContent }) {
   return (
@@ -112,15 +113,19 @@ export function Contact({ content }: { content: ContactContent }) {
       id="contact"
       className="relative isolate overflow-hidden bg-primary text-on-primary"
     >
-      <BrandImage
-        ratio=""
-        className="absolute inset-0 rounded-none"
-        overlay
-        showLabel={false}
-        keyMotif={false}
-        src={content.image?.src}
-        alt={content.image?.alt}
-      />
+      <ParallaxLayer scale={1.12} amount={4}>
+        <BrandImage
+          ratio=""
+          className="absolute inset-0 rounded-none"
+          overlay
+          showLabel={false}
+          keyMotif={false}
+          src={content.image?.src}
+          alt={content.image?.alt}
+          videoSrc={content.image?.video}
+          objectPosition={content.image?.objectPosition}
+        />
+      </ParallaxLayer>
       <Container size="base" className="relative py-24 text-center md:py-32">
         <Reveal className="flex flex-col items-center">
           <Eyebrow tone="onPrimary">Get in touch</Eyebrow>

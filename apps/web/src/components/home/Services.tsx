@@ -11,6 +11,7 @@ import { Eyebrow } from "../site/Eyebrow";
 import { Reveal } from "../site/Reveal";
 import { ReviewBadge } from "../site/ReviewBadge";
 import { BrandImage } from "../site/BrandImage";
+import { MotionSpine } from "../site/MotionSpine";
 
 const CARD_LINK =
   "text-on-primary after:absolute after:inset-0 focus-visible:outline-none " +
@@ -107,11 +108,8 @@ export function CareJourney({ content }: { content: CareJourneyContent }) {
         </Heading>
       </Reveal>
       <ol className="relative mt-12">
-        {/* Continuous fine spine behind the markers */}
-        <span
-          aria-hidden
-          className="absolute bottom-6 left-[15px] top-2 w-px bg-divider"
-        />
+        {/* Gold spine that draws itself as the timeline scrolls into view */}
+        <MotionSpine className="absolute bottom-6 left-[15px] top-2 w-px bg-accent" />
         {content.steps.map((step, i) => (
           <Reveal as="li" key={step.title} delayMs={i * 70} className="relative flex gap-6 pb-10 last:pb-0">
             <div className="relative z-raised flex flex-col items-center">

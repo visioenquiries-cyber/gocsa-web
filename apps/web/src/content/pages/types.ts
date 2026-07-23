@@ -24,11 +24,12 @@ export type PageBlock =
   | { kind: "prose"; heading?: string; body: string[] }
   | { kind: "features"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "steps"; heading?: string; intro?: string; items: Feature[] }
-  | { kind: "checklist"; heading?: string; intro?: string; items: Feature[] }
+  | { kind: "checklist"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "callout"; title: string; body: string }
   | { kind: "cards"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "cta"; title: string; body?: string; primary: Cta; secondary?: Cta }
-  | { kind: "media"; image?: SectionImage; caption?: string };
+  | { kind: "media"; image?: SectionImage; caption?: string }
+  | { kind: "faqs"; heading?: string; intro?: string; items: { question: string; answer: string }[] };
 
 export interface InteriorPage {
   slug: string; // e.g. "support-at-home", "services/personal-care"

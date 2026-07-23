@@ -4,6 +4,7 @@ import { Hero } from "../../../components/home/Hero";
 import { Heritage, Independence, WhoWeAre, WhyChoose } from "../../../components/home/Story";
 import { CareJourney, Funding, Services } from "../../../components/home/Services";
 import { Contact, Faqs, Policies, Testimonials } from "../../../components/home/Trust";
+import { CareChooser } from "../../../components/home/CareChooser";
 import { MediaChapter } from "../../../components/site/MediaChapter";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +17,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Hero content={home.hero} />
       <Heritage content={home.heritage} />
       <WhoWeAre content={home.whoWeAre} />
+      <CareChooser content={home.careChooser} />
       <MediaChapter content={home.careInMotion} />
       <Services content={home.services} />
       <Independence content={home.independence} />

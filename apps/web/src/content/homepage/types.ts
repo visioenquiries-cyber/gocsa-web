@@ -21,6 +21,10 @@ export interface Cta {
 export interface SectionImage {
   src: string;
   alt: string;
+  /** Optional looping video (mp4) that animates the scene; `src` is used as the poster. */
+  video?: string;
+  /** CSS object-position for the crop, e.g. "center 40%" — tunes desktop framing. */
+  objectPosition?: string;
 }
 
 export interface NavItem {
@@ -74,6 +78,21 @@ export interface WhoWeAreContent {
   checklist: ValueItem[];
   cta: Cta;
   image?: SectionImage;
+}
+
+/** A homepage "choose your path" card that routes straight to a care-type page. */
+export interface CareChooserOption {
+  title: string;
+  description: string;
+  href: string;
+  cta: string;
+  image?: SectionImage;
+}
+export interface CareChooserContent {
+  eyebrow: string;
+  heading: string;
+  intro?: string;
+  options: CareChooserOption[];
 }
 
 export interface ServiceItem {
@@ -192,6 +211,7 @@ export interface HomepageContent {
   hero: HeroContent;
   heritage: HeritageContent;
   whoWeAre: WhoWeAreContent;
+  careChooser: CareChooserContent;
   careInMotion: MediaChapterContent;
   services: ServicesContent;
   independence: IndependenceContent;

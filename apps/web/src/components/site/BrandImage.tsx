@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { cn } from "@gocsa/ui";
 import { ReviewBadge } from "./ReviewBadge";
+import { AutoVideo } from "./AutoVideo";
 
 /**
  * Editorial media surface.
@@ -27,6 +28,9 @@ export function BrandImage({
   align = "end",
   children,
   keyMotif = true,
+  kenBurns = false,
+  videoSrc,
+  objectPosition,
 }: {
   className?: string;
   /** Tailwind aspect utility, or "" to fill a sized parent. */
@@ -44,10 +48,16 @@ export function BrandImage({
   align?: "start" | "center" | "end";
   children?: ReactNode;
   keyMotif?: boolean;
+  /** Slow cinematic zoom/pan on the photo (reduced-motion safe). */
+  kenBurns?: boolean;
+  /** Looping mp4 that animates the scene; `src` is the poster. */
+  videoSrc?: string;
+  /** CSS object-position to tune the crop (desktop framing). */
+  objectPosition?: string;
 }) {
   const alignClass =
     align === "center" ? "items-center" : align === "start" ? "items-start" : "items-end";
-  const hasPhoto = Boolean(src);
+  const hasPhoto = Boolean(src || videoSrc);
 
   return (
     <div
@@ -59,14 +69,22 @@ export function BrandImage({
       role={hasPhoto ? undefined : "img"}
       aria-label={hasPhoto ? undefined : "Placeholder — GOCSA community care photography to be supplied"}
     >
-      {hasPhoto ? (
+      {videoSrc ? (
+        <AutoVideo
+          src={videoSrc}
+          poster={src}
+          objectPosition={objectPosition}
+          className={cn(kenBurns && "motion-kenburns")}
+        />
+      ) : hasPhoto ? (
         <Image
           src={src as string}
           alt={alt ?? ""}
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={cn("object-cover", kenBurns && "motion-kenburns")}
+          style={objectPosition ? { objectPosition } : undefined}
         />
       ) : (
         <>

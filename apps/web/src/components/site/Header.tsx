@@ -65,7 +65,7 @@ export function Header({ chrome }: { chrome: SiteChrome }) {
     >
       <div className="mx-auto flex h-nav w-full max-w-wide items-center justify-between gap-4 px-gutter md:px-gutter-lg">
         <Link
-          href="/en"
+          href="/"
           aria-label="GOCSA Community Care — home"
           className="rounded-md focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus"
         >

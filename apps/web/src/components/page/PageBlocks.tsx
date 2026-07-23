@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { buttonVariants, Card, cn, Heading, Paragraph } from "@gocsa/ui";
+import { Accordion, buttonVariants, Card, cn, Heading, Paragraph } from "@gocsa/ui";
 import type { Feature, PageBlock } from "../../content/pages/types";
 import { Section } from "../site/Section";
 import { Reveal } from "../site/Reveal";
 import { BrandImage } from "../site/BrandImage";
+import { MotionSpine } from "../site/MotionSpine";
 
 function GoldCheck() {
   return (
@@ -120,7 +121,7 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
             ) : null}
           </Reveal>
           <ol className="relative mt-10">
-            <span aria-hidden className="absolute bottom-6 left-[15px] top-2 w-px bg-divider" />
+            <MotionSpine className="absolute bottom-6 left-[15px] top-2 w-px bg-accent" />
             {block.items.map((item, i) => (
               <Reveal
                 as="li"
@@ -203,6 +204,34 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
               </Paragraph>
             ) : null}
           </Reveal>
+        </Section>
+      );
+
+    case "faqs":
+      return (
+        <Section bg={alt ? "surface" : "page"} size="base" id="faqs">
+          <Reveal>
+            <Heading2>{block.heading ?? "Frequently asked questions"}</Heading2>
+            {block.intro ? (
+              <Paragraph className="mt-4 max-w-prose text-md text-ink-muted">{block.intro}</Paragraph>
+            ) : null}
+          </Reveal>
+          <div className="mt-8">
+            <Accordion
+              type="single"
+              collapsible
+              headingLevel={3}
+              items={block.items.map((faq, i) => ({
+                value: String(i),
+                header: faq.question,
+                content: (
+                  <Paragraph measure={false} className="text-ink-muted">
+                    {faq.answer}
+                  </Paragraph>
+                ),
+              }))}
+            />
+          </div>
         </Section>
       );
 

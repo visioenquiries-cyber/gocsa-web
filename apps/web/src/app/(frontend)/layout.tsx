@@ -6,6 +6,7 @@ import { getContentSource } from "../../content/homepage/source";
 import { Header } from "../../components/site/Header";
 import { Footer } from "../../components/site/Footer";
 import { SkipLink } from "../../components/site/SkipLink";
+import { ScrollProgress } from "../../components/site/ScrollProgress";
 import { isReviewMode } from "../../lib/review";
 
 // Approved Brand Kit V1 typefaces, mapped onto the design tokens.
@@ -49,6 +50,7 @@ export default async function FrontendLayout({ children }: { children: ReactNode
     >
       <body>
         <SkipLink />
+        <ScrollProgress />
         {isReviewMode() ? (
           <div className="bg-accent text-center font-body text-sm font-semibold text-on-accent">
             Internal preview · review mode — not for public distribution

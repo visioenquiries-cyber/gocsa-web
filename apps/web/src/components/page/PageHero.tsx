@@ -16,7 +16,7 @@ export function PageHero({ page }: { page: InteriorPage }) {
         <Container size="base">
           <Reveal>
             <nav aria-label="Breadcrumb" className="mb-6 font-body text-sm text-ink-muted">
-              <Link href="/en" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary">
                 Home
               </Link>
               <span aria-hidden className="px-2 text-divider">

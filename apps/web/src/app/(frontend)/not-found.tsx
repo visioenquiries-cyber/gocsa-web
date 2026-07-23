@@ -11,7 +11,7 @@ export default function NotFound() {
         <Paragraph className="mx-auto mt-4 text-ink-muted">
           The page you’re looking for may have moved. Let’s get you back on track.
         </Paragraph>
-        <Link href="/en" className={cn(buttonVariants({ variant: "primary" }), "mt-8")}>
+        <Link href="/" className={cn(buttonVariants({ variant: "primary" }), "mt-8")}>
           Back to home
         </Link>
       </div>

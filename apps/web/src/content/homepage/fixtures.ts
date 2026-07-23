@@ -47,6 +47,7 @@ export const siteChrome: SiteChrome = {
         heading: "About",
         links: [
           { label: "Our story", href: "/about" },
+          { label: "Our heritage", href: "/heritage" },
           { label: "News", href: "/news" },
           { label: "Careers", href: "/careers" },
           { label: "Contact", href: "/contact" },
@@ -89,7 +90,9 @@ export const homepage: HomepageContent = {
     secondaryCta: { label: "Explore our services", href: "/services" },
     image: {
       src: "/photos/hero.jpg",
+      video: "/photos/hero.mp4",
       alt: "Three generations of a Greek Australian family sharing a meal together outdoors at golden hour",
+      objectPosition: "center 42%",
     },
   },
   heritage: {
@@ -135,6 +138,36 @@ export const homepage: HomepageContent = {
       src: "/photos/who-we-are.jpg",
       alt: "A home carer sharing tea and conversation with an elderly Greek woman at her kitchen table",
     },
+  },
+  careChooser: {
+    eyebrow: "How we can help",
+    heading: "Two ways to receive care.",
+    intro:
+      "Whether your care is government-funded or arranged privately, it's delivered by the same trusted team — in English or Greek. Choose the path that suits you.",
+    options: [
+      {
+        title: "Aged Care",
+        description:
+          "In-home aged care through the government's Support at Home program, or privately arranged — shaped around your goals.",
+        href: "/aged-care",
+        cta: "Explore aged care",
+        image: {
+          src: "/photos/who-we-are.jpg",
+          alt: "A home carer sharing tea with an elderly Greek woman at her kitchen table",
+        },
+      },
+      {
+        title: "Private Care",
+        description:
+          "Flexible support on your terms — available whether or not you're assessed, and easy to change as your needs change.",
+        href: "/private-care",
+        cta: "Explore private care",
+        image: {
+          src: "/photos/service-respite.jpg",
+          alt: "A daughter sharing a tender moment with her elderly mother at home",
+        },
+      },
+    ],
   },
   careInMotion: {
     eyebrow: "Care in motion",

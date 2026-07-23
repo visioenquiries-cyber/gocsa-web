@@ -25,3 +25,67 @@
     -webkit-font-smoothing: antialiased;
   }
 }
+
+/* ── Cinematic motion (honours reduced-motion) ──────────────────────────────── */
+@layer utilities {
+  /* Slow Ken-Burns drift on full-bleed documentary media. */
+  @keyframes gocsa-kenburns {
+    0% {
+      transform: scale(1.06) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: scale(1.14) translate3d(-1.5%, -1.5%, 0);
+    }
+  }
+  .motion-kenburns {
+    animation: gocsa-kenburns 26s ease-in-out infinite alternate;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  /* Drifting golden-hour light motes. */
+  @keyframes gocsa-mote {
+    0% {
+      transform: translate3d(0, 12px, 0) scale(0.9);
+      opacity: 0;
+    }
+    18% {
+      opacity: 0.85;
+    }
+    82% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate3d(6px, -26px, 0) scale(1.1);
+      opacity: 0;
+    }
+  }
+  .motion-mote {
+    animation: gocsa-mote var(--mote-dur, 9s) ease-in-out var(--mote-delay, 0s) infinite;
+    will-change: transform, opacity;
+  }
+
+  /* Progressive line draw (timeline spine). */
+  .motion-draw {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--motion-slower) var(--ease-standard);
+  }
+  .motion-draw[data-drawn="true"] {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-kenburns {
+    animation: none;
+  }
+  .motion-mote {
+    animation: none;
+    opacity: 0;
+  }
+  .motion-draw {
+    transform: scaleY(1);
+    transition: none;
+  }
+}
