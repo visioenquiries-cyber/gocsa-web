@@ -17,7 +17,7 @@ export function Eyebrow({
     <p
       className={cn(
         "mb-3 flex items-center gap-2 font-body text-sm font-semibold uppercase tracking-wide",
-        tone === "onPrimary" ? "text-on-primary/90" : "text-primary",
+        tone === "onPrimary" ? "text-accent" : "text-accent-ink",
         className,
       )}
     >

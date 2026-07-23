@@ -43,6 +43,7 @@ export default async function FrontendLayout({ children }: { children: ReactNode
     <html
       lang="en"
       data-brand="gocsa"
+      data-theme="light"
       className={`${playfair.variable} ${inter.variable}`}
       style={fontVars}
     >

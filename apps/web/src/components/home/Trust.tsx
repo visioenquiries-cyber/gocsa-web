@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Accordion, buttonVariants, Card, cn, Grid, Heading, Paragraph } from "@gocsa/ui";
+import { Accordion, buttonVariants, Card, cn, Container, Grid, Heading, Paragraph } from "@gocsa/ui";
 import type {
   ContactContent,
   FaqContent,
@@ -10,6 +10,7 @@ import { Section } from "../site/Section";
 import { Eyebrow } from "../site/Eyebrow";
 import { Reveal } from "../site/Reveal";
 import { ReviewBadge } from "../site/ReviewBadge";
+import { BrandImage } from "../site/BrandImage";
 
 export function Testimonials({ content }: { content: TestimonialsContent }) {
   return (
@@ -107,38 +108,53 @@ export function Faqs({ content }: { content: FaqContent }) {
 
 export function Contact({ content }: { content: ContactContent }) {
   return (
-    <Section bg="primary" size="base" id="contact">
-      <Reveal className="text-center">
-        <Eyebrow tone="onPrimary">Get in touch</Eyebrow>
-        <Heading
-          level={2}
-          className="mx-auto max-w-3xl text-balance text-xl text-on-primary md:text-2xl"
-        >
-          {content.heading}
-        </Heading>
-        <Paragraph className="mx-auto mt-5 max-w-prose text-md text-on-primary/90">
-          {content.body}
-        </Paragraph>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href={`tel:${content.phone.number.replace(/\s/g, "")}`}
-            className={buttonVariants({ variant: "accent", size: "lg" })}
+    <section
+      id="contact"
+      className="relative isolate overflow-hidden bg-primary text-on-primary"
+    >
+      <BrandImage
+        ratio=""
+        className="absolute inset-0 rounded-none"
+        overlay
+        showLabel={false}
+        keyMotif={false}
+        src={content.image?.src}
+        alt={content.image?.alt}
+      />
+      <Container size="base" className="relative py-24 text-center md:py-32">
+        <Reveal className="flex flex-col items-center">
+          <Eyebrow tone="onPrimary">Get in touch</Eyebrow>
+          <Heading
+            level={2}
+            className="mx-auto max-w-3xl text-balance font-display text-2xl text-on-primary md:text-display"
           >
-            {content.phone.label} · (08) {content.phone.number}
-          </a>
-          <Link
-            href={content.enquiryCta.href}
-            className={cn(
-              "inline-flex h-control-lg items-center justify-center rounded-md border-base border-white/60 px-6 font-body font-semibold text-on-primary transition-colors duration-fast hover:bg-white/10 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus focus-visible:ring-offset-2",
-            )}
-          >
-            {content.enquiryCta.label}
-          </Link>
-        </div>
-        <div className="mt-3 flex justify-center">
-          <ReviewBadge status={content.phone.status} />
-        </div>
-      </Reveal>
-    </Section>
+            {content.heading}
+          </Heading>
+          <Paragraph className="mx-auto mt-5 max-w-prose text-md text-on-primary/90">
+            {content.body}
+          </Paragraph>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={`tel:${content.phone.number.replace(/\s/g, "")}`}
+              className={buttonVariants({ variant: "accent", size: "lg" })}
+            >
+              {content.phone.label} · (08) {content.phone.number}
+            </a>
+            <Link
+              href={content.enquiryCta.href}
+              className={cn(
+                buttonVariants({ variant: "secondary", size: "lg" }),
+                "border-on-primary text-on-primary hover:bg-on-primary/10",
+              )}
+            >
+              {content.enquiryCta.label}
+            </Link>
+          </div>
+          <div className="mt-3 flex justify-center">
+            <ReviewBadge status={content.phone.status} />
+          </div>
+        </Reveal>
+      </Container>
+    </section>
   );
 }

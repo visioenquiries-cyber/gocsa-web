@@ -257,6 +257,83 @@ Living" becomes site-scoping (RGHA)** rather than a named role; **Volunteers/Fut
 deferred** (Future Staff ≈ a user with no role → read-only until assigned; Volunteers ≈ a
 future constrained Editor). Recorded rather than silently changed. _(Phase 2, Sprint 3)_
 
+### DEC-028 · Community Care brand is Greek Blue + Heritage Gold (no separate "purple") · Accepted (client-directed)
+
+The Sprint-4D brief referred to an "approved Community Care **purple**." A grep of
+`packages/tokens` and every brand doc confirmed **no purple/violet primitive exists** —
+the only brand colours are Greek Blue `#0d5eaf`, Aegean Sky `#5cb8e6`, Heritage Gold
+`#d4af37`, Warm White `#fafaf8`, Charcoal `#24323f` (Brand Kit V1). Rather than invent a
+hex (forbidden by the brief), we asked. **Client answer: "It's actually Greek Blue."** The
+Community Care identity **is** Brand Kit V1's Greek Blue + Heritage Gold; the editorial
+benchmark was rebuilt in that palette. **Why:** never fabricate brand colour; resolve
+conflicts against the source of truth. _(Phase 2, Sprint 4D)_
+
+### DEC-029 · Sprint-4D editorial benchmark restoration = presentation-only, token-driven · Accepted
+
+The homepage presentation layer was rebuilt to the approved reference standard —
+full-bleed cinematic media chapters (Hero, "Care in Motion", Contact), an archival
+Heritage frame with an overlapping date **plaque**, an oversized-serif "Who we are" with a
+gold-check **value checklist**, **stacked cinematic service cards** (featured + varied,
+not a uniform white grid), and a **premium numbered care-journey timeline** — while
+**preserving the engineering foundation** (content contracts, `HomepageContentSource`,
+RBAC, a11y, tokens). New additive tokens only: `--text-3xl`, `--text-hero`, and cinematic
+`--media-*` scrim/glow/vignette variables (alpha kept **inside `@gocsa/tokens`** so the
+public app stays literal-colour-free — `scan:colors` still passes). **Why:** reach the
+approved visual bar without a second token system or arbitrary hex. _(Phase 2, Sprint 4D)_
+
+### DEC-030 · Community Care homepage skin = warm cream + gold-forward + documentary photography · Accepted (client-directed)
+
+Reviewing the Sprint-4D build against the client's live reference, the client directed a
+full skin change: a **warm cream canvas** (`--color-cream #f8f1dd`), **gold as the lead
+accent** (eyebrows, rules, italic accent words, and the primary conversion CTAs use the
+gold `accent` button — charcoal text, DEC-007), navy serif headings, and Greek Blue kept
+for links/secondary. The dark navy-dominant look and dark placeholder blocks are retired.
+Implemented at the **token layer** (semantic remap of bg/surface/accent + new warm
+primitives) so it stays token-driven — `scan:colors` still passes. The frontend is pinned
+to `data-theme="light"` so the warm canvas never flips to the dark scaffold. **Why:** the
+client's approved visual direction; blue-primary/gold-accent-only (Brand Kit V1) is
+superseded for the Community Care public skin. RGHA re-theme path is unaffected.
+
+### DEC-031 · Homepage imagery = AI-generated representative placeholders (interim) · Accepted (client-directed)
+
+The client asked for representative photography now, "clearly flagged as not authentic, to
+be replaced." Every media slot is a real `<img>` (`next/image`) fed from
+`apps/web/public/photos/` via an `image` field on each content object; where a file is
+absent, a warm branded placeholder shows. The current files are **AI-generated
+representative imagery** (warm Greek-Orthodox / aged-care documentary style) — flagged in
+`public/photos/README.md` and docs/25, and **must be replaced with authentic, consented
+GOCSA photography before launch**. **Why:** unblock the visual direction without
+misrepresenting AI imagery as real GOCSA photography. _(Phase 2, Sprint 4D)_
+
+### DEC-032 · Primary navigation = single full-screen menu (tab-per-item + buttons) · Accepted (client-directed)
+
+Per the client's reference flow, the horizontal desktop nav bar is retired. At every
+breakpoint the header is **logo + one "Menu" button**; the button opens a **full-screen
+menu** where each nav item is a single stacked **tab** (items with children expand as an
+accordion with a gold active border; leaf items link directly), followed by the gold
+primary + outline secondary **buttons** and the phone contact. Built on the accessible
+`Drawer` (Radix Dialog: focus-trap, Esc, scroll-lock) widened to full-screen; custom
+editorial accordion for the large-serif look. `SiteChrome` gained `secondaryCta` +
+`contact`. **Why:** matches the approved reference; one consistent nav pattern across
+breakpoints. _(Phase 2, Sprint 4D)_
+
+### DEC-033 · Interior pages = data-driven registry + block renderer; Contact = server-action form · Accepted
+
+The full site (24+ interior pages) is generated from a typed page registry
+(`content/pages`) rendered by a block system (`components/page`) through one catch-all route
+(`[locale]/[...slug]`), mirroring the homepage's content/adapter separation — pages are
+added by data, not new React. The **Contact** page is an explicit route with a
+client form + a **server action** that validates and routes enquiries to
+`enquire@gocsacommunitycare.com.au` via the `EmailProvider` abstraction (ConsoleEmailProvider
+logs in preview; production swaps to SMTP/Resend/SES by env — DEC-021). Real GOCSA contact
+details (262 Franklin St; (08) 7088 0500 / fax 0514) added.
+
+**Content stance:** all interior copy is ORIGINAL, grounded in the public Australian
+aged-care framework (Support at Home, My Aged Care, ACAT, Aged Care Quality Standards,
+Charter of Aged Care Rights) — **not** copied from Yellow Door Care or any third party
+(copyright). Disability/NDIS is **excluded** (aged care + private care only). Policy pages
+are **drafts** pending GOCSA + compliance sign-off (marked `draft`). _(Phase 2, Sprint 4D)_
+
 ### DEC-025 · Visual regression = self-hosted Playwright (provider selection pending) · Accepted (foundation)
 
 Provider-agnostic visual regression via Playwright `toHaveScreenshot` against built

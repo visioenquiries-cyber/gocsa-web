@@ -34,6 +34,8 @@ const preset: Partial<Config> = {
         },
         secondary: "var(--color-secondary)",
         accent: "var(--color-accent)",
+        "accent-ink": "var(--color-accent-ink)",
+        gold: "var(--color-gold-400)",
         link: "var(--color-link)",
         border: "var(--color-border)",
         divider: "var(--color-divider)",
@@ -56,7 +58,9 @@ const preset: Partial<Config> = {
         lg: ["var(--text-lg)", { lineHeight: "var(--leading-heading)" }],
         xl: ["var(--text-xl)", { lineHeight: "var(--leading-heading)" }],
         "2xl": ["var(--text-2xl)", { lineHeight: "var(--leading-tight)" }],
+        "3xl": ["var(--text-3xl)", { lineHeight: "var(--leading-tight)" }],
         display: ["var(--text-display)", { lineHeight: "var(--leading-tight)" }],
+        hero: ["var(--text-hero)", { lineHeight: "1.05" }],
       },
       fontWeight: {
         regular: "var(--font-weight-regular)",

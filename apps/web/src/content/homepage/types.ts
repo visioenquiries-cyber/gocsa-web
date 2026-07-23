@@ -16,6 +16,13 @@ export interface Cta {
   kind?: "internal" | "tel" | "external";
 }
 
+/** A real documentary photograph. When absent, a warm branded placeholder is shown.
+ *  Drop files into `apps/web/public/photos/` and set `src` to e.g. "/photos/hero.jpg". */
+export interface SectionImage {
+  src: string;
+  alt: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
@@ -25,9 +32,12 @@ export interface NavItem {
 export interface HeroContent {
   eyebrow: string;
   heading: string;
+  /** Word within the heading rendered in italic accent (like the reference). */
+  emphasis?: string;
   subheading: string;
   primaryCta: Cta;
   secondaryCta: Cta;
+  image?: SectionImage;
 }
 
 export interface HeritageFact {
@@ -38,13 +48,32 @@ export interface HeritageFact {
 export interface HeritageContent {
   message: string;
   facts: HeritageFact[];
+  /** Overlapping heritage plaque on the archival image. */
+  plaque: { year: string; caption: string; status: ContentStatus };
+  image?: SectionImage;
 }
 
+/** A full-bleed cinematic media chapter with editorial overlay text. */
+export interface MediaChapterContent {
+  eyebrow: string;
+  heading: string;
+  /** Word emphasised in italic accent within the heading. */
+  emphasis?: string;
+  sub?: string;
+  image?: SectionImage;
+}
+
+export interface ValueItem {
+  title: string;
+  description: string;
+}
 export interface WhoWeAreContent {
   eyebrow: string;
   heading: string;
   body: string[];
+  checklist: ValueItem[];
   cta: Cta;
+  image?: SectionImage;
 }
 
 export interface ServiceItem {
@@ -52,6 +81,7 @@ export interface ServiceItem {
   description: string;
   href: string;
   status: ContentStatus;
+  image?: SectionImage;
 }
 export interface ServicesContent {
   eyebrow: string;
@@ -137,6 +167,7 @@ export interface ContactContent {
   body: string;
   phone: { label: string; number: string; status: ContentStatus };
   enquiryCta: Cta;
+  image?: SectionImage;
 }
 
 export interface FooterColumn {
@@ -147,6 +178,8 @@ export interface SiteChrome {
   brand: { name: string; est: string; logoSrc: string; logoNeedsVector: boolean };
   nav: NavItem[];
   headerCta: Cta;
+  secondaryCta?: Cta;
+  contact?: { phone?: string; email?: string };
   footer: {
     columns: FooterColumn[];
     org: string;
@@ -159,6 +192,7 @@ export interface HomepageContent {
   hero: HeroContent;
   heritage: HeritageContent;
   whoWeAre: WhoWeAreContent;
+  careInMotion: MediaChapterContent;
   services: ServicesContent;
   independence: IndependenceContent;
   careJourney: CareJourneyContent;

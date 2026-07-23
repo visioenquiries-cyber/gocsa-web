@@ -4,53 +4,63 @@ import type { HeroContent } from "../../content/homepage/types";
 import { Eyebrow } from "../site/Eyebrow";
 import { Reveal } from "../site/Reveal";
 import { BrandImage } from "../site/BrandImage";
+import { EmphasisHeading } from "../site/EmphasisHeading";
 
+/**
+ * Cinematic opening chapter — a full-bleed documentary field with an editorial overlay:
+ * eyebrow, oversized Playfair headline with an italic accent word, lead line and two
+ * pill actions. Text sits over an automatic legibility scrim (WCAG-safe on the media).
+ */
 export function Hero({ content }: { content: HeroContent }) {
   return (
-    <section className="bg-bg pb-16 pt-10 md:pb-24 md:pt-16">
-      <Container size="wide">
-        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-          <Reveal>
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <Heading level={1} className="text-2xl leading-tight md:text-display">
-              {content.heading}
-            </Heading>
-            <Paragraph className="mt-5 text-md text-ink-muted">{content.subheading}</Paragraph>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={content.primaryCta.href}
-                className={buttonVariants({ variant: "primary", size: "lg" })}
-              >
-                {content.primaryCta.label}
-              </Link>
-              <Link
-                href={content.secondaryCta.href}
-                className={buttonVariants({ variant: "secondary", size: "lg" })}
-              >
-                {content.secondaryCta.label}
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delayMs={120}>
-            <BrandImage ratio="aspect-4-3" className="shadow-3" />
-          </Reveal>
-        </div>
-
-        {/* Calm scroll indicator (static — no bounce; honours reduced-motion by design) */}
-        <div className="mt-12 hidden justify-center md:flex" aria-hidden>
-          <span className={cn("text-ink-muted")}>
-            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
-              <path
-                d="M6 9l6 6 6-6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </div>
+    <section className="relative isolate overflow-hidden bg-primary text-on-primary">
+      <BrandImage
+        ratio=""
+        className="absolute inset-0 rounded-none"
+        overlay
+        showLabel={false}
+        keyMotif={false}
+        priority
+        src={content.image?.src}
+        alt={content.image?.alt}
+      />
+      <Container
+        size="wide"
+        className="relative flex min-h-[86svh] flex-col justify-end pb-16 pt-32 md:min-h-[92svh] md:pb-24"
+      >
+        <Reveal className="max-w-3xl">
+          <Eyebrow tone="onPrimary">{content.eyebrow}</Eyebrow>
+          <Heading
+            level={1}
+            className="font-display text-hero font-semibold tracking-tight text-on-primary"
+          >
+            <EmphasisHeading
+              text={content.heading}
+              emphasis={content.emphasis}
+              accentClassName="text-gold"
+            />
+          </Heading>
+          <Paragraph className="mt-6 max-w-xl text-md text-on-primary/85">
+            {content.subheading}
+          </Paragraph>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href={content.primaryCta.href}
+              className={buttonVariants({ variant: "accent", size: "lg" })}
+            >
+              {content.primaryCta.label}
+            </Link>
+            <Link
+              href={content.secondaryCta.href}
+              className={cn(
+                buttonVariants({ variant: "secondary", size: "lg" }),
+                "border-on-primary text-on-primary hover:bg-on-primary/10",
+              )}
+            >
+              {content.secondaryCta.label}
+            </Link>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

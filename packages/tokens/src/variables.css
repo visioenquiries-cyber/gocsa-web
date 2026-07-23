@@ -20,16 +20,28 @@
   --color-blue-100: #d3e2f1;
   --color-blue-50: #ecf2f9;
   --color-aegean-400: #5cb8e6; /* Aegean Sky */
-  --color-gold-400: #d4af37; /* Heritage Gold */
-  --color-neutral-900: #24323f; /* Charcoal */
+  --color-gold-400: #d4af37; /* Heritage Gold — bright, for use on dark media */
+  --color-gold-500: #c2982f; /* Rich accent gold — buttons + decorative on cream */
+  --color-gold-700: #7a5c14; /* Antique gold ink — eyebrow/label text on cream */
+  --color-neutral-900: #24323f; /* Charcoal navy */
   --color-neutral-700: #5a646d;
-  --color-neutral-500: #848c92;
+  --color-neutral-500: #8a8474; /* warm functional border */
   --color-neutral-300: #c4c8ca;
   --color-neutral-200: #dcdede;
   --color-neutral-100: #edeeed;
   --color-warm-white: #fafaf8;
   --color-soft-grey: #f2f4f7;
   --color-white: #ffffff;
+
+  /* ── Warm canvas primitives (Mediterranean / Greek Orthodox editorial) ─────── */
+  --color-cream: #f8f1dd; /* warm golden ivory canvas (page background) */
+  --color-sand: #f1e7cd; /* warm surface band */
+  --color-parchment: #fdfaf1; /* raised surface / cards */
+  --color-hairline: #e7dcbf; /* warm divider */
+  /* Natural placeholder tones (documentary media stand-ins — never UI text) */
+  --color-olive-800: #3f3d1c;
+  --color-olive-600: #6b6a2f;
+  --color-clay-600: #a6642f;
 
   /* Feedback primitives (text-safe on warm white) */
   --color-success-600: #1e7a46;
@@ -42,9 +54,9 @@
   --color-info-50: #ecf2f9;
 
   /* ── Colour · semantic (components use ONLY these) ────────────────────────── */
-  --color-bg: var(--color-warm-white);
-  --color-surface: var(--color-soft-grey);
-  --color-surface-raised: var(--color-white);
+  --color-bg: var(--color-cream); /* warm ivory canvas */
+  --color-surface: var(--color-sand); /* warm surface band */
+  --color-surface-raised: var(--color-parchment);
   --color-text: var(--color-neutral-900);
   --color-text-muted: var(--color-neutral-700);
   --color-text-on-primary: var(--color-white);
@@ -53,12 +65,22 @@
   --color-primary-hover: var(--color-blue-700);
   --color-primary-active: var(--color-blue-800);
   --color-secondary: var(--color-aegean-400);
-  --color-accent: var(--color-gold-400);
+  --color-accent: var(--color-gold-500); /* gold-forward accent (buttons, rules) */
+  --color-accent-ink: var(--color-gold-700); /* antique-gold text on cream (labels) */
   --color-link: var(--color-blue-600);
   --color-border: var(--color-neutral-500); /* functional borders ≥3:1 */
-  --color-divider: var(--color-neutral-300); /* decorative only */
+  --color-divider: var(--color-hairline); /* warm decorative hairline */
   --color-focus: var(--color-blue-600);
-  --color-scrim: rgba(36, 50, 63, 0.56);
+  --color-scrim: rgba(40, 34, 16, 0.56);
+
+  /* Cinematic media surfaces (documentary placeholders + full-bleed chapters).
+   * Warm golden-hour / Mediterranean tone. Alpha values live here so the public
+   * app stays free of literal colours. */
+  --media-glow: rgba(212, 175, 55, 0.38); /* warm gold sun */
+  --media-vignette: rgba(63, 61, 28, 0.5); /* deep olive edge falloff */
+  --media-scrim-strong: rgba(40, 33, 14, 0.82); /* warm-dark base of legibility scrim */
+  --media-scrim-mid: rgba(40, 33, 14, 0.32); /* mid of legibility scrim */
+  --media-tint: rgba(122, 92, 20, 0.12); /* warm wash over framed media */
 
   /* Status semantic */
   --color-success: var(--color-success-600);
@@ -84,7 +106,9 @@
   --text-lg: 1.5rem; /* 24 — H3 */
   --text-xl: 2rem; /* 32 — H2 */
   --text-2xl: 2.5rem; /* 40 — H1 */
+  --text-3xl: 3rem; /* 48 — large editorial headings */
   --text-display: clamp(2.5rem, 6vw, 3.25rem); /* fluid display */
+  --text-hero: clamp(2.75rem, 7vw, 4.75rem); /* 44–76 — cinematic hero/chapter headings */
   --leading-tight: 1.15;
   --leading-heading: 1.25;
   --leading-body: 1.6;

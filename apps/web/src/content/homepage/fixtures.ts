@@ -30,6 +30,8 @@ export const siteChrome: SiteChrome = {
     { label: "Contact", href: "/contact" },
   ],
   headerCta: { label: "Speak with our team", href: "/contact" },
+  secondaryCta: { label: "Explore our services", href: "/services" },
+  contact: { phone: "(08) 7088 0500", email: "enquire@gocsacommunitycare.com.au" },
   footer: {
     columns: [
       {
@@ -54,7 +56,7 @@ export const siteChrome: SiteChrome = {
         heading: "Resources",
         links: [
           { label: "Resources", href: "/resources" },
-          { label: "Policies", href: "/policies" },
+          { label: "Quality & governance", href: "/policies/quality" },
           { label: "Complaints & Feedback", href: "/policies/complaints" },
           { label: "Accessibility", href: "/accessibility" },
         ],
@@ -79,11 +81,16 @@ export const siteChrome: SiteChrome = {
 export const homepage: HomepageContent = {
   hero: {
     eyebrow: "Greek Orthodox Community of South Australia · Community Care",
-    heading: "Community care, centred on dignity.",
+    heading: "Ninety-five years of caring for our own.",
+    emphasis: "caring",
     subheading:
       "Helping older South Australians remain safe, connected and independent in the home they love.",
     primaryCta: { label: "Speak with our team", href: "/contact" },
     secondaryCta: { label: "Explore our services", href: "/services" },
+    image: {
+      src: "/photos/hero.jpg",
+      alt: "Three generations of a Greek Australian family sharing a meal together outdoors at golden hour",
+    },
   },
   heritage: {
     message: "Serving South Australia since 1930",
@@ -92,6 +99,15 @@ export const homepage: HomepageContent = {
       { value: "Since 1985", label: "Community Care", status: "requires-client-confirmation" },
       { value: "EN · EL", label: "Care in English & Greek", status: "confirmed" },
     ],
+    plaque: {
+      year: "1930",
+      caption: "The Greek Orthodox Community of South Australia is founded.",
+      status: "confirmed",
+    },
+    image: {
+      src: "/photos/heritage.jpg",
+      alt: "Archival photograph of an early Greek Orthodox community gathering in South Australia",
+    },
   },
   whoWeAre: {
     eyebrow: "Who we are",
@@ -100,7 +116,35 @@ export const homepage: HomepageContent = {
       "For generations, the Greek Orthodox Community of South Australia has been a home away from home — a place of language, faith, culture and belonging.",
       "Our Community Care brings that same warmth into people’s homes: practical, respectful support that helps older South Australians live well, on their own terms.",
     ],
+    checklist: [
+      {
+        title: "Language & culture",
+        description: "Care delivered in English or Greek, with genuine cultural understanding.",
+      },
+      {
+        title: "Dignity & independence",
+        description: "Support that keeps people safe at home, on their own terms.",
+      },
+      {
+        title: "Care for our elders",
+        description: "A community that has looked after its people for generations.",
+      },
+    ],
     cta: { label: "About GOCSA", href: "/about" },
+    image: {
+      src: "/photos/who-we-are.jpg",
+      alt: "A home carer sharing tea and conversation with an elderly Greek woman at her kitchen table",
+    },
+  },
+  careInMotion: {
+    eyebrow: "Care in motion",
+    heading: "Support that comes to you.",
+    emphasis: "comes",
+    sub: "Familiar faces, arriving where life already happens — the kitchen, the garden, the front door.",
+    image: {
+      src: "/photos/care-in-motion.jpg",
+      alt: "A home care worker warmly greeting an elderly man at his front door",
+    },
   },
   services: {
     eyebrow: "Community Care services",
@@ -112,36 +156,60 @@ export const homepage: HomepageContent = {
         description: "Respectful help with daily living — showering, dressing and mobility.",
         href: "/services/personal-care",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-personal-care.jpg",
+          alt: "A support worker gently helping an elderly woman walk along a sunlit hallway at home",
+        },
       },
       {
         title: "Household help",
         description: "Cleaning, laundry, meal preparation and everyday home tasks.",
         href: "/services/household-help",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-household-help.jpg",
+          alt: "A home helper preparing a fresh meal in a sunlit kitchen while an elderly man chats nearby",
+        },
       },
       {
         title: "Social support & companionship",
         description: "Connection, conversation and accompanied outings — in English or Greek.",
         href: "/services/social-wellbeing",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-social-support.jpg",
+          alt: "An elderly woman and a companion carer laughing together on a park bench in the afternoon sun",
+        },
       },
       {
         title: "In-home nursing",
         description: "Clinical care and medication support delivered at home.",
         href: "/services/in-home-nursing",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-nursing.jpg",
+          alt: "A gentle home nurse checking on an elderly man in a comfortable sunlit living room",
+        },
       },
       {
         title: "Respite care",
         description: "A helping hand so family carers can rest and recharge.",
         href: "/services/respite",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-respite.jpg",
+          alt: "A daughter sharing a tender quiet moment with her elderly mother on a sofa at home",
+        },
       },
       {
         title: "Transport & errands",
         description: "Getting to appointments, shops and community — safely.",
         href: "/services/transport",
         status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-transport.jpg",
+          alt: "A support worker helping an elderly woman out of a car on a bright suburban street",
+        },
       },
     ],
   },
@@ -303,5 +371,9 @@ export const homepage: HomepageContent = {
     body: "Talk to a real person about care for yourself or someone you love. We’re here to help.",
     phone: { label: "Call our team", number: "7088 0500", status: "requires-client-confirmation" },
     enquiryCta: { label: "Make an enquiry", href: "/contact" },
+    image: {
+      src: "/photos/contact.jpg",
+      alt: "A carer's hand resting reassuringly on an elderly person's shoulder in a softly lit home",
+    },
   },
 };
