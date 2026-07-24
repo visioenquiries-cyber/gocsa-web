@@ -21,9 +21,12 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 
 // PREVIEW: never indexed.
 export const metadata: Metadata = {
-  title: { default: "RGHA Retirement Living", template: "%s · RGHA Retirement Living" },
+  title: {
+    default: "Ridleyton Greek Home for the Aged",
+    template: "%s · Ridleyton Greek Home for the Aged",
+  },
   description:
-    "Retirement living and residential aged care for older South Australians — supported, connected and free to live well. Preview.",
+    "A 120-bed Greek residential aged-care home in Adelaide — Greek-speaking care, culture and cuisine, for respite or permanent care. Preview.",
   robots: { index: false, follow: false },
 };
 

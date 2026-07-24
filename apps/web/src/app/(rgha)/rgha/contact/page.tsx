@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 const CONTACT = {
   phone: "(08) 7088 0500",
   phoneHref: "tel:+61870880500",
-  email: "enquire@rgha.com.au",
-  address: ["Adelaide", "South Australia"],
+  email: "admissions@rgha.com.au",
+  address: ["Ridleyton", "South Australia"],
 };
 
 function DetailRow({ label, children }: { label: string; children: React.ReactNode }) {

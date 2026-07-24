@@ -1,214 +1,215 @@
 /**
- * RGHA Retirement Living — homepage content (PREVIEW). Same 18-section flow as GOCSA
- * Community Care, re-worded for retirement living + residential aged care, on the brighter
- * RGHA theme. All links under `/rgha`. Copy is DRAFT / confirm-with-client; imagery and the
- * hero video are AI representative placeholders shared with the GOCSA preview.
+ * Ridleyton Greek Home for the Aged (RGHA) — homepage content (PREVIEW). A 120-bed Greek
+ * residential aged-care home in Adelaide, organised around its three departments: Residential
+ * Care, Leisure & Lifestyle, and Hotel Services. Editorial flow shared with GOCSA; copy is
+ * ORIGINAL (facts drawn from rgha.com.au, prose written fresh). Whiter RGHA theme. Draft /
+ * confirm-with-client; imagery is shared AI representative placeholder.
  */
 import type { HomepageContent } from "../homepage/types";
 
 export const rghaHomepage: HomepageContent = {
   hero: {
-    eyebrow: "RGHA Retirement Living · part of the GOCSA family",
-    heading: "A brighter chapter, in good company.",
-    emphasis: "brighter",
+    eyebrow: "Ridleyton Greek Home for the Aged · Adelaide",
+    heading: "A Greek home, where you're family.",
+    emphasis: "family",
     subheading:
-      "Retirement living and residential aged care where older South Australians feel at home — supported, connected and free to live well.",
-    primaryCta: { label: "Book a tour", href: "/rgha/contact" },
-    secondaryCta: { label: "Explore living options", href: "/rgha/retirement-living" },
+      "A 120-bed residential aged-care home in Adelaide — Greek-speaking, warm and welcoming, for respite or permanent care.",
+    primaryCta: { label: "Enquire about a place", href: "/rgha/contact" },
+    secondaryCta: { label: "Take a look inside", href: "/rgha/residential-care" },
     image: {
       src: "/photos/hero.jpg",
       video: "/photos/hero.mp4",
-      alt: "Older residents and family sharing a warm meal together outdoors at golden hour",
+      alt: "Residents and family sharing a warm Greek meal together",
       objectPosition: "center 42%",
     },
   },
   heritage: {
-    message: "Backed by a community caring since 1930",
+    message: "A Greek home, rooted in community",
     facts: [
-      { value: "1930", label: "GOCSA — caring for our community", status: "confirmed" },
-      { value: "Living + care", label: "Retirement living & aged care", status: "requires-client-confirmation" },
-      { value: "EN · EL", label: "At home in English & Greek", status: "confirmed" },
+      { value: "120", label: "beds — respite & permanent care", status: "confirmed" },
+      { value: "Greek-speaking", label: "care, culture and cuisine", status: "confirmed" },
+      { value: "EN · EL", label: "at home in English & Greek", status: "confirmed" },
     ],
     plaque: {
-      year: "1930",
-      caption: "The Greek Orthodox Community of South Australia is founded.",
+      year: "120",
+      caption: "beds, staffed for a variety of care levels.",
       status: "confirmed",
     },
     image: {
       src: "/photos/heritage.jpg",
-      alt: "Archival photograph of an early Greek Orthodox community gathering in South Australia",
+      alt: "Archival photograph of the Greek community in South Australia",
     },
   },
   whoWeAre: {
     eyebrow: "Who we are",
-    heading: "A home that feels like home.",
+    heading: "More than care — a home.",
     body: [
-      "RGHA Retirement Living brings together comfortable homes, genuine community and expert care — so people can enjoy life while knowing support is close at hand.",
-      "Backed by the Greek Orthodox Community of South Australia and its long tradition of caring, we welcome people of every background, in English or Greek.",
+      "Ridleyton Greek Home for the Aged is a warm, welcoming home where older people are cared for with dignity, in their own language and culture.",
+      "Our team is largely Greek-speaking and ingrained in the life of the Home — from nursing and personal care to the kitchen and the activities room. Everyone is welcome, whatever their background.",
     ],
     checklist: [
-      { title: "Independence & choice", description: "Live your way, with support only when you want it." },
-      { title: "Genuine community", description: "Friendship, culture and connection every day." },
-      { title: "Care when you need it", description: "From a little help to full residential care." },
+      { title: "Greek-speaking care", description: "Feel understood, in English or Greek." },
+      { title: "Culture, faith & food", description: "The traditions and flavours that feel like home." },
+      { title: "Respite or permanent", description: "A short stay or a forever home — whatever you need." },
     ],
-    cta: { label: "About RGHA", href: "/rgha/about" },
+    cta: { label: "About the Home", href: "/rgha/about" },
     image: {
       src: "/photos/who-we-are.jpg",
-      alt: "A staff member sharing tea and conversation with an older resident",
+      alt: "A Greek-speaking carer sharing a warm moment with a resident",
     },
   },
   careChooser: {
-    eyebrow: "How we can help",
-    heading: "Two ways to make a home with us.",
+    eyebrow: "Life at the Home",
+    heading: "Three departments, one family.",
     intro:
-      "Whether you're looking for independence with support close by, or the reassurance of full residential care, there's a place for you at RGHA.",
+      "Everything at Ridleyton works together to make life good — expert care, a full lifestyle, and a kitchen and hotel team that treat every day like a gathering.",
     options: [
       {
-        title: "Retirement Living",
-        description: "Your own home in a warm, connected community — with lifestyle, wellbeing and support on hand.",
-        href: "/rgha/retirement-living",
-        cta: "Explore retirement living",
-        image: {
-          src: "/photos/service-social-support.jpg",
-          alt: "Older residents laughing together outdoors",
-        },
+        title: "Residential Care / Ιδρυματική Φροντίδα",
+        description: "24-hour nursing and personal care across a variety of care levels, in a homely setting.",
+        href: "/rgha/residential-care",
+        cta: "Residential care",
+        image: { src: "/photos/service-nursing.jpg", alt: "A nurse caring for a resident" },
       },
       {
-        title: "Residential Aged Care",
-        description: "Around-the-clock nursing and personal care in a comfortable home, with dignity at the centre.",
-        href: "/rgha/residential-aged-care",
-        cta: "Explore aged care",
-        image: {
-          src: "/photos/service-nursing.jpg",
-          alt: "A nurse caring for an older resident in a comfortable room",
-        },
+        title: "Leisure & Lifestyle / Ελεύθερος Χρόνος",
+        description: "A mostly Greek-speaking lifestyle team who fill each day with activities, culture and company.",
+        href: "/rgha/leisure-lifestyle",
+        cta: "Leisure & lifestyle",
+        image: { src: "/photos/service-social-support.jpg", alt: "Residents enjoying an activity together" },
+      },
+      {
+        title: "Hotel Services / Υπηρεσιών Ξενοδοχείου",
+        description: "Experienced, Greek-speaking catering, cleaning and laundry — and, honestly, wonderful food.",
+        href: "/rgha/hotel-services",
+        cta: "Hotel services",
+        image: { src: "/photos/service-household-help.jpg", alt: "Fresh Greek food prepared in the kitchen" },
       },
     ],
   },
   careInMotion: {
-    eyebrow: "Life at RGHA",
-    heading: "Life, well lived.",
-    emphasis: "well",
-    sub: "Good food, good friends and gardens to enjoy — with care that quietly makes it all possible.",
+    eyebrow: "Life at Ridleyton",
+    heading: "A home full of life.",
+    emphasis: "life",
+    sub: "Good food, familiar faces and a shared culture — with expert care that quietly makes it all possible.",
     image: {
       src: "/photos/care-in-motion.jpg",
-      alt: "A carer warmly greeting an older resident at the door",
+      alt: "A carer warmly greeting a resident at the Home",
     },
   },
   services: {
-    eyebrow: "Living & care",
-    heading: "Everything for a good life.",
-    intro: "From independent living to full residential care, arranged around what matters to you.",
+    eyebrow: "Care at the Home",
+    heading: "Expert care, delivered with warmth.",
+    intro: "A variety of care levels under one roof, so care can adapt as needs change.",
     items: [
       {
-        title: "Residential aged care",
-        description: "24-hour nursing and personal care in a comfortable, homely setting.",
-        href: "/rgha/residential-aged-care",
+        title: "24-hour nursing",
+        description: "Round-the-clock clinical care and medication management.",
+        href: "/rgha/residential-care",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-nursing.jpg", alt: "A nurse caring for an older resident" },
+        image: { src: "/photos/service-nursing.jpg", alt: "A nurse caring for a resident" },
       },
       {
-        title: "Retirement living",
-        description: "Your own home in a friendly community, with support close by.",
-        href: "/rgha/retirement-living",
+        title: "Personal care",
+        description: "Respectful help with daily living, mobility and wellbeing.",
+        href: "/rgha/residential-care",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-social-support.jpg", alt: "Older residents socialising outdoors" },
+        image: { src: "/photos/service-personal-care.jpg", alt: "A carer supporting a resident" },
       },
       {
-        title: "Respite & short-term",
+        title: "Respite care",
         description: "A comfortable short stay — planned or after hospital.",
         href: "/rgha/respite",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-respite.jpg", alt: "An older resident resting comfortably" },
+        image: { src: "/photos/service-respite.jpg", alt: "A resident resting comfortably" },
       },
       {
-        title: "Allied health & nursing",
-        description: "On-site clinical care, physiotherapy and wellbeing support.",
-        href: "/rgha/allied-health",
+        title: "Leisure & lifestyle",
+        description: "Activities, outings, culture and company every day.",
+        href: "/rgha/leisure-lifestyle",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-personal-care.jpg", alt: "A carer supporting an older resident to walk" },
+        image: { src: "/photos/service-transport.jpg", alt: "A resident enjoying an outing" },
       },
       {
-        title: "Lifestyle & wellbeing",
-        description: "Activities, outings, culture and connection every day.",
-        href: "/rgha/lifestyle",
+        title: "Hotel services & meals",
+        description: "Fresh Greek cooking, cleaning and laundry, done with care.",
+        href: "/rgha/hotel-services",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-transport.jpg", alt: "An older resident enjoying an outing" },
+        image: { src: "/photos/service-household-help.jpg", alt: "Fresh food prepared in the kitchen" },
       },
       {
-        title: "Household & meals",
-        description: "Fresh meals, cleaning and laundry taken care of.",
-        href: "/rgha/residential-aged-care",
+        title: "Culture & faith",
+        description: "Greek Orthodox faith, language and traditions, honoured every day.",
+        href: "/rgha/about",
         status: "requires-client-confirmation",
-        image: { src: "/photos/service-household-help.jpg", alt: "A fresh meal prepared in a bright kitchen" },
+        image: { src: "/photos/heritage.jpg", alt: "Greek community heritage" },
       },
     ],
   },
   independence: {
-    statement: "A new home should mean more life, not less.",
-    body: "The right community and the right care let people keep doing what they love — with company, comfort and confidence.",
+    statement: "A home should feel like home — familiar, warm and yours.",
+    body: "With care in your own language and the comforts of Greek culture, Ridleyton is a place to feel settled, safe and among family.",
   },
   careJourney: {
     eyebrow: "How it works",
-    heading: "Finding your place, step by step.",
+    heading: "Coming to the Home, step by step.",
     steps: [
-      { title: "Let's talk", description: "A friendly conversation about what you're looking for — no pressure." },
-      { title: "Visit us", description: "Book a tour, meet the team and get a feel for the community." },
-      { title: "Understand your options", description: "We explain living options, care levels and funding in plain language." },
-      { title: "Plan your move", description: "We help make the move smooth and stress-free." },
-      { title: "Settle in & belong", description: "Welcome home — with support that adapts as your needs change." },
+      { title: "Get in touch", description: "Email admissions@rgha.com.au or call — we're happy to talk it through." },
+      { title: "Assessment", description: "An ACAT assessment through My Aged Care confirms eligibility for residential care." },
+      { title: "Visit us", description: "Come and see the Home, meet the team and share a coffee." },
+      { title: "Plan the move", description: "We explain care levels, fees and funding in plain language." },
+      { title: "Welcome home", description: "We help every new resident settle in and feel part of the family." },
     ],
   },
   funding: {
-    eyebrow: "Funding & access",
+    eyebrow: "Fees & funding",
     heading: "Understanding how it's paid for.",
     intro:
-      "Retirement living and residential aged care are funded differently. We explain the options clearly — with no jargon and no pressure.",
+      "Residential aged care is government-subsidised and accessed through My Aged Care. We explain fees and funding clearly — with no jargon, and no pressure.",
     options: [
       {
-        title: "Residential aged care",
-        description: "Government-subsidised care accessed after a My Aged Care assessment.",
+        title: "Permanent residential care",
+        description: "Government-subsidised care, accessed after a My Aged Care (ACAT) assessment.",
         status: "requires-client-confirmation",
       },
       {
-        title: "Retirement living",
-        description: "Independent living arrangements, explained in plain language.",
+        title: "Respite care",
+        description: "Short stays, whether government-funded or privately arranged.",
         status: "requires-client-confirmation",
       },
       {
-        title: "Respite & short-term",
-        description: "Short stays, whether funded or privately arranged.",
+        title: "Fees explained",
+        description: "Any accommodation and care fees set out clearly and in writing before you decide.",
         status: "requires-client-confirmation",
       },
     ],
-    cta: { label: "Help me understand my options", href: "/rgha/funding" },
+    cta: { label: "Talk to admissions", href: "/rgha/contact" },
   },
   whyChoose: {
-    eyebrow: "Why families choose RGHA",
-    heading: "Care that feels like family.",
+    eyebrow: "Why families choose Ridleyton",
+    heading: "A home that feels like family.",
     pillars: [
-      { title: "Community heritage", description: "Backed by a community that has cared for its people since 1930." },
-      { title: "Cultural understanding", description: "At home in English and Greek, with genuine cultural respect." },
-      { title: "Dignity & choice", description: "Your preferences, your routine, your independence — always." },
-      { title: "Expert care", description: "Skilled nurses and carers, on hand when you need them." },
-      { title: "A vibrant community", description: "Friendship, activities and culture every day." },
-      { title: "Peace of mind", description: "For residents and families alike." },
+      { title: "Greek-speaking throughout", description: "Care, lifestyle and kitchen teams who speak your language." },
+      { title: "Culture & faith", description: "Greek Orthodox traditions, honoured every day." },
+      { title: "A variety of care levels", description: "Care that adapts as needs change, under one roof." },
+      { title: "Wonderful food", description: "Fresh, familiar Greek cooking that residents love." },
+      { title: "Respite or permanent", description: "A short stay or a forever home — you choose." },
+      { title: "Family always welcome", description: "Loved ones are part of everyday life here." },
     ],
   },
   testimonials: {
     eyebrow: "In their words",
-    heading: "A community families trust.",
+    heading: "A home families trust.",
     items: [
       {
         quote:
-          "Mum settled in so quickly. She has friends, she's cared for, and she's happy — that's everything to us.",
+          "Being able to speak Greek with the staff and other residents made Mum feel at home from day one.",
         attribution: "Family member (illustrative)",
         status: "demonstration-only",
       },
       {
-        quote:
-          "Being able to speak Greek with the staff and other residents made it feel like home straight away.",
-        attribution: "Resident (illustrative)",
+        quote: "The food, the culture, the care — it's like a little piece of home. We couldn't ask for more.",
+        attribution: "Family member (illustrative)",
         status: "demonstration-only",
       },
     ],
@@ -233,38 +234,39 @@ export const rghaHomepage: HomepageContent = {
     heading: "Frequently asked questions.",
     items: [
       {
-        question: "What's the difference between retirement living and residential aged care?",
+        question: "How do I enquire about a place?",
         answer:
-          "Retirement living is independent living in your own home within a supportive community. Residential aged care provides 24-hour nursing and personal care. We can help you work out what suits you now, and how needs can change over time.",
+          "Email admissions@rgha.com.au or give us a call. We'll talk through your needs, whether you're after respite or a permanent place, and the next steps.",
         status: "draft",
       },
       {
-        question: "Can I book a tour?",
+        question: "Do you offer respite as well as permanent care?",
         answer:
-          "Yes — we'd love to show you around. Book a tour and meet the team, in English or Greek, with no obligation.",
+          "Yes. Ridleyton is staffed for a variety of care levels and offers both short respite stays and permanent residential aged care.",
         status: "draft",
       },
       {
-        question: "How is it funded?",
+        question: "Is the Home Greek-speaking?",
         answer:
-          "Residential aged care is government-subsidised and accessed after a My Aged Care assessment; retirement living is arranged differently. We explain everything in plain language, in writing, before anything begins.",
+          "Our team is largely Greek-speaking and ingrained in the life of the Home — from care to the kitchen — so residents feel understood and at home. Everyone is welcome, whatever their background.",
         status: "draft",
       },
       {
-        question: "Can my family be involved?",
-        answer: "Absolutely. With your consent, we welcome family in decisions, visits and everyday life.",
+        question: "How is residential aged care funded?",
+        answer:
+          "Residential aged care is government-subsidised and accessed after a My Aged Care (ACAT) assessment. We explain any accommodation and care fees clearly and in writing before you decide.",
         status: "draft",
       },
     ],
   },
   contact: {
-    heading: "Come and see for yourself.",
-    body: "Book a tour or talk to a real person about living and care at RGHA — for yourself or someone you love.",
-    phone: { label: "Call our team", number: "7088 0500", status: "requires-client-confirmation" },
-    enquiryCta: { label: "Book a tour", href: "/rgha/contact" },
+    heading: "Enquire about a place.",
+    body: "Talk to our admissions team about respite or permanent residential care at Ridleyton — for yourself or someone you love.",
+    phone: { label: "Call the Home", number: "7088 0500", status: "requires-client-confirmation" },
+    enquiryCta: { label: "Email admissions", href: "/rgha/contact" },
     image: {
       src: "/photos/contact.jpg",
-      alt: "A warm, reassuring moment between a carer and an older resident",
+      alt: "A warm, reassuring moment between a carer and a resident",
     },
   },
 };

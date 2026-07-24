@@ -1,53 +1,46 @@
 /**
- * RGHA Retirement Living — site chrome (PREVIEW). Mirrors the GOCSA structure, re-worded
- * for retirement living / residential aged care, with all links under `/rgha`. Brand
- * name, contact details and service list are confirm-with-client.
+ * Ridleyton Greek Home for the Aged (RGHA) — site chrome (PREVIEW). A 120-bed Greek
+ * residential aged-care home in Adelaide. Structure mirrors the editorial flow; content is
+ * original (not copied from rgha.com.au). Brand marks, phone and address confirm-with-client;
+ * admissions email from the home's site.
  */
 import type { SiteChrome } from "../homepage/types";
 
 export const rghaChrome: SiteChrome = {
   brand: {
-    name: "RGHA Retirement Living",
-    est: "Part of the GOCSA family",
+    name: "Ridleyton Greek Home for the Aged",
+    est: "A Greek aged-care home · Adelaide",
     logoSrc: "/brand/gocsa-logo-lockup.png",
     logoNeedsVector: true,
   },
   nav: [
-    { label: "Retirement Living", href: "/rgha/retirement-living" },
-    {
-      label: "Aged Care",
-      href: "/rgha/residential-aged-care",
-      children: [
-        { label: "Residential aged care", href: "/rgha/residential-aged-care" },
-        { label: "Respite & short-term", href: "/rgha/respite" },
-        { label: "Allied health & nursing", href: "/rgha/allied-health" },
-        { label: "Lifestyle & wellbeing", href: "/rgha/lifestyle" },
-      ],
-    },
-    { label: "Funding & Access", href: "/rgha/funding" },
+    { label: "Residential Care", href: "/rgha/residential-care" },
+    { label: "Leisure & Lifestyle", href: "/rgha/leisure-lifestyle" },
+    { label: "Hotel Services", href: "/rgha/hotel-services" },
+    { label: "Respite Care", href: "/rgha/respite" },
     { label: "About", href: "/rgha/about" },
     { label: "Resources & Policies", href: "/rgha/resources" },
     { label: "Contact", href: "/rgha/contact" },
   ],
-  headerCta: { label: "Book a tour", href: "/rgha/contact" },
-  secondaryCta: { label: "Explore living options", href: "/rgha/retirement-living" },
-  contact: { phone: "(08) 7088 0500", email: "enquire@rgha.com.au" },
+  headerCta: { label: "Enquire about a place", href: "/rgha/contact" },
+  secondaryCta: { label: "Residential care", href: "/rgha/residential-care" },
+  contact: { phone: "(08) 7088 0500", email: "admissions@rgha.com.au" },
   footer: {
     columns: [
       {
-        heading: "Living & care",
+        heading: "The Home",
         links: [
-          { label: "Retirement living", href: "/rgha/retirement-living" },
-          { label: "Residential aged care", href: "/rgha/residential-aged-care" },
-          { label: "Respite & short-term", href: "/rgha/respite" },
-          { label: "Funding & Access", href: "/rgha/funding" },
+          { label: "Residential care", href: "/rgha/residential-care" },
+          { label: "Respite care", href: "/rgha/respite" },
+          { label: "Leisure & Lifestyle", href: "/rgha/leisure-lifestyle" },
+          { label: "Hotel Services", href: "/rgha/hotel-services" },
         ],
       },
       {
         heading: "About",
         links: [
           { label: "Our story", href: "/rgha/about" },
-          { label: "Lifestyle & wellbeing", href: "/rgha/lifestyle" },
+          { label: "Fees & funding", href: "/rgha/funding" },
           { label: "Careers", href: "/rgha/careers" },
           { label: "Contact", href: "/rgha/contact" },
         ],
@@ -71,7 +64,7 @@ export const rghaChrome: SiteChrome = {
         ],
       },
     ],
-    org: "Greek Orthodox Community of South Australia Incorporated",
+    org: "Ridleyton Greek Home for the Aged",
     acknowledgement:
       "We acknowledge the Traditional Owners of the land on which we live and work, and pay our respects to Elders past and present.",
     rghaCrossLink: { label: "GOCSA Community Care", href: "/", kind: "internal" },

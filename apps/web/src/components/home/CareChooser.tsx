@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Card, Heading, Paragraph } from "@gocsa/ui";
+import { Card, cn, Heading, Paragraph } from "@gocsa/ui";
 import type { CareChooserContent } from "../../content/homepage/types";
 import { Section } from "../site/Section";
 import { Eyebrow } from "../site/Eyebrow";
@@ -23,7 +23,12 @@ export function CareChooser({ content }: { content: CareChooserContent }) {
         ) : null}
       </Reveal>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
+      <div
+        className={cn(
+          "mt-10 grid gap-8",
+          content.options.length >= 3 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2",
+        )}
+      >
         {content.options.map((option, i) => (
           <Reveal as="div" key={option.href} delayMs={i * 90} className="group relative">
             <Card
