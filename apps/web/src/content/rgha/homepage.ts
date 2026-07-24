@@ -79,10 +79,9 @@ export const rghaHomepage: HomepageContent = {
     primaryCta: { label: "Enquire about a place", href: "/rgha/contact" },
     secondaryCta: { label: "Take a look inside", href: "/rgha/residential-care" },
     image: {
-      src: "/photos/hero.jpg",
-      video: "/photos/hero.mp4",
-      alt: "Residents and family sharing a warm Greek meal together",
-      objectPosition: "center 42%",
+      src: "/photos/rgha-hero.jpg",
+      alt: "Elderly Greek residents sharing tea and conversation with a smiling carer in a warm, sunlit lounge",
+      objectPosition: "center 46%",
     },
   },
   heritage: {
