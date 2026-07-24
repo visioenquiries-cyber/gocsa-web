@@ -5,6 +5,7 @@ import { Section } from "../site/Section";
 import { Reveal } from "../site/Reveal";
 import { BrandImage } from "../site/BrandImage";
 import { MotionSpine } from "../site/MotionSpine";
+import { Gallery } from "../site/Gallery";
 
 function GoldCheck() {
   return (
@@ -203,6 +204,21 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
                 {block.caption}
               </Paragraph>
             ) : null}
+          </Reveal>
+        </Section>
+      );
+
+    case "gallery":
+      return (
+        <Section bg={alt ? "surface" : "page"} size="base">
+          <Reveal>
+            {block.heading ? <Heading2>{block.heading}</Heading2> : null}
+            {block.intro ? (
+              <Paragraph className="mt-4 max-w-prose text-md text-ink-muted">{block.intro}</Paragraph>
+            ) : null}
+          </Reveal>
+          <Reveal className="mt-10">
+            <Gallery images={block.images} />
           </Reveal>
         </Section>
       );

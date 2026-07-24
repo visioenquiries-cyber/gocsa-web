@@ -5,7 +5,17 @@
  * ORIGINAL (facts drawn from rgha.com.au, prose written fresh). Whiter RGHA theme. Draft /
  * confirm-with-client; imagery is shared AI representative placeholder.
  */
-import type { HomepageContent } from "../homepage/types";
+import type { GalleryImage, HomepageContent } from "../homepage/types";
+
+/** Home photo gallery — representative interior/exterior imagery (replace with real photos). */
+export const rghaGalleryImages: GalleryImage[] = [
+  { src: "/photos/gallery-apartment.jpg", alt: "A bright studio apartment at the Home", caption: "Bright, comfortable studio apartments" },
+  { src: "/photos/gallery-lounge.jpg", alt: "A warm communal lounge with garden views", caption: "Warm communal lounges to relax and gather" },
+  { src: "/photos/gallery-bedroom.jpg", alt: "A comfortable, homely resident bedroom", caption: "Comfortable, homely bedrooms" },
+  { src: "/photos/gallery-dining.jpg", alt: "A welcoming dining room set for a meal", caption: "A welcoming dining room — where the food is wonderful" },
+  { src: "/photos/gallery-garden.jpg", alt: "Landscaped gardens and courtyard seating", caption: "Gardens and courtyards to enjoy" },
+  { src: "/photos/gallery-exterior.jpg", alt: "The Home's welcoming exterior", caption: "A welcoming home, inside and out" },
+];
 
 export const rghaHomepage: HomepageContent = {
   hero: {
@@ -86,6 +96,13 @@ export const rghaHomepage: HomepageContent = {
         image: { src: "/photos/service-household-help.jpg", alt: "Fresh Greek food prepared in the kitchen" },
       },
     ],
+  },
+  gallery: {
+    eyebrow: "Take a look",
+    heading: "Inside and out.",
+    intro: "A glimpse of the Home — bright apartments and bedrooms, warm lounges and dining, and gardens to enjoy.",
+    cta: { label: "View the full gallery", href: "/rgha/gallery" },
+    images: rghaGalleryImages,
   },
   careInMotion: {
     eyebrow: "Life at Ridleyton",

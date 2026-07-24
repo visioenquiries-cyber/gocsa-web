@@ -4,6 +4,7 @@ import { Heritage, Independence, WhoWeAre, WhyChoose } from "../../../components
 import { CareJourney, Funding, Services } from "../../../components/home/Services";
 import { Contact, Faqs, Policies, Testimonials } from "../../../components/home/Trust";
 import { CareChooser } from "../../../components/home/CareChooser";
+import { GallerySection } from "../../../components/home/GallerySection";
 import { MediaChapter } from "../../../components/site/MediaChapter";
 
 export default function RghaHomePage() {
@@ -13,6 +14,7 @@ export default function RghaHomePage() {
       <Heritage content={home.heritage} />
       <WhoWeAre content={home.whoWeAre} />
       <CareChooser content={home.careChooser} />
+      {home.gallery ? <GallerySection content={home.gallery} /> : null}
       <MediaChapter content={home.careInMotion} />
       <Services content={home.services} />
       <Independence content={home.independence} />

@@ -18,6 +18,7 @@ export const rghaChrome: SiteChrome = {
     { label: "Leisure & Lifestyle", href: "/rgha/leisure-lifestyle" },
     { label: "Hotel Services", href: "/rgha/hotel-services" },
     { label: "Respite Care", href: "/rgha/respite" },
+    { label: "Gallery", href: "/rgha/gallery" },
     { label: "About", href: "/rgha/about" },
     { label: "Resources & Policies", href: "/rgha/resources" },
     { label: "Contact", href: "/rgha/contact" },

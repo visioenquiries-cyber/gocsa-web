@@ -6,6 +6,7 @@
  */
 import type { InteriorPage, PageBlock, PageSource } from "../pages/types";
 import { basePages } from "../pages/pages";
+import { rghaGalleryImages } from "./homepage";
 
 const enquire: PageBlock = {
   kind: "cta",
@@ -49,6 +50,23 @@ const faqs: PageBlock = {
 };
 
 const freshPages: InteriorPage[] = [
+  {
+    slug: "gallery",
+    eyebrow: "Photo gallery",
+    title: "Take a look inside — and out",
+    lead: "A glimpse of Ridleyton Greek Home for the Aged: bright apartments and bedrooms, warm lounges and dining, and gardens to enjoy.",
+    status: "requires-client-confirmation",
+    seo: { description: "Photo gallery of Ridleyton Greek Home for the Aged — interiors, living areas and gardens." },
+    blocks: [
+      { kind: "gallery", images: rghaGalleryImages },
+      {
+        kind: "callout",
+        title: "These are representative images",
+        body: "The photos shown are representative placeholders in the home's style. Real photography of Ridleyton — inside and out — will replace them; please provide the home's images to feature here.",
+      },
+      enquire,
+    ],
+  },
   {
     slug: "residential-care",
     eyebrow: "Residential Care · Ιδρυματική Φροντίδα",

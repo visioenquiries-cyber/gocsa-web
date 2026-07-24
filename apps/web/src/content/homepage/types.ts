@@ -80,6 +80,19 @@ export interface WhoWeAreContent {
   image?: SectionImage;
 }
 
+export interface GalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+export interface GalleryContent {
+  eyebrow: string;
+  heading: string;
+  intro?: string;
+  cta?: Cta;
+  images: GalleryImage[];
+}
+
 /** A homepage "choose your path" card that routes straight to a care-type page. */
 export interface CareChooserOption {
   title: string;
@@ -212,6 +225,7 @@ export interface HomepageContent {
   heritage: HeritageContent;
   whoWeAre: WhoWeAreContent;
   careChooser: CareChooserContent;
+  gallery?: GalleryContent;
   careInMotion: MediaChapterContent;
   services: ServicesContent;
   independence: IndependenceContent;

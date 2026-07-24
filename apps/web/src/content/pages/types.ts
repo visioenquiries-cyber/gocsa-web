@@ -9,9 +9,9 @@
  * nothing is a binding GOCSA policy until GOCSA + compliance sign off. Not copied from any
  * third-party site.
  */
-import type { Cta, ContentStatus, SectionImage } from "../homepage/types";
+import type { Cta, ContentStatus, SectionImage, GalleryImage } from "../homepage/types";
 
-export type { Cta, ContentStatus, SectionImage };
+export type { Cta, ContentStatus, SectionImage, GalleryImage };
 
 export interface Feature {
   title: string;
@@ -29,7 +29,8 @@ export type PageBlock =
   | { kind: "cards"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "cta"; title: string; body?: string; primary: Cta; secondary?: Cta }
   | { kind: "media"; image?: SectionImage; caption?: string }
-  | { kind: "faqs"; heading?: string; intro?: string; items: { question: string; answer: string }[] };
+  | { kind: "faqs"; heading?: string; intro?: string; items: { question: string; answer: string }[] }
+  | { kind: "gallery"; heading?: string; intro?: string; images: GalleryImage[] };
 
 export interface InteriorPage {
   slug: string; // e.g. "support-at-home", "services/personal-care"
