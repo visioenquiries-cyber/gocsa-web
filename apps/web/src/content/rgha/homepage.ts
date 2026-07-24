@@ -5,7 +5,59 @@
  * ORIGINAL (facts drawn from rgha.com.au, prose written fresh). Whiter RGHA theme. Draft /
  * confirm-with-client; imagery is shared AI representative placeholder.
  */
-import type { GalleryImage, HomepageContent } from "../homepage/types";
+import type { GalleryImage, HomepageContent, ShowroomSpace } from "../homepage/types";
+
+/** Virtual showroom — a scroll-driven tour through the Home's spaces (representative imagery). */
+export const rghaShowroom: ShowroomSpace[] = [
+  {
+    src: "/photos/gallery-apartment.jpg",
+    alt: "A bright studio apartment at the Home",
+    tag: "Apartments",
+    title: "Bright, private apartments.",
+    description:
+      "Light-filled studios with your own kitchenette and living space — comfortable, easy to move around, and truly your own.",
+  },
+  {
+    src: "/photos/gallery-lounge.jpg",
+    alt: "A warm communal lounge with garden views",
+    tag: "Lounges",
+    title: "Warm places to gather.",
+    description:
+      "Inviting communal lounges with garden views — for a coffee, a chat, or simply time together.",
+  },
+  {
+    src: "/photos/gallery-bedroom.jpg",
+    alt: "A comfortable, homely resident bedroom",
+    tag: "Bedrooms",
+    title: "Homely, restful rooms.",
+    description:
+      "Calm, comfortable bedrooms with soft light and garden outlooks — a place to feel settled and safe.",
+  },
+  {
+    src: "/photos/gallery-dining.jpg",
+    alt: "A welcoming dining room set for a meal",
+    tag: "Dining",
+    title: "Where the food is wonderful.",
+    description:
+      "Fresh, familiar Greek cooking served in a bright, welcoming dining room — every meal a small gathering.",
+  },
+  {
+    src: "/photos/gallery-garden.jpg",
+    alt: "Landscaped gardens and courtyard seating",
+    tag: "Gardens",
+    title: "Gardens to enjoy.",
+    description:
+      "Landscaped courtyards and shaded seating — room to breathe, potter, and sit in the sun.",
+  },
+  {
+    src: "/photos/gallery-exterior.jpg",
+    alt: "The Home's welcoming exterior",
+    tag: "The Home",
+    title: "A welcoming home.",
+    description:
+      "Established gardens and a warm entrance — from the moment you arrive, it feels like somewhere you belong.",
+  },
+];
 
 /** Home photo gallery — representative interior/exterior imagery (replace with real photos). */
 export const rghaGalleryImages: GalleryImage[] = [

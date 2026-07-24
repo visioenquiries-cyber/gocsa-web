@@ -6,7 +6,7 @@
  */
 import type { InteriorPage, PageBlock, PageSource } from "../pages/types";
 import { basePages } from "../pages/pages";
-import { rghaGalleryImages } from "./homepage";
+import { rghaGalleryImages, rghaShowroom } from "./homepage";
 
 const enquire: PageBlock = {
   kind: "cta",
@@ -58,7 +58,8 @@ const freshPages: InteriorPage[] = [
     status: "requires-client-confirmation",
     seo: { description: "Photo gallery of Ridleyton Greek Home for the Aged — interiors, living areas and gardens." },
     blocks: [
-      { kind: "gallery", images: rghaGalleryImages },
+      { kind: "showroom", eyebrow: "Virtual showroom", spaces: rghaShowroom },
+      { kind: "gallery", heading: "Browse the gallery", images: rghaGalleryImages },
       {
         kind: "callout",
         title: "These are representative images",

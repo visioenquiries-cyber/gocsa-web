@@ -65,6 +65,21 @@
     will-change: transform, opacity;
   }
 
+  /* Fade-and-rise for showroom captions as the active space changes. */
+  @keyframes gocsa-fadeup {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .motion-fadeup {
+    animation: gocsa-fadeup var(--motion-slow) var(--ease-standard) both;
+  }
+
   /* Progressive line draw (timeline spine). */
   .motion-draw {
     transform: scaleY(0);
@@ -87,5 +102,8 @@
   .motion-draw {
     transform: scaleY(1);
     transition: none;
+  }
+  .motion-fadeup {
+    animation: none;
   }
 }

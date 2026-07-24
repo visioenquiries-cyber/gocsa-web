@@ -6,6 +6,7 @@ import { Reveal } from "../site/Reveal";
 import { BrandImage } from "../site/BrandImage";
 import { MotionSpine } from "../site/MotionSpine";
 import { Gallery } from "../site/Gallery";
+import { ShowroomTour } from "../site/ShowroomTour";
 
 function GoldCheck() {
   return (
@@ -207,6 +208,9 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
           </Reveal>
         </Section>
       );
+
+    case "showroom":
+      return <ShowroomTour eyebrow={block.eyebrow} heading={block.heading} spaces={block.spaces} />;
 
     case "gallery":
       return (

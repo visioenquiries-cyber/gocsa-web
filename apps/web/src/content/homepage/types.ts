@@ -85,6 +85,15 @@ export interface GalleryImage {
   alt: string;
   caption?: string;
 }
+
+/** One space in the scroll-driven virtual showroom tour. */
+export interface ShowroomSpace {
+  src: string;
+  alt: string;
+  tag?: string;
+  title: string;
+  description: string;
+}
 export interface GalleryContent {
   eyebrow: string;
   heading: string;
