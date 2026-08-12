@@ -33,11 +33,11 @@
   --color-soft-grey: #f2f4f7;
   --color-white: #ffffff;
 
-  /* ── Warm canvas primitives (Mediterranean / Greek Orthodox editorial) ─────── */
-  --color-cream: #f8f1dd; /* warm golden ivory canvas (page background) */
-  --color-sand: #f1e7cd; /* warm surface band */
-  --color-parchment: #fdfaf1; /* raised surface / cards */
-  --color-hairline: #e7dcbf; /* warm divider */
+  /* ── Canvas primitives — white + light neutrals (minimalist; blue pops) ─────── */
+  --color-cream: #fdfdfb; /* near-white page background */
+  --color-sand: #f2eee3; /* very light surface band */
+  --color-parchment: #ffffff; /* white cards */
+  --color-hairline: #e6e2d6; /* light divider */
   /* Natural placeholder tones (documentary media stand-ins — never UI text) */
   --color-olive-800: #3f3d1c;
   --color-olive-600: #6b6a2f;

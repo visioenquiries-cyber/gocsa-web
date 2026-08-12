@@ -4,7 +4,7 @@
     {
       "name": "web",
       "runtimeExecutable": "/Users/ivantchorbadjiev/node/bin/corepack",
-      "runtimeArgs": ["pnpm@9.12.0", "--filter", "@gocsa/web", "dev"],
+      "runtimeArgs": ["pnpm@9.12.0", "--filter", "@gocsa/web", "start"],
       "port": 3000
     },
     {
@@ -12,12 +12,6 @@
       "runtimeExecutable": "/Users/ivantchorbadjiev/node/bin/corepack",
       "runtimeArgs": ["pnpm@9.12.0", "--filter", "@gocsa/ui", "storybook"],
       "port": 6006
-    },
-    {
-      "name": "postgres",
-      "runtimeExecutable": "docker",
-      "runtimeArgs": ["compose", "up"],
-      "port": 5432
     }
   ]
 }

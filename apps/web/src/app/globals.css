@@ -5,6 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* John's feedback: GOCSA headings should read lighter and softer (not heavy/sharp),
+ * so the eye isn't pulled away from the content. Brand-scoped to GOCSA (Ridleyton keeps
+ * its bolder headings). Unlayered so it wins over the `font-semibold` utility. */
+:root[data-brand="gocsa"] .font-display {
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
