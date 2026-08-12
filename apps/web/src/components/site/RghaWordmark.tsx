@@ -17,10 +17,12 @@ export function RghaWordmark() {
         className="h-11 w-auto object-contain mix-blend-multiply md:h-12"
       />
       <span className="flex flex-col leading-tight">
-        <span className="font-display text-base font-semibold text-primary md:text-lg">
+        <span data-wordmark className="font-display text-base font-semibold text-primary md:text-lg">
           Ridleyton Greek Home
         </span>
-        <span className="font-display text-sm text-ink-muted md:text-base">for the Aged</span>
+        <span data-wordmark className="font-display text-sm text-ink-muted md:text-base">
+          for the Aged
+        </span>
       </span>
     </span>
   );

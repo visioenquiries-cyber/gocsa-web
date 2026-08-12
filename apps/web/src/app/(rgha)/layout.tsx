@@ -12,7 +12,7 @@ import { isReviewMode } from "../../lib/review";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
   display: "swap",

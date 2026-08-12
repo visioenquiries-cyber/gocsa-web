@@ -5,12 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* John's feedback: GOCSA headings should read lighter and softer (not heavy/sharp),
- * so the eye isn't pulled away from the content. Brand-scoped to GOCSA (Ridleyton keeps
- * its bolder headings). Unlayered so it wins over the `font-semibold` utility. */
-:root[data-brand="gocsa"] .font-display {
+/* Client feedback: headings should read lighter and softer (not heavy/sharp), so the eye
+ * isn't pulled away from the content. Applied to both brands. Unlayered so it wins over the
+ * `font-semibold` utility. The RGHA wordmark opts back into a medium weight (see below). */
+:root[data-brand="gocsa"] .font-display,
+:root[data-brand="rgha"] .font-display {
   font-weight: var(--font-weight-regular);
   letter-spacing: 0;
+}
+/* Keep the Ridleyton wordmark with a little more presence than body headings. */
+:root[data-brand="rgha"] .font-display[data-wordmark] {
+  font-weight: var(--font-weight-medium);
 }
 
 @layer base {
