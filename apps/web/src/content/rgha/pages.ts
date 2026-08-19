@@ -290,6 +290,8 @@ function rebrandText(s: string): string {
     .join("Ridleyton Greek Home for the Aged")
     .split("262 Franklin Street, Adelaide SA 5000")
     .join("the Home in Ridleyton, South Australia")
+    .split("admin@gocsacommunitycare.com.au")
+    .join("admissions@rgha.com.au")
     .split("enquire@gocsacommunitycare.com.au")
     .join("admissions@rgha.com.au")
     .split("gocsacommunitycare.com.au")

@@ -3,7 +3,7 @@
 import { ConsoleEmailProvider } from "@gocsa/platform";
 
 /** Where enquiries are routed (from GOCSA's contact details). */
-const ENQUIRY_INBOX = "enquire@gocsacommunitycare.com.au";
+const ENQUIRY_INBOX = "admin@gocsacommunitycare.com.au";
 
 export interface EnquiryState {
   status: "idle" | "success" | "error";

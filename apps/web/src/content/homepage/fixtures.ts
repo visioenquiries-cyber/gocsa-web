@@ -31,7 +31,7 @@ export const siteChrome: SiteChrome = {
   ],
   headerCta: { label: "Speak with our team", href: "/contact" },
   secondaryCta: { label: "Explore our services", href: "/services" },
-  contact: { phone: "(08) 7088 0500", email: "enquire@gocsacommunitycare.com.au" },
+  contact: { phone: "(08) 7088 0500", email: "admin@gocsacommunitycare.com.au" },
   footer: {
     columns: [
       {

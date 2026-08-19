@@ -713,7 +713,7 @@ const list: InteriorPage[] = [
         items: [
           { title: "In person", description: "Speak with any member of our team." },
           { title: "By phone", description: "Call us on (08) 7088 0500." },
-          { title: "By email", description: "Email enquire@gocsacommunitycare.com.au." },
+          { title: "By email", description: "Email admin@gocsacommunitycare.com.au." },
           { title: "In writing", description: "Write to 262 Franklin Street, Adelaide SA 5000." },
           { title: "Through someone else", description: "Ask a family member, carer or advocate to raise it for you." },
         ],

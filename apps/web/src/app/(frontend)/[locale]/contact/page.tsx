@@ -13,7 +13,7 @@ const CONTACT = {
   phone: "(08) 7088 0500",
   phoneHref: "tel:+61870880500",
   fax: "(08) 7088 0514",
-  email: "enquire@gocsacommunitycare.com.au",
+  email: "admin@gocsacommunitycare.com.au",
   address: ["262 Franklin Street", "Adelaide", "South Australia 5000"],
 };
 
