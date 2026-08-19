@@ -1,5 +1,6 @@
 # GOCSA Digital Ecosystem
 
+ 
 Source of truth for the digital platform of the **Greek Orthodox Community of South Australia (GOCSA)**.
 
 - **Current project:** GOCSA Community Care
