@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { getEnv, shouldAllowIndexing } from "@gocsa/env";
 import "../globals.css";
 import { getContentSource } from "../../content/homepage/source";
 import { Header } from "../../components/site/Header";
@@ -19,12 +20,20 @@ const playfair = Playfair_Display({
 });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
-// PREVIEW: never indexed (docs/18 preview safety).
+// Indexing is allowed ONLY in production (docs/18 preview safety): every non-production
+// environment — local, preview, staging — still returns noindex automatically.
+const env = getEnv();
+const indexable = shouldAllowIndexing(env);
+
 export const metadata: Metadata = {
+  metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
   title: { default: "GOCSA Community Care", template: "%s · GOCSA Community Care" },
   description:
-    "In-home aged care for older South Australians — helping people stay safe, connected and independent at home. Preview.",
-  robots: { index: false, follow: false },
+    "In-home aged care for older South Australians — helping people stay safe, connected and independent at home, in English or Greek.",
+  alternates: { canonical: "/" },
+  robots: indexable
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
   openGraph: {
     title: "GOCSA Community Care",
     description: "Community care, centred on dignity.",
