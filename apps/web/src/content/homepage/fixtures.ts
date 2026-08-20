@@ -19,9 +19,20 @@ export const siteChrome: SiteChrome = {
       href: "/services",
       children: [
         { label: "Personal care", href: "/services/personal-care" },
-        { label: "Household help", href: "/services/household-help" },
+        { label: "Domestic assistance", href: "/services/domestic-assistance" },
+        { label: "Allied health", href: "/services/allied-health" },
+        { label: "Nutrition", href: "/services/nutrition" },
         { label: "Social & wellbeing", href: "/services/social-wellbeing" },
         { label: "In-home nursing", href: "/services/in-home-nursing" },
+        { label: "Home maintenance & repairs", href: "/services/home-maintenance" },
+      ],
+    },
+    {
+      label: "Pathways",
+      href: "/pathways",
+      children: [
+        { label: "Restorative Care Pathway", href: "/pathways/restorative-care" },
+        { label: "End-of-Life Pathway", href: "/pathways/end-of-life" },
       ],
     },
     { label: "Funding & Access", href: "/funding" },
@@ -31,7 +42,7 @@ export const siteChrome: SiteChrome = {
   ],
   headerCta: { label: "Speak with our team", href: "/contact" },
   secondaryCta: { label: "Explore our services", href: "/services" },
-  contact: { phone: "(08) 7088 0500", email: "admin@gocsacommunitycare.com.au" },
+  contact: { phone: "(08) 7088 0500", email: "admin@gocsacc.org.au" },
   footer: {
     columns: [
       {
@@ -39,6 +50,7 @@ export const siteChrome: SiteChrome = {
         links: [
           { label: "Support at Home", href: "/support-at-home" },
           { label: "Our Services", href: "/services" },
+          { label: "Short-term pathways", href: "/pathways" },
           { label: "Funding & Access", href: "/funding" },
           { label: "How to get started", href: "/how-to-get-started" },
         ],
@@ -195,9 +207,9 @@ export const homepage: HomepageContent = {
         },
       },
       {
-        title: "Household help",
+        title: "Domestic assistance",
         description: "Cleaning, laundry, meal preparation and everyday home tasks.",
-        href: "/services/household-help",
+        href: "/services/domestic-assistance",
         status: "requires-client-confirmation",
         image: {
           src: "/photos/service-household-help.jpg",
@@ -242,6 +254,36 @@ export const homepage: HomepageContent = {
         image: {
           src: "/photos/service-transport.jpg",
           alt: "A support worker helping an elderly woman out of a car on a bright suburban street",
+        },
+      },
+      {
+        title: "Allied health",
+        description: "Physiotherapy, occupational therapy, podiatry, dietetics and more.",
+        href: "/services/allied-health",
+        status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-allied-health.jpg",
+          alt: "A physiotherapist gently supporting an older woman through a balance exercise in her kitchen",
+        },
+      },
+      {
+        title: "Nutrition",
+        description: "Eating well for strength, recovery and independence.",
+        href: "/services/nutrition",
+        status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-nutrition.jpg",
+          alt: "A dietitian and an older Greek woman talking warmly over fresh simple food at a kitchen table",
+        },
+      },
+      {
+        title: "Home maintenance & repairs",
+        description: "Keeping your home safe, sound and easy to live in.",
+        href: "/services/home-maintenance",
+        status: "requires-client-confirmation",
+        image: {
+          src: "/photos/service-home-maintenance.jpg",
+          alt: "A handyman fitting a safety grab rail beside a back doorstep while an older man watches from the doorway",
         },
       },
     ],

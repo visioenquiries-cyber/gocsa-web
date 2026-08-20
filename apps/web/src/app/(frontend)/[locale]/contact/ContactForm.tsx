@@ -46,7 +46,7 @@ export function ContactForm() {
         defaultValue="Support at Home"
         options={[
           { value: "Support at Home", label: "Support at Home" },
-          { value: "Aged Care", label: "Aged care" },
+          { value: "CHSP", label: "CHSP" },
           { value: "Private Care", label: "Private care" },
           { value: "Other", label: "Other" },
         ]}

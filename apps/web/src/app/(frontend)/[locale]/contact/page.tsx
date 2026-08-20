@@ -13,8 +13,8 @@ const CONTACT = {
   phone: "(08) 7088 0500",
   phoneHref: "tel:+61870880500",
   fax: "(08) 7088 0514",
-  email: "admin@gocsacommunitycare.com.au",
-  address: ["262 Franklin Street", "Adelaide", "South Australia 5000"],
+  email: "admin@gocsacc.org.au",
+  address: ["Level 1/262 Franklin Street", "Adelaide", "South Australia 5000"],
 };
 
 function DetailRow({ label, children }: { label: string; children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export default function ContactPage() {
         <Container size="base">
           <Eyebrow>Get in touch</Eyebrow>
           <Heading level={1} className="max-w-3xl text-balance font-display text-2xl md:text-3xl">
-            Speak to one of our Care Coordinators
+            Speak to one of our Care Partners
           </Heading>
           <Paragraph className="mt-5 max-w-prose text-md text-ink-muted">
             Talk to a real person about care for yourself or someone you love — in English or Greek.

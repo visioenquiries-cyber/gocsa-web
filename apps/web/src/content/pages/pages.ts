@@ -169,12 +169,31 @@ const list: InteriorPage[] = [
         heading: "Support that can be arranged",
         intro: "The support you receive is shaped around an assessment of your needs and goals.",
         items: [
-          { title: "Everyday living", description: "Help around the home — cleaning, laundry, meals and shopping.", href: "/services/household-help" },
+          { title: "Everyday living", description: "Help around the home — cleaning, laundry, meals and shopping.", href: "/services/domestic-assistance" },
           { title: "Personal care", description: "Respectful help with showering, dressing and mobility.", href: "/services/personal-care" },
           { title: "Social & wellbeing", description: "Companionship, connection and accompanied outings.", href: "/services/social-wellbeing" },
           { title: "In-home nursing", description: "Clinical care and medication support at home.", href: "/services/in-home-nursing" },
           { title: "Assistive technology & home modifications", description: "Equipment and small home changes that keep you safe.", href: "/assistive-technology-home-modifications" },
           { title: "Respite", description: "A break for family carers, so they can rest and recharge.", href: "/services/respite" },
+        ],
+      },
+      {
+        kind: "cards",
+        heading: "Short-term pathways",
+        intro:
+          "Alongside ongoing supports, Support at Home funds two dedicated pathways with their own budgets — for regaining independence after a setback, and for care at the end of life.",
+        columns: 2,
+        items: [
+          {
+            title: "Restorative Care Pathway",
+            description: "Up to 16 weeks of goal-focused, allied health-led support to rebuild independence.",
+            href: "/pathways/restorative-care",
+          },
+          {
+            title: "End-of-Life Pathway",
+            description: "Intensive support so someone in the final months of life can stay comfortable at home.",
+            href: "/pathways/end-of-life",
+          },
         ],
       },
       {
@@ -293,8 +312,8 @@ const list: InteriorPage[] = [
     ["Showering, bathing and grooming", "Dressing and undressing", "Help with mobility and moving safely", "Toileting and continence support", "Medication prompting", "Support with eating and drinking"],
   ),
   serviceDetail(
-    "services/household-help",
-    "Household help",
+    "services/domestic-assistance",
+    "Domestic assistance",
     "Everyday help around the home, so it stays comfortable, clean and safe.",
     "/photos/service-household-help.jpg",
     "A home helper preparing a fresh meal in a sunlit kitchen while an elderly man chats nearby",
@@ -401,6 +420,746 @@ const list: InteriorPage[] = [
         ],
       },
       enquire,
+    ],
+  },
+
+  // ── Allied health ──────────────────────────────────────────────────────────
+  {
+    slug: "services/allied-health",
+    eyebrow: "Community Care service",
+    title: "Allied health",
+    lead: "Qualified health professionals who help you move more easily, eat well, stay steady on your feet and keep doing the things that matter — in your own home, or in clinic.",
+    heroImage: {
+      src: "/photos/service-allied-health.jpg",
+      alt: "A physiotherapist gently supporting an older woman through a balance exercise in her kitchen",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      description:
+        "Allied health at home with GOCSA Community Care — physiotherapy, occupational therapy, podiatry, dietetics, speech pathology, psychology, exercise physiology, social work and remedial massage.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        body: [
+          "Allied health is the practical, hands-on side of staying well. It's the physiotherapist who helps you walk further without pain, the occupational therapist who makes your bathroom safe, the podiatrist who keeps you on your feet, the dietitian who helps you regain the weight you lost after an illness.",
+          "The aim is never simply to treat a problem — it's to help you keep your independence. Under Support at Home, allied health sits within clinical supports, which the government funds in full, so there is no contribution for you to pay for these services.",
+        ],
+      },
+      {
+        kind: "features",
+        heading: "Who you can see",
+        intro:
+          "Care is delivered by qualified, registered professionals, coordinated with your GP and your Care Partner.",
+        columns: 3,
+        items: [
+          {
+            title: "Physiotherapy",
+            description:
+              "Strength, balance, mobility and pain — including falls prevention and getting moving again after a hospital stay.",
+          },
+          {
+            title: "Occupational therapy",
+            description:
+              "Practical assessment of how you manage day to day, and the equipment or home changes that make tasks safer and easier.",
+          },
+          {
+            title: "Podiatry",
+            description:
+              "Foot and nail care, footwear advice, diabetes foot checks and treatment of pain that stops you walking comfortably.",
+          },
+          {
+            title: "Exercise physiology",
+            description:
+              "Safe, tailored exercise programs for chronic conditions, reconditioning and building strength at your own pace.",
+          },
+          {
+            title: "Speech pathology",
+            description:
+              "Support with swallowing difficulties and with speech, language and communication after a stroke or with a progressive condition.",
+          },
+          {
+            title: "Dietitian or nutritionist",
+            description:
+              "Eating well for your health and your appetite — including unplanned weight loss, diabetes and texture-modified diets.",
+          },
+          {
+            title: "Psychology",
+            description:
+              "A confidential space to talk about anxiety, low mood, grief or the adjustment that comes with changing health.",
+          },
+          {
+            title: "Social work",
+            description:
+              "Help navigating services, family decisions, advocacy and the practical and emotional load that care can bring.",
+          },
+          {
+            title: "Remedial massage",
+            description:
+              "Hands-on therapy for muscular pain, stiffness and circulation, working alongside your other therapies.",
+          },
+        ],
+      },
+      {
+        kind: "checklist",
+        heading: "When allied health helps most",
+        items: [
+          {
+            title: "After a hospital stay",
+            description: "Rebuilding strength and confidence so you can get back to normal life.",
+          },
+          {
+            title: "After a fall — or a near miss",
+            description: "Assessing why it happened and reducing the risk of it happening again.",
+          },
+          {
+            title: "When walking gets harder",
+            description: "Pain, stiffness, balance or breathlessness that's changing what you can do.",
+          },
+          {
+            title: "When eating or swallowing changes",
+            description: "Weight loss, poor appetite, coughing at meals or difficulty swallowing.",
+          },
+          {
+            title: "When the home stops fitting you",
+            description: "Steps, the shower or the kitchen becoming daily obstacles.",
+          },
+          {
+            title: "When mood or memory changes",
+            description: "Low mood, anxiety, grief, or worry about how you're managing.",
+          },
+        ],
+      },
+      {
+        kind: "steps",
+        heading: "How it works",
+        items: [
+          {
+            title: "Talk with your Care Partner",
+            description: "We discuss what's getting harder and which professional is the right fit.",
+          },
+          {
+            title: "Initial assessment",
+            description:
+              "A longer first appointment to understand your history, your goals and what you want to get back to.",
+          },
+          {
+            title: "Your plan",
+            description: "Clear goals and a realistic program, explained in plain language.",
+          },
+          {
+            title: "Sessions at home or in clinic",
+            description: "Wherever works best for you — many people prefer their own home.",
+          },
+          {
+            title: "Review and adjust",
+            description: "We measure progress against your goals and change the plan as you improve.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "What it costs",
+        body: "Under Support at Home, clinical supports — including allied health — are fully funded by the government, so no contribution applies. Standard and extended appointment rates, and the indirect-service rate for documentation and referrals, are published in full on our fees page.",
+      },
+      {
+        kind: "faqs",
+        heading: "Allied health — your questions",
+        items: [
+          {
+            question: "Do I need a GP referral?",
+            answer:
+              "Not always. If your allied health is arranged through your Support at Home plan, your Care Partner can organise it directly. We do coordinate with your GP so everyone is working from the same picture, and some specific programs do require a referral — we'll tell you if that applies.",
+          },
+          {
+            question: "Can I be seen at home rather than a clinic?",
+            answer:
+              "Yes. Most allied health can be delivered in your own home, which is often more useful — a physiotherapist or occupational therapist can see the actual steps, doorways and bathroom you use every day.",
+          },
+          {
+            question: "How many sessions will I need?",
+            answer:
+              "It depends entirely on your goals. Some people need one assessment and a home program; others benefit from a course of regular sessions. Your therapist will set out what they recommend and review it with you as you progress.",
+          },
+          {
+            question: "Can I see a Greek-speaking therapist?",
+            answer:
+              "We'll always do our best to match you with someone who speaks your language, or arrange interpreting support so nothing is lost in translation. Just tell us what you'd prefer.",
+          },
+        ],
+      },
+      enquire,
+    ],
+  },
+
+  // ── Home maintenance & repairs ─────────────────────────────────────────────
+  {
+    slug: "services/home-maintenance",
+    eyebrow: "Community Care service",
+    title: "Home maintenance & repairs",
+    lead: "Practical help keeping your home safe, sound and easy to live in — from a loose rail or a blown light to essential repairs and light gardening.",
+    heroImage: {
+      src: "/photos/service-home-maintenance.jpg",
+      alt: "A handyman fitting a safety grab rail beside a back doorstep while an older man watches from the doorway",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      description:
+        "Home maintenance and repairs with GOCSA Community Care — minor repairs, safety jobs, light gardening and essential upkeep that keep older South Australians safe at home.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        body: [
+          "Most people don't leave their home because of one big thing. It's an accumulation of small ones — the step that's come loose, the tap that won't turn off, the garden that's got away, the light globe nobody can safely reach.",
+          "Home maintenance is the unglamorous work that keeps a house liveable and safe. Getting it done promptly, by someone trustworthy who's been properly checked, is often what allows someone to keep living independently in the home they love.",
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What we can help with",
+        intro: "Practical jobs around the house and yard, sized to what you actually need.",
+        items: [
+          {
+            title: "Minor repairs",
+            description:
+              "Dripping taps, sticking doors, loose handles, damaged flyscreens and the small fixes that never get done.",
+          },
+          {
+            title: "Safety jobs",
+            description:
+              "Smoke alarm batteries, hard-to-reach light globes, loose steps, trip hazards and unstable railings.",
+          },
+          {
+            title: "Light gardening",
+            description:
+              "Essential garden upkeep — mowing, pruning and clearing — to keep paths clear and the yard manageable.",
+          },
+          {
+            title: "Outdoor upkeep",
+            description:
+              "Gutter clearing, cleaning slippery paths and other seasonal jobs that reduce the risk of a fall.",
+          },
+          {
+            title: "Access & mobility fixes",
+            description:
+              "Small practical changes that make getting in, out and around your home easier day to day.",
+          },
+          {
+            title: "Larger repairs",
+            description:
+              "Where a job needs a licensed trade, we source a quote and manage the work for you.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "Maintenance, or a home modification?",
+        body: "Maintenance keeps what you already have working safely. A home modification changes the home itself — a grab rail, a ramp, a step-free shower — and is usually recommended by an occupational therapist. Many people need a bit of both, and we can arrange either.",
+      },
+      {
+        kind: "steps",
+        heading: "How it works",
+        items: [
+          {
+            title: "Tell us what needs doing",
+            description: "A conversation, or a walk around the house with your Care Partner.",
+          },
+          {
+            title: "We look at it properly",
+            description: "So the job is scoped correctly and nothing unsafe is missed.",
+          },
+          {
+            title: "A clear quote",
+            description: "For anything beyond a straightforward hourly job, you get the cost in writing first.",
+          },
+          {
+            title: "The work gets done",
+            description: "By our own team, or a police-checked contractor who meets our quality standards.",
+          },
+          {
+            title: "We check it's right",
+            description: "You should be safer and more comfortable than before — that's the test.",
+          },
+        ],
+      },
+      {
+        kind: "prose",
+        heading: "How it's funded",
+        body: [
+          "Home maintenance and gardening sit within the Everyday living category of Support at Home, which attracts a higher contribution than other categories — the government covers less of the cost for these services than for personal care or clinical care.",
+          "Labour is charged at an hourly rate, and materials or a specialist trade are quoted separately at the actual cost plus a service fee for arranging and managing the work. Every rate is published on our fees page, and you'll always have the price in writing before anything starts.",
+        ],
+      },
+      {
+        kind: "faqs",
+        heading: "Home maintenance — your questions",
+        items: [
+          {
+            question: "Are your tradespeople checked?",
+            answer:
+              "Yes. Whether the work is done by our own team or a contractor we engage, they hold a relevant police clearance and meet our quality standards. You should never feel uneasy about who is in your home.",
+          },
+          {
+            question: "Can you do major renovations?",
+            answer:
+              "No — this service covers maintenance, repairs and essential upkeep. Larger structural work or significant bathroom changes fall under home modifications, which usually need an occupational therapist assessment and a separate quote.",
+          },
+          {
+            question: "Do I pay for materials as well as labour?",
+            answer:
+              "Yes. Labour is charged at the hourly rate, and any materials or specialist trade work are charged at the actual cost plus a fee that covers sourcing and managing the job. It's all set out in your quote before work begins.",
+          },
+          {
+            question: "How quickly can something urgent be done?",
+            answer:
+              "If something is unsafe — a broken step, a fallen rail, no working smoke alarm — tell us and we'll prioritise it. Safety jobs don't wait in an ordinary queue.",
+          },
+        ],
+      },
+      enquire,
+    ],
+  },
+
+  // ── Nutrition ──────────────────────────────────────────────────────────────
+  {
+    slug: "services/nutrition",
+    eyebrow: "Community Care service",
+    title: "Nutrition",
+    lead: "Eating well is one of the simplest and most powerful ways to stay strong, steady and independent — and it should still taste like your own food.",
+    heroImage: {
+      src: "/photos/service-nutrition.jpg",
+      alt: "A dietitian and an older Greek woman talking warmly over fresh simple food at a kitchen table",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      description:
+        "Nutrition support with GOCSA Community Care — dietitian assessment, appetite and weight loss, texture-modified diets, and culturally familiar Greek food.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        body: [
+          "Appetite quietly changes as we get older. Taste dulls, cooking for one loses its appeal, shopping gets harder, and medications or illness can take the pleasure out of eating. The result is often unplanned weight loss and a slow loss of strength — which shows up as falls, fatigue, and a longer recovery from every setback.",
+          "Good nutrition support isn't a diet sheet. It starts with what you actually like to eat, and works out how to make that easier, safer and more nourishing.",
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What nutrition support covers",
+        items: [
+          {
+            title: "Dietitian assessment",
+            description:
+              "A proper look at what you're eating, your weight history, your medications and what's getting in the way.",
+          },
+          {
+            title: "Appetite & weight loss",
+            description:
+              "Practical ways to add nourishment when you simply don't feel like eating much.",
+          },
+          {
+            title: "Texture-modified diets",
+            description:
+              "Where swallowing is difficult, food and drinks modified to be safe — and still worth eating.",
+          },
+          {
+            title: "Eating with a condition",
+            description:
+              "Diabetes, heart health, kidney disease or bowel problems, managed without stripping the joy from food.",
+          },
+          {
+            title: "Meals & shopping support",
+            description:
+              "Joining up the advice with real life — meal preparation, shopping assistance or delivered meals.",
+          },
+          {
+            title: "Nutrition supplements",
+            description:
+              "Where food alone isn't enough, supplements sourced and explained, and reviewed as you improve.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "Food that tastes like home",
+        body: "For many of the people we support, food is memory, faith and family — a Greek Orthodox fasting period, a dish someone has cooked their whole life. Nutrition advice that ignores that doesn't get followed. Ours works with your food, your culture and your traditions, not against them.",
+      },
+      {
+        kind: "checklist",
+        heading: "Signs it's worth a conversation",
+        items: [
+          { title: "Clothes or rings getting looser", description: "Often the first sign of unplanned weight loss." },
+          { title: "Skipping meals", description: "Or eating the same very limited things every day." },
+          { title: "Coughing or choking at meals", description: "A sign swallowing should be assessed promptly." },
+          { title: "Cooking feels like too much", description: "Especially for people who now eat alone." },
+          { title: "Slow healing or frequent infections", description: "Recovery is much harder when nutrition is poor." },
+          { title: "Feeling weak or unsteady", description: "Muscle loss from poor intake raises the risk of falls." },
+        ],
+      },
+      {
+        kind: "steps",
+        heading: "How it works",
+        items: [
+          { title: "A conversation", description: "About what you're eating now, and what you'd genuinely like to eat." },
+          { title: "Assessment", description: "A dietitian reviews your nutrition, weight, swallowing and medications." },
+          { title: "A realistic plan", description: "Small, achievable changes built around your own food and routine." },
+          { title: "Support to follow it", description: "Joined up with meal preparation, shopping or delivered meals if needed." },
+          { title: "Review", description: "We track weight and strength, and adjust as things improve." },
+        ],
+      },
+      {
+        kind: "prose",
+        heading: "How it's funded",
+        body: [
+          "Seeing a dietitian is an allied health service, which sits within clinical supports under Support at Home — fully funded by the government, with no contribution from you.",
+          "Nutrition products and supplements are quoted separately, at the actual cost plus a fee covering our support in sourcing and managing them. Meal preparation and delivered meals sit under Everyday living and do attract a contribution. All of it is published on our fees page.",
+        ],
+      },
+      {
+        kind: "faqs",
+        heading: "Nutrition — your questions",
+        items: [
+          {
+            question: "Will I be put on a restrictive diet?",
+            answer:
+              "Almost never. For most older people the goal is the opposite — eating more, and getting more nourishment from what you do eat. Where a condition needs particular care, we manage it with the smallest change that works.",
+          },
+          {
+            question: "Can you help if swallowing has become difficult?",
+            answer:
+              "Yes. A speech pathologist assesses swallowing and a dietitian makes sure the modified food and drinks are still nourishing and appealing. The two work together — one without the other rarely goes well.",
+          },
+          {
+            question: "Can you cook Greek food?",
+            answer:
+              "Yes, and we'd encourage it. Familiar food gets eaten. Our team can prepare meals you actually recognise, and work around fasting periods and family traditions.",
+          },
+          {
+            question: "What if I live alone and don't want to cook?",
+            answer:
+              "That's very common and there's no shame in it. Options range from someone preparing meals with you at home, through to pre-prepared meals delivered — we'll help you find the mix that works.",
+          },
+        ],
+      },
+      enquire,
+    ],
+  },
+
+  // ── Support at Home pathways ───────────────────────────────────────────────
+  {
+    slug: "pathways",
+    eyebrow: "Support at Home pathways",
+    title: "Short-term pathways",
+    lead: "Alongside your ongoing supports, Support at Home includes dedicated short-term pathways for particular moments in life — regaining independence after a setback, and care at the end of life.",
+    status: "requires-client-confirmation",
+    blocks: [
+      {
+        kind: "prose",
+        body: [
+          "Most in-home support is steady and ongoing. But there are two moments where more intensive, time-limited care makes a real difference: when someone is trying to recover their independence after an illness, a fall or a hospital stay — and when someone is nearing the end of their life and wants to be at home.",
+          "Support at Home funds both of these as separate pathways, with their own budgets and their own focus. Your eligibility for either is determined through assessment.",
+        ],
+      },
+      {
+        kind: "cards",
+        heading: "The two pathways",
+        columns: 2,
+        items: [
+          {
+            title: "Restorative Care Pathway",
+            description:
+              "Up to 16 weeks of goal-focused, allied health-led support to rebuild strength, confidence and independence.",
+            href: "/pathways/restorative-care",
+          },
+          {
+            title: "End-of-Life Pathway",
+            description:
+              "Intensive support so someone in the final months of life can stay comfortable, dignified and at home.",
+            href: "/pathways/end-of-life",
+          },
+        ],
+      },
+      enquire,
+    ],
+  },
+  {
+    slug: "pathways/restorative-care",
+    eyebrow: "Support at Home pathway",
+    title: "Restorative Care Pathway",
+    lead: "A short, goal-focused program — up to 16 weeks — built to help you regain strength, confidence and independence after an illness, a fall or a stay in hospital.",
+    heroImage: {
+      src: "/photos/service-allied-health.jpg",
+      alt: "A physiotherapist supporting an older woman through a balance exercise at home",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      description:
+        "The Support at Home Restorative Care Pathway with GOCSA — up to 16 weeks of allied health-led support to regain independence after illness, a fall or hospital.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        heading: "What it is",
+        body: [
+          "The Restorative Care Pathway is short-term, intensive and deliberately optimistic. Rather than simply putting services in place around a decline, it asks a better question: what have you lost that we could help you get back?",
+          "It runs for up to 16 weeks, is led by allied health professionals, and is organised entirely around goals you set — walking to the letterbox again, showering without help, getting back to church, cooking your own meals. It has its own funding, separate from your ongoing Support at Home budget, so taking it up doesn't cost you your regular services.",
+        ],
+      },
+      {
+        kind: "checklist",
+        heading: "Who it's for",
+        intro: "It's usually most valuable at a turning point, when things have recently changed.",
+        items: [
+          { title: "After a hospital stay", description: "When you've come home weaker than you went in." },
+          { title: "After a fall", description: "Or after a near miss that's knocked your confidence." },
+          { title: "When mobility has changed", description: "Walking, balance or stairs have become harder recently." },
+          { title: "When strength has dropped", description: "Everyday tasks now take more out of you than they used to." },
+          { title: "When you'd benefit from therapy", description: "And there's a realistic prospect of real improvement." },
+          { title: "When you want to try", description: "Motivation matters — this pathway rewards effort." },
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What support you can receive",
+        items: [
+          {
+            title: "Allied health",
+            description:
+              "Physiotherapy, occupational therapy, exercise physiology, podiatry, dietetics and speech pathology, coordinated as one team.",
+          },
+          {
+            title: "Strength & mobility programs",
+            description: "A progressive program you can genuinely do at home, reviewed as you get stronger.",
+          },
+          {
+            title: "Clinical nursing",
+            description: "Medication review, wound care and monitoring of any condition affecting your recovery.",
+          },
+          {
+            title: "Daily living support",
+            description: "Practical help while you're rebuilding — tapering off as you regain the ability yourself.",
+          },
+          {
+            title: "Equipment & home changes",
+            description: "Assistive technology or small modifications where they'll speed up your independence.",
+          },
+          {
+            title: "Confidence & connection",
+            description: "Support to get back out — because fear of falling can be as limiting as the injury itself.",
+          },
+        ],
+      },
+      {
+        kind: "steps",
+        heading: "How we deliver it",
+        items: [
+          {
+            title: "Set goals that matter to you",
+            description: "Not clinical targets — the specific things you want to be able to do again.",
+          },
+          {
+            title: "Bring the right team together",
+            description: "Your Restorative Care Partner coordinates the allied health professionals you need.",
+          },
+          {
+            title: "Work at home, in real life",
+            description: "Programs practised in your actual home, on your actual steps, with your actual kettle.",
+          },
+          {
+            title: "Review progress properly",
+            description: "Regular check-ins against your goals, with the plan adjusted as you improve.",
+          },
+          {
+            title: "Plan the transition",
+            description: "Before the 16 weeks end, we agree what ongoing support — if any — you still need.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "It doesn't reduce your other supports",
+        body: "The Restorative Care Pathway has its own dedicated budget under Support at Home. Taking it up doesn't come out of your ongoing services budget — and because clinical supports and care management carry no contribution, the allied health at the heart of this pathway is fully funded.",
+      },
+      {
+        kind: "faqs",
+        heading: "Restorative care — your questions",
+        items: [
+          {
+            question: "How long does it last?",
+            answer:
+              "Up to 16 weeks. Some people reach their goals sooner and step back to ordinary supports; others use the full period. The length is set around your goals and reviewed as you go.",
+          },
+          {
+            question: "What happens when it finishes?",
+            answer:
+              "We plan for that from the start. Many people finish needing less ongoing support than before, because they've genuinely regained ability. Whatever you still need moves into your ongoing Support at Home plan, without a gap.",
+          },
+          {
+            question: "Do I need an assessment?",
+            answer:
+              "Yes. Eligibility for the pathway is determined through My Aged Care assessment. We can explain the process and support you through it, but the decision sits with the assessor, not with us.",
+          },
+          {
+            question: "What if I don't improve as much as we hoped?",
+            answer:
+              "That's not a failure, and it happens. Even where full recovery isn't realistic, this period usually clarifies exactly what support you need long term — and often prevents further decline.",
+          },
+        ],
+      },
+      enquire,
+    ],
+  },
+  {
+    slug: "pathways/end-of-life",
+    eyebrow: "Support at Home pathway",
+    title: "End-of-Life Pathway",
+    lead: "When time is short, care should be calm, close and centred on comfort and dignity — for the person, and for everyone who loves them.",
+    heroImage: {
+      src: "/photos/service-respite.jpg",
+      alt: "A daughter sitting quietly holding her elderly mother's hand at home",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      description:
+        "The Support at Home End-of-Life Pathway with GOCSA — intensive, dignified support so someone in the final months of life can remain comfortable and at home.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        heading: "What it is",
+        body: [
+          "Most people, asked where they would want to be at the end of their life, say home. Making that possible takes more support than usual, arranged quickly, and it takes people who are steady and unhurried when a family is anything but.",
+          "The End-of-Life Pathway provides a higher level of support under Support at Home for people who are in the final months of life. It runs for up to 12 weeks, with the possibility of extension to 16 weeks, and is designed to be put in place fast — because at this stage, waiting is not neutral.",
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What support can be arranged",
+        items: [
+          {
+            title: "Clinical care",
+            description:
+              "Nursing, medication support, pain and symptom management, and close monitoring — coordinated with your GP and palliative team.",
+          },
+          {
+            title: "Personal care",
+            description:
+              "Gentle, unhurried help with bathing, dressing, mouth care, positioning and comfort.",
+          },
+          {
+            title: "Family & carer support",
+            description:
+              "Practical guidance, someone to ask, and respite so those closest can rest without leaving anyone alone.",
+          },
+          {
+            title: "Comfort at home",
+            description:
+              "Equipment, assistive technology and small changes that make the home workable — a bed in the right room, the right chair, the right rails.",
+          },
+          {
+            title: "Emotional & spiritual support",
+            description:
+              "Companionship, and space for faith, prayer and the traditions that matter to your family.",
+          },
+          {
+            title: "Cultural and language care",
+            description:
+              "Greek-speaking staff where you want them, and care that respects Orthodox practice at the end of life.",
+          },
+        ],
+      },
+      {
+        kind: "checklist",
+        heading: "Who it's for",
+        items: [
+          {
+            title: "People in the final months of life",
+            description: "Where a clinical assessment indicates a limited prognosis.",
+          },
+          {
+            title: "People who want to be at home",
+            description: "Where remaining at home is the person's wish and can be safely supported.",
+          },
+          {
+            title: "Families needing more support",
+            description: "Where the care required has outgrown what loved ones can manage alone.",
+          },
+          {
+            title: "Determined through assessment",
+            description: "Eligibility for the pathway is confirmed by a My Aged Care assessor.",
+          },
+        ],
+      },
+      {
+        kind: "steps",
+        heading: "How we work with you",
+        items: [
+          {
+            title: "We move quickly",
+            description: "At this stage responsiveness matters more than process, and we treat it that way.",
+          },
+          {
+            title: "We work with your medical team",
+            description: "Alongside the GP, palliative care service and any specialists already involved.",
+          },
+          {
+            title: "We plan around the person",
+            description: "Their wishes, their room, their routines, their faith — written down and respected.",
+          },
+          {
+            title: "We support the family too",
+            description: "Explaining what to expect, and making sure carers are not carrying this alone.",
+          },
+          {
+            title: "We stay steady",
+            description: "Consistent, familiar faces, so nobody has to explain the situation twice.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "This works alongside palliative care",
+        body: "The End-of-Life Pathway is not a replacement for specialist palliative care. Palliative services lead symptom and medical management; this pathway funds the intensive in-home care, personal support and practical help that make staying at home possible. The two are designed to work together, and we coordinate with your palliative team.",
+      },
+      {
+        kind: "faqs",
+        heading: "End-of-life care — your questions",
+        items: [
+          {
+            question: "How long does the pathway run?",
+            answer:
+              "Up to 12 weeks, with the possibility of extension to 16 weeks where it's still needed. Support is reviewed continually, because needs at this stage can change quickly.",
+          },
+          {
+            question: "How is this different from palliative care?",
+            answer:
+              "Specialist palliative care manages medical symptoms and pain. This pathway funds the in-home care around that — nursing hours, personal care, equipment and family support — so home remains a realistic place to be. Most people have both.",
+          },
+          {
+            question: "How quickly can support start?",
+            answer:
+              "As fast as we can arrange it. We know that a delay of a fortnight can mean the whole thing was pointless, so this is prioritised over routine work.",
+          },
+          {
+            question: "What support is there for the family?",
+            answer:
+              "Respite so carers can sleep, practical guidance about what to expect, help with the day-to-day, and someone to call. Caring for someone at the end of their life is exhausting, and support for the family is part of the pathway, not an extra.",
+          },
+          {
+            question: "Can care be delivered in Greek?",
+            answer:
+              "Yes, wherever possible. At this stage in particular, many people return to their first language. We'll do everything we can to make sure the people around them speak it.",
+          },
+        ],
+      },
+      {
+        kind: "cta",
+        title: "If you're facing this now",
+        body: "Please just call us. You don't need to have the paperwork sorted, or know the right words for what you need — that's our job. We'll talk it through gently and move quickly.",
+        primary: { label: "Speak with our team", href: "/contact" },
+        secondary: { label: "Understand the pathways", href: "/pathways" },
+      },
     ],
   },
 
@@ -1075,8 +1834,8 @@ const list: InteriorPage[] = [
         items: [
           { title: "In person", description: "Speak with any member of our team." },
           { title: "By phone", description: "Call us on (08) 7088 0500." },
-          { title: "By email", description: "Email admin@gocsacommunitycare.com.au." },
-          { title: "In writing", description: "Write to 262 Franklin Street, Adelaide SA 5000." },
+          { title: "By email", description: "Email admin@gocsacc.org.au." },
+          { title: "In writing", description: "Write to Level 1/262 Franklin Street, Adelaide SA 5000." },
           { title: "Through someone else", description: "Ask a family member, carer or advocate to raise it for you." },
         ],
       },
@@ -1383,11 +2142,14 @@ const list: InteriorPage[] = [
 function serviceSummaries() {
   return [
     { title: "Personal care", description: "Respectful help with showering, dressing and mobility.", href: "/services/personal-care" },
-    { title: "Household help", description: "Cleaning, laundry, meal preparation and everyday home tasks.", href: "/services/household-help" },
+    { title: "Domestic assistance", description: "Cleaning, laundry, meal preparation and everyday home tasks.", href: "/services/domestic-assistance" },
     { title: "Social support & companionship", description: "Connection, conversation and accompanied outings.", href: "/services/social-wellbeing" },
     { title: "In-home nursing", description: "Clinical care and medication support at home.", href: "/services/in-home-nursing" },
+    { title: "Allied health", description: "Physiotherapy, occupational therapy, podiatry, dietetics and more.", href: "/services/allied-health" },
     { title: "Respite care", description: "A break for family carers, so they can rest and recharge.", href: "/services/respite" },
     { title: "Transport & errands", description: "Getting to appointments, shops and community — safely.", href: "/services/transport" },
+    { title: "Home maintenance & repairs", description: "Keeping your home safe, sound and easy to live in.", href: "/services/home-maintenance" },
+    { title: "Nutrition", description: "Eating well for strength, recovery and independence.", href: "/services/nutrition" },
   ];
 }
 
