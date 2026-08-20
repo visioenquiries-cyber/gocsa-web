@@ -13,11 +13,17 @@ const enquire: PageBlock = {
   secondary: { label: "How to get started", href: "/how-to-get-started" },
 };
 
-const draftNotice: PageBlock = {
-  kind: "callout",
-  title: "Draft — pending GOCSA sign-off",
-  body: "This page is a working draft prepared for review. Wording, policy detail and any figures must be confirmed by GOCSA and, where relevant, reviewed for compliance before publication.",
-};
+/** Rate-card column headers, shared across the Support at Home fee schedule. */
+const WEEKEND_COLUMNS = [
+  "Weekday\n7am–8pm",
+  "Weekday\n8pm–12am",
+  "Saturday",
+  "Sunday",
+  "Public\nholiday",
+];
+const SESSION_COLUMNS = ["Initial", "Standard", "Extended"];
+const STANDARD_HOURS_COLUMNS = ["Standard hours\nMon–Fri"];
+const QUOTE_COLUMNS = ["Cost"];
 
 /** Reusable, original FAQ items (aged-care framework, GOCSA wording). */
 const FAQ = {
@@ -102,8 +108,8 @@ const helplines: PageBlock = {
 };
 
 /**
- * Scaffold for a policy / your-rights page (DRAFT). `body` carries the substantive,
- * framework-grounded content; the factory appends the draft notice and a help CTA.
+ * Scaffold for a policy / your-rights page. `body` carries the substantive,
+ * framework-grounded content; the factory appends a help CTA.
  */
 function policyPage(cfg: {
   slug: string;
@@ -122,7 +128,6 @@ function policyPage(cfg: {
     blocks: [
       ...cfg.body,
       ...(cfg.help ?? []),
-      draftNotice,
       {
         kind: "cta",
         title: "We're here to help",
@@ -425,11 +430,369 @@ const list: InteriorPage[] = [
         ],
       },
       {
+        kind: "rates",
+        heading: "Support at Home — standard services and fees",
+        intro:
+          "Our Support at Home (SaH) price list, in full. What you actually pay is your contribution towards these prices — that percentage is set by Services Australia based on your situation, and is explained below.",
+        meta: ["Effective 1 July 2026", "All rates exclude GST", "Prices reviewed regularly"],
+        groups: [
+          {
+            title: "Everyday living",
+            intro:
+              "Support to help you keep your home in a liveable state, so you can stay independent at home. A higher contribution may be required.",
+            columns: WEEKEND_COLUMNS,
+            rows: [
+              {
+                label: "Domestic assistance",
+                bullets: ["General house cleaning — essential light cleaning", "Laundry services"],
+                unit: "Hourly rate",
+                values: ["$120", "$145", "$175", "$200", "$250"],
+              },
+              {
+                label: "Shopping assistance",
+                bullets: ["Includes 20 km of travel"],
+                unit: "Hourly rate",
+                values: ["$145", "$175", "$205", "$240", "$285"],
+              },
+              {
+                label: "Meal preparation",
+                unit: "Hourly rate",
+                values: ["$120", "$145", "$175", "$200", "$250"],
+              },
+              {
+                label: "Meal delivery (pre-prepared)",
+                bullets: [
+                  "Self-managed via an Associate or third-party provider, excluding the groceries component",
+                ],
+                unit: "Per meal",
+                values: ["$25", "—", "—", "—", "—"],
+              },
+              {
+                label: "Gardening — essential light gardening",
+                unit: "Hourly rate",
+                values: ["$140", "—", "—", "—", "—"],
+              },
+              {
+                label: "Assistance with home maintenance and repairs",
+                unit: "Hourly rate",
+                values: ["$150", "—", "—", "—", "—"],
+              },
+              {
+                label: "Expenses for home maintenance and repairs",
+                unit: "As per quote",
+                note: "Cost varies based on the third-party expense — the actual cost plus 10% to cover our support in managing the service.",
+              },
+            ],
+            footnotes: [
+              "Meal delivery pricing depends on third-party service delivery costs and may vary.",
+            ],
+          },
+          {
+            title: "Independence",
+            intro:
+              "Support to help you manage daily activities and maintain the skills you need to live independently. A moderate contribution may be required.",
+            columns: WEEKEND_COLUMNS,
+            rows: [
+              {
+                label: "Personal care",
+                bullets: [
+                  "Assistance with self-care and activities of daily living",
+                  "Assistance with the self-administration of medication",
+                  "Continence management (non-clinical)",
+                ],
+                unit: "Hourly rate",
+                values: ["$120", "$145", "$175", "$200", "$250"],
+              },
+              {
+                label: "Home or community general respite",
+                bullets: ["Flexible respite"],
+                unit: "Hourly rate",
+                values: ["$120", "$145", "$175", "$200", "$250"],
+              },
+              {
+                label: "Social support and community engagement",
+                bullets: [
+                  "Individual social support",
+                  "Cultural support",
+                  "Digital education and support",
+                  "Assistance to maintain personal affairs",
+                ],
+                unit: "Hourly rate",
+                values: ["$120", "$145", "$175", "$200", "$250"],
+              },
+              {
+                label: "Accompanied activities",
+                bullets: ["Includes 20 km of travel"],
+                unit: "Hourly rate",
+                values: ["$145", "$175", "$205", "$240", "$285"],
+              },
+              {
+                label: "Group social support",
+                unit: "Per session",
+                values: ["$135", "—", "—", "—", "—"],
+              },
+            ],
+          },
+          {
+            title: "Therapeutic services for independent living",
+            intro: "Charged at an initial, standard or extended rate depending on the appointment.",
+            columns: SESSION_COLUMNS,
+            rows: [
+              {
+                label: "Remedial massage",
+                unit: "Hourly rate",
+                values: ["$270", "$195", "$230"],
+              },
+            ],
+          },
+          {
+            title: "Transport",
+            intro:
+              "Group and individual transport assistance. Transport is charged per one-way trip.",
+            columns: STANDARD_HOURS_COLUMNS,
+            rows: [
+              { label: "Direct transport — 0–10 km", unit: "Per trip", values: ["$60"] },
+              { label: "Direct transport — 11–20 km", unit: "Per trip", values: ["$90"] },
+              { label: "Direct transport — 21–30 km", unit: "Per trip", values: ["$120"] },
+              { label: "Direct transport — 30–60 km", unit: "Per trip", values: ["$200"] },
+              { label: "Direct transport — over 60 km", unit: "Per trip", values: ["Negotiable"] },
+              {
+                label: "Indirect transport (taxi and ride share)",
+                unit: "Per trip",
+                note: "Self-managed via an Associate or third-party provider. Pricing depends on third-party service delivery costs and may vary — the actual fare plus 10% to cover our support in managing the service.",
+              },
+            ],
+            footnotes: ["Direct transport services include a staff member and vehicle time."],
+          },
+          {
+            title: "Clinical supports",
+            intro:
+              "Specialised services to maintain or regain functional and cognitive capability, delivered or supervised by qualified health professionals. No contribution is required for these services.",
+            columns: WEEKEND_COLUMNS,
+            rows: [
+              {
+                label: "Registered nurse clinical care",
+                unit: "Hourly rate",
+                values: ["$190", "$215", "$250", "$310", "$370"],
+              },
+              {
+                label: "Enrolled nurse clinical care",
+                unit: "Hourly rate",
+                values: ["$150", "$175", "$210", "$270", "$330"],
+              },
+              {
+                label: "Nursing care consumables",
+                unit: "As per quote",
+                note: "Cost varies based on the cost of specialised nursing products — the actual cost plus 10% to cover our support in managing the service.",
+              },
+            ],
+            footnotes: [
+              "Indirect nursing services incur an additional charge of $190 per hour. Indirect services include completing documentation, report writing, organising referrals and updating care plans.",
+              "Nursing care consumables include a 10% administrative fee, up to a maximum of $500.",
+            ],
+          },
+          {
+            title: "Care management",
+            intro:
+              "Your Care Partner coordinates your supports and stays in touch as your needs change.",
+            columns: STANDARD_HOURS_COLUMNS,
+            rows: [
+              {
+                label: "Home Support Care Management (Care Partner)",
+                unit: "Hourly rate",
+                values: ["$150"],
+              },
+              {
+                label: "Home Support Restorative Care Management (Restorative Care Partner)",
+                unit: "Hourly rate",
+                values: ["$175"],
+              },
+            ],
+            footnotes: [
+              "Charged on actual time spent, with a 15-minute minimum. This includes both direct contact and indirect activities such as planning your services, calling you to make sure everything is working well, coordinating services, documenting our interactions, and adjusting your services if your needs change.",
+            ],
+          },
+          {
+            title: "Allied health and other therapeutic services",
+            intro: "Charged at an initial, standard or extended rate depending on the appointment.",
+            columns: SESSION_COLUMNS,
+            rows: [
+              {
+                label: "Allied health and other therapeutic services",
+                bullets: [
+                  "Physiotherapist",
+                  "Exercise Physiologist",
+                  "Dietitian or Nutritionist",
+                  "Social Worker",
+                  "Podiatrist",
+                  "Occupational Therapist",
+                  "Speech Pathologist",
+                  "Psychologist",
+                ],
+                unit: "Hourly rate",
+                values: ["$340", "$260", "$300"],
+              },
+              {
+                label: "Nutrition supports",
+                unit: "As per quote",
+                note: "Cost varies based on the cost of specialised nutrition support products — the actual cost plus 10% to cover our support in managing the service.",
+              },
+            ],
+            footnotes: [
+              "In-home and some in-clinic services incur an additional charge for indirect services at $260 per hour. Indirect services include completing documentation, report writing, organising referrals and updating care plans.",
+            ],
+          },
+          {
+            title: "Assistive technology and home modifications",
+            intro:
+              "Through the AT–HM Scheme you can access tailored equipment and make changes to your home that support your wellbeing.",
+            columns: QUOTE_COLUMNS,
+            rows: [
+              {
+                label: "Assistive technology (equipment and products)",
+                bullets: [
+                  "Assistive technology prescription and clinical support",
+                  "Communication and information management products",
+                  "Domestic life products",
+                  "Managing body functions",
+                  "Mobility products",
+                  "Self-care products",
+                ],
+                unit: "As per quote",
+                note: "Cost varies based on the third-party expense. Assistive technology includes a 10% administrative fee, up to a maximum of $500.",
+              },
+              {
+                label: "Home modifications (home adjustments)",
+                bullets: [
+                  "Home modification prescription and clinical support",
+                  "Home modification products",
+                ],
+                unit: "As per quote",
+                note: "Cost varies based on the third-party expense. Home modifications include a 15% coordination fee, up to a maximum of $1,500.",
+              },
+            ],
+            footnotes: [
+              "Prescription and wrap-around services are charged at the relevant allied health or other therapeutic services price. We'll give you a quote based on your circumstances and, once agreed with your Care Partner, it's added to your budget.",
+            ],
+          },
+        ],
+        footnotes: [
+          "All prices exclude GST unless otherwise stated.",
+          "This information is correct at the time of publishing and valid from 1 July 2026. Prices are reviewed regularly and are subject to change.",
+        ],
+      },
+      {
+        kind: "tables",
+        heading: "What you'll contribute",
+        intro:
+          "Your individual contribution rate is set and communicated to you by Services Australia, based on your financial situation. Your contribution is a percentage of the price of the service — not the full price.",
+        tables: [
+          {
+            caption: "If the 'no worse off' principle applies to you",
+            columns: ["Clinical supports", "Independence supports", "Everyday living supports"],
+            rows: [
+              { header: "Full pensioner", cells: ["0%", "0%", "0%"] },
+              {
+                header: "Part pensioner",
+                cells: [
+                  "0%",
+                  "0–25%, based on an assessment of your income and assets (your Age Pension means assessment)",
+                  "0–25%, based on an assessment of your income and assets (your Age Pension means assessment)",
+                ],
+              },
+              {
+                header:
+                  "Self-funded retiree holding or eligible for a Commonwealth Seniors Health Card (CSHC)",
+                cells: [
+                  "0%",
+                  "0–25%, based on an assessment of your income and assets. CSHC holders undergo a separate Support at Home assessment",
+                  "0–25%, based on an assessment of your income and assets. CSHC holders undergo a separate Support at Home assessment",
+                ],
+              },
+              {
+                header: "Self-funded retiree not eligible for a CSHC",
+                cells: ["0%", "25%", "25%"],
+              },
+            ],
+          },
+          {
+            caption: "If the 'no worse off' principle does not apply to you",
+            columns: ["Clinical supports", "Independence supports", "Everyday living supports"],
+            rows: [
+              { header: "Full pensioner", cells: ["0%", "5%", "17.5%"] },
+              {
+                header: "Part pensioner",
+                cells: [
+                  "0%",
+                  "5–50%, based on an assessment of your income and assets (your Age Pension means assessment)",
+                  "17.5–80%, based on an assessment of your income and assets (your Age Pension means assessment)",
+                ],
+              },
+              {
+                header:
+                  "Self-funded retiree holding or eligible for a Commonwealth Seniors Health Card (CSHC)",
+                cells: [
+                  "0%",
+                  "5–50%, based on an assessment of your income and assets. CSHC holders undergo a separate Support at Home assessment",
+                  "17.5–80%, based on an assessment of your income and assets. CSHC holders undergo a separate Support at Home assessment",
+                ],
+              },
+              {
+                header: "Self-funded retiree not eligible for a CSHC",
+                cells: ["0%", "50%", "80%"],
+              },
+            ],
+          },
+        ],
+        footnotes: [
+          "The government covers the entire cost of clinical care services such as nursing, allied health and care management — you pay no contribution for these.",
+          "The government covers most of the cost of Independence services such as personal care, social support and community engagement, respite, transport, and assistive technology or home modifications. A moderate contribution applies.",
+          "The government covers less of the cost of Everyday living services such as domestic assistance, gardening, home maintenance and meals. A higher contribution applies.",
+          "Some people who were already receiving a home care package before 12 September 2024 pay no contribution, or a reduced rate, under the government's 'no worse off' principle. If you're not sure which applies to you, just ask us.",
+          "We'll send you an invoice each month showing the contribution amount you need to pay.",
+        ],
+      },
+      {
+        kind: "checklist",
+        heading: "Other things worth knowing",
+        items: [
+          {
+            title: "Nursing care consumables",
+            description:
+              "Items associated with clinical care — continence aids, bandages, wound dressings, skin emollients and similar — are charged separately, with a 10% administrative fee up to a maximum of $500. These are supplied by an approved supplier; talk to your Care Partner.",
+          },
+          {
+            title: "Assistive technology and home modifications",
+            description:
+              "Equipment and home adjustments prescribed by allied health professionals can be hired or purchased to help you live independently. Assistive technology includes a 10% administrative fee (max $500); home modifications include a 15% coordination fee (max $1,500).",
+          },
+          {
+            title: "Third-party providers",
+            description:
+              "Where we can't provide our own staff for a shift, or you ask us to source a contractor, we engage a third-party provider — always checked against our quality standards with a relevant police clearance. If you choose your own provider, a 10% administration fee applies on top of their prices.",
+          },
+          {
+            title: "A service that isn't listed",
+            description:
+              "If you'd like something that isn't on our price list, talk to us. We may be able to arrange it. Depending on your needs the price may differ from this list — if so, we'll discuss it with you and agree the price in writing first.",
+          },
+          {
+            title: "Cancelling a visit",
+            description:
+              "The notice period for cancellations is 24 hours. If a service is cancelled with less than 24 hours' notice, or nobody is home at the scheduled time, the full cost of that service is billed.",
+          },
+          {
+            title: "Pausing your services",
+            description:
+              "In most cases we can put your services on hold — for a hospital stay, a holiday or respite care. Let your Care Partner know as early as you can so we can reorganise things and avoid late-notice cancellation charges.",
+          },
+        ],
+      },
+      {
         kind: "faqs",
         heading: "Funding — your questions",
         items: [FAQ.cost, FAQ.needFunding, FAQ.getStarted],
       },
-      draftNotice,
       enquire,
     ],
   },
@@ -608,7 +971,7 @@ const list: InteriorPage[] = [
     slug: "resources",
     eyebrow: "Your safety & rights",
     title: "Resources & policies",
-    lead: "Transparency and safety matter. These pages explain your rights and how we uphold them. All are drafts, provided for review.",
+    lead: "Transparency and safety matter. These pages explain your rights and how we uphold them.",
     status: "draft",
     blocks: [
       {
@@ -625,7 +988,6 @@ const list: InteriorPage[] = [
           { title: "Accessibility", description: "Our commitment to an accessible, inclusive service.", href: "/accessibility" },
         ],
       },
-      draftNotice,
     ],
   },
   policyPage({
@@ -636,7 +998,7 @@ const list: InteriorPage[] = [
       {
         kind: "prose",
         body: [
-          "We treat your personal and health information with care and respect, and handle it in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles. This draft explains what we collect, why we collect it, how we keep it safe, and the rights you have.",
+          "We treat your personal and health information with care and respect, and handle it in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles. This page explains what we collect, why we collect it, how we keep it safe, and the rights you have.",
           "Your information is only ever collected and used to provide safe, high-quality care and to meet our legal and funding obligations.",
         ],
       },
@@ -904,7 +1266,7 @@ const list: InteriorPage[] = [
       {
         kind: "prose",
         body: [
-          "You have the right to make decisions about your own care, and to have support to do so. This draft explains how we support informed consent, supported decision-making, and your access to advocacy.",
+          "You have the right to make decisions about your own care, and to have support to do so. This page explains how we support informed consent, supported decision-making, and your access to advocacy.",
         ],
       },
       {

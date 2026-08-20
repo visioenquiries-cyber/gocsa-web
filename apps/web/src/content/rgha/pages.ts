@@ -16,12 +16,6 @@ const enquire: PageBlock = {
   secondary: { label: "Fees & funding", href: "/rgha/funding" },
 };
 
-const draftNotice: PageBlock = {
-  kind: "callout",
-  title: "Draft — pending RGHA sign-off",
-  body: "This page is a working preview prepared for review. Wording, care detail and any figures must be confirmed by Ridleyton Greek Home for the Aged and, where relevant, reviewed for compliance before publication.",
-};
-
 const faqs: PageBlock = {
   kind: "faqs",
   heading: "Your questions",
@@ -248,7 +242,6 @@ const freshPages: InteriorPage[] = [
           "We never make eligibility or fee promises on the government's behalf — final arrangements depend on your assessment and current program rules.",
         ],
       },
-      draftNotice,
       faqs,
       enquire,
     ],

@@ -7,6 +7,7 @@ import { BrandImage } from "../site/BrandImage";
 import { MotionSpine } from "../site/MotionSpine";
 import { Gallery } from "../site/Gallery";
 import { ShowroomTour } from "../site/ShowroomTour";
+import { RateGroupTable, SimpleTable } from "./RateTable";
 
 function GoldCheck() {
   return (
@@ -252,6 +253,77 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
               }))}
             />
           </div>
+        </Section>
+      );
+
+    case "rates":
+      return (
+        <Section bg={alt ? "surface" : "page"} size="wide" id="fees">
+          <Reveal>
+            {block.heading ? <Heading2>{block.heading}</Heading2> : null}
+            {block.intro ? (
+              <Paragraph className="mt-4 max-w-prose text-md text-ink-muted">{block.intro}</Paragraph>
+            ) : null}
+            {block.meta?.length ? (
+              <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-2">
+                {block.meta.map((m) => (
+                  <li
+                    key={m}
+                    className="rounded-pill border-hair border-divider bg-surface-raised px-3 py-1 font-body text-sm text-ink-muted"
+                  >
+                    {m}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <p className="mt-4 font-body text-sm text-ink-muted md:hidden">
+              Tip: swipe the tables sideways to see every rate.
+            </p>
+          </Reveal>
+          <div className="mt-10 space-y-8">
+            {block.groups.map((group, i) => (
+              <Reveal as="div" key={group.title} delayMs={i * 60}>
+                <RateGroupTable group={group} />
+              </Reveal>
+            ))}
+          </div>
+          {block.footnotes?.length ? (
+            <ul className="mt-8 space-y-2 border-t-hair border-divider pt-6">
+              {block.footnotes.map((f) => (
+                <li key={f} className="font-body text-sm text-ink-muted">
+                  {f}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Section>
+      );
+
+    case "tables":
+      return (
+        <Section bg={alt ? "surface" : "page"} size="wide" id="contributions">
+          <Reveal>
+            {block.heading ? <Heading2>{block.heading}</Heading2> : null}
+            {block.intro ? (
+              <Paragraph className="mt-4 max-w-prose text-md text-ink-muted">{block.intro}</Paragraph>
+            ) : null}
+          </Reveal>
+          <div className="mt-10 space-y-8">
+            {block.tables.map((table, i) => (
+              <Reveal as="div" key={table.caption ?? i} delayMs={i * 60}>
+                <SimpleTable table={table} />
+              </Reveal>
+            ))}
+          </div>
+          {block.footnotes?.length ? (
+            <ul className="mt-8 space-y-2 border-t-hair border-divider pt-6">
+              {block.footnotes.map((f) => (
+                <li key={f} className="font-body text-sm text-ink-muted">
+                  {f}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </Section>
       );
 
