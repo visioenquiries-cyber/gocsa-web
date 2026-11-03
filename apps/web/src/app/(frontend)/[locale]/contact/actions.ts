@@ -1,9 +1,14 @@
 "use server";
 
-import { ConsoleEmailProvider } from "@gocsa/platform";
+import { createEmailProvider } from "@gocsa/platform";
+import { getEnv, isProduction } from "@gocsa/env";
 
-/** Where enquiries are routed (from GOCSA's contact details). */
-const ENQUIRY_INBOX = "admin@gocsacc.org.au";
+/** Where enquiries are routed. Overridable per-environment via ENQUIRY_INBOX. */
+const DEFAULT_ENQUIRY_INBOX = "admin@gocsacc.org.au";
+
+/** Shown whenever we cannot guarantee the enquiry reached GOCSA. */
+const CALL_US_INSTEAD =
+  "Sorry — we couldn't send your message just now. Please call us on (08) 7088 0500 or email admin@gocsacc.org.au and we'll help straight away.";
 
 export interface EnquiryState {
   status: "idle" | "success" | "error";
@@ -64,21 +69,40 @@ export async function submitEnquiry(
     message,
   ].join("\n");
 
+  const env = getEnv();
+  const isGreek = preferredLanguage === "Greek";
+  const inbox =
+    (isGreek ? env.ENQUIRY_INBOX_EL : env.ENQUIRY_INBOX) ??
+    env.ENQUIRY_INBOX ??
+    DEFAULT_ENQUIRY_INBOX;
+
   try {
-    // Production swaps this for the env-selected provider via createProviders() (DEC-021).
-    const email_provider = new ConsoleEmailProvider({ defaultFrom: "website@gocsacommunitycare.com.au" });
-    await email_provider.send({
-      to: ENQUIRY_INBOX,
+    const emailProvider = createEmailProvider(env);
+
+    // Never tell someone their enquiry was received when the configured adapter only logs.
+    // Someone asking for aged care must not be left waiting for a reply that can't come.
+    if (!emailProvider.delivers) {
+      if (isProduction(env)) {
+        console.error(
+          "[enquiry] Email provider cannot deliver (EMAIL_PROVIDER=%s). Enquiry NOT sent.",
+          emailProvider.name,
+        );
+        return { status: "error", message: CALL_US_INSTEAD };
+      }
+      // Non-production: log it so the form stays testable locally.
+      console.warn("[enquiry] Non-production environment — logging instead of sending.");
+    }
+
+    await emailProvider.send({
+      to: inbox,
       replyTo: email,
       subject: `Website enquiry — ${enquiryType} — ${fullName}`,
       text,
-      locale: preferredLanguage === "Greek" ? "el" : "en",
+      locale: isGreek ? "el" : "en",
     });
-  } catch {
-    return {
-      status: "error",
-      message: "Sorry — something went wrong sending your message. Please call us on (08) 7088 0500.",
-    };
+  } catch (err) {
+    console.error("[enquiry] Failed to send enquiry:", err);
+    return { status: "error", message: CALL_US_INSTEAD };
   }
 
   return {

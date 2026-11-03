@@ -5,7 +5,7 @@
  *
  * IMPORTANT: all copy here is ORIGINAL, written for GOCSA and grounded in the public
  * Australian aged-care framework (Support at Home, My Aged Care, ACAT, the Aged Care
- * Quality Standards, the Charter of Aged Care Rights). It is DRAFT for client review —
+ * Quality Standards, the Statement of Rights). It is DRAFT for client review —
  * nothing is a binding GOCSA policy until GOCSA + compliance sign off. Not copied from any
  * third-party site.
  */
@@ -63,6 +63,17 @@ export type PageBlock =
   | { kind: "steps"; heading?: string; intro?: string; items: Feature[] }
   | { kind: "checklist"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "callout"; title: string; body: string }
+  /**
+   * A short action prompt — e.g. "call this number, or apply online". `actions` render as
+   * clear links; mark `external: true` for anything leaving the site (opens in a new tab
+   * with a visible cue), and use a `tel:` href so phone numbers are tappable on mobile.
+   */
+  | {
+      kind: "notice";
+      title?: string;
+      body: string;
+      actions?: { label: string; href: string; external?: boolean }[];
+    }
   | { kind: "cards"; heading?: string; intro?: string; columns?: 2 | 3; items: Feature[] }
   | { kind: "cta"; title: string; body?: string; primary: Cta; secondary?: Cta }
   | { kind: "media"; image?: SectionImage; caption?: string }

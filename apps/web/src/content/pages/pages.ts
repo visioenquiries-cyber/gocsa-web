@@ -4,6 +4,7 @@
  * Policies are scaffolds pending GOCSA + compliance sign-off (marked `draft`).
  */
 import type { InteriorPage, PageBlock, PageSource } from "./types";
+import { MY_AGED_CARE } from "../external-links";
 
 const enquire: PageBlock = {
   kind: "cta",
@@ -241,12 +242,13 @@ const list: InteriorPage[] = [
       },
       {
         kind: "cards",
-        heading: "Two ways to arrange aged care",
+        heading: "Ways to arrange aged care",
         items: [
-          { title: "Government-funded", description: "Access in-home support through the Support at Home program after a My Aged Care assessment.", href: "/support-at-home" },
+          { title: "Support at Home", description: "Government-funded in-home support for greater or more complex needs, after a My Aged Care assessment.", href: "/support-at-home" },
+          { title: "CHSP", description: "Entry-level government-subsidised help with one or two tasks, for people who are largely independent.", href: "/chsp" },
           { title: "Privately funded", description: "Arrange support directly with us — flexible, and available whether or not you're assessed.", href: "/private-care" },
         ],
-        columns: 2,
+        columns: 3,
       },
       { kind: "features", heading: "Our services", items: serviceSummaries() },
       {
@@ -288,6 +290,191 @@ const list: InteriorPage[] = [
         items: [FAQ.privateStart, FAQ.privateFlex, FAQ.sameWorker, FAQ.changeVisit, FAQ.cost],
       },
       enquire,
+    ],
+  },
+
+  // ── CHSP ───────────────────────────────────────────────────────────────────
+  {
+    slug: "chsp",
+    eyebrow: "Commonwealth Home Support Programme",
+    title: "A little help, to stay independent at home",
+    lead: "The Commonwealth Home Support Programme (CHSP) is entry-level aged care support — for people who are largely managing well, but who could use a hand with one or two things around the home.",
+    heroImage: {
+      src: "/photos/service-household-help.jpg",
+      alt: "A home helper preparing a fresh meal in a sunlit kitchen while an elderly man chats nearby",
+    },
+    status: "requires-client-confirmation",
+    seo: {
+      title: "Commonwealth Home Support Programme (CHSP) — Adelaide",
+      description:
+        "CHSP support in Adelaide with GOCSA Community Care — domestic assistance, cleaning and spring cleaning, home and garden maintenance, social support and group social support.",
+    },
+    blocks: [
+      {
+        kind: "prose",
+        heading: "What CHSP is",
+        body: [
+          "Most people don't need a full care package. They need the lawn kept down, the heavy cleaning done, and someone to have a coffee with once a week. The Commonwealth Home Support Programme exists for exactly that — modest, practical, government-subsidised support that helps you keep doing everything else for yourself.",
+          "It's the entry point to aged care in Australia. Support is generally ongoing but low-intensity, and it's designed to keep small problems from becoming the reason someone has to leave home.",
+        ],
+      },
+      {
+        kind: "checklist",
+        heading: "Who CHSP is for",
+        intro: "Eligibility is confirmed through a My Aged Care assessment — but broadly, it's for:",
+        items: [
+          {
+            title: "People aged 65 and over",
+            description: "Or 50 and over for Aboriginal and Torres Strait Islander people.",
+          },
+          {
+            title: "People managing mostly well",
+            description: "Independent day to day, but finding one or two tasks harder than they used to be.",
+          },
+          {
+            title: "People who need a hand, not a package",
+            description: "Where a small amount of regular support is enough to keep things steady.",
+          },
+          {
+            title: "People wanting to stay at home",
+            description: "And who want to keep their routine, their street and their independence.",
+          },
+        ],
+      },
+      {
+        kind: "features",
+        heading: "What we can help with under CHSP",
+        intro:
+          "These are the CHSP services GOCSA Community Care provides. If you need something we don't deliver, we'll tell you honestly and help you find who does.",
+        items: [
+          {
+            title: "Domestic assistance",
+            description:
+              "Regular help around the house — general cleaning, laundry, linen and the everyday tasks that keep a home comfortable and manageable.",
+            href: "/services/domestic-assistance",
+          },
+          {
+            title: "Cleaning & spring cleaning",
+            description:
+              "Beyond the weekly tidy: a thorough, top-to-bottom clean of the areas that have got away from you — ideal after illness, before family visit, or once a season.",
+            href: "/services/domestic-assistance",
+          },
+          {
+            title: "Home & garden maintenance",
+            description:
+              "Keeping the house and yard safe and in order — light gardening, lawns, pruning, minor repairs and the jobs that have become unsafe to do yourself.",
+            href: "/services/home-maintenance",
+          },
+          {
+            title: "Social support & community engagement",
+            description:
+              "One-to-one company — a visit, a chat, a walk, help getting to an appointment or back to the things you used to enjoy. In English or Greek.",
+            href: "/services/social-wellbeing",
+          },
+          {
+            title: "Group social support",
+            description:
+              "Time spent with others: shared activities, conversation, culture and a proper cup of coffee — the antidote to long, quiet weeks alone.",
+          },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "Why it matters more than it sounds",
+        body: "Isolation and an unmanageable house are two of the most common reasons older people stop coping at home. Getting the cleaning done and having somewhere to be on a Thursday isn't a small thing — it's often exactly what keeps someone independent for another few years.",
+      },
+      {
+        kind: "steps",
+        heading: "How to access CHSP",
+        intro:
+          "CHSP is accessed through My Aged Care. We'll walk you through it, in English or Greek, and there's no cost to ask.",
+        items: [
+          {
+            title: "Contact My Aged Care",
+            description:
+              "Register by phone or online. If you'd rather not do it alone, we'll help you make the call.",
+          },
+          {
+            title: "A home assessment",
+            description:
+              "The Regional Assessment Service visits you at home for a friendly conversation about what you're finding difficult.",
+          },
+          {
+            title: "Approval for services",
+            description:
+              "You're advised which CHSP services you've been approved for, based on that assessment.",
+          },
+          {
+            title: "Choose your provider",
+            description:
+              "You choose who delivers your support — this is where you can ask for GOCSA Community Care.",
+          },
+          {
+            title: "Support begins",
+            description:
+              "We agree the days, times and details that suit you, and put everything in writing before we start.",
+          },
+        ],
+      },
+      {
+        kind: "notice",
+        body: `Call My Aged Care on ${MY_AGED_CARE.phone} to make a booking, or you can apply online. If you'd like a hand with either, call us on (08) 7088 0500 — we do this every day, and we're happy to sit with you through it.`,
+        actions: [
+          { label: `Call ${MY_AGED_CARE.phone}`, href: MY_AGED_CARE.phoneHref },
+          { label: "Apply online", href: MY_AGED_CARE.applyOnline, external: true },
+        ],
+      },
+      {
+        kind: "prose",
+        heading: "What you'll pay",
+        body: [
+          "CHSP is substantially subsidised by the Australian Government. You're asked to contribute towards the cost of the services you receive, based on what you can reasonably afford — you pay only for the support you actually get.",
+          "Nobody is refused essential support because of genuine financial hardship. If money is a worry, tell us — it's a conversation we have often, and there are options. Whatever applies to you will be explained in plain language and confirmed in writing before any support begins.",
+        ],
+      },
+      {
+        kind: "faqs",
+        heading: "CHSP — your questions",
+        items: [
+          {
+            question: "What's the difference between CHSP and Support at Home?",
+            answer:
+              "CHSP is entry-level support — a small amount of regular help for people who are largely independent. Support at Home is for people with greater or more complex needs, with a larger budget and a wider range of services. Many people start with CHSP and move to Support at Home later if their needs increase. Government arrangements in this area continue to change, and we'll always explain what currently applies to your situation.",
+          },
+          {
+            question: "Do I need an assessment?",
+            answer:
+              "Yes. CHSP is accessed through My Aged Care, and a Regional Assessment Service assessor will visit you at home. It's a conversation, not a test — and we can help you prepare for it or be there on the day.",
+          },
+          {
+            question: "Can I get CHSP and privately arranged support at the same time?",
+            answer:
+              "Yes. Some people use CHSP for their approved services and arrange additional private support with us for anything beyond that — extra cleaning hours, for instance. We keep it simple and bill it clearly.",
+          },
+          {
+            question: "How long do I have to wait?",
+            answer:
+              "It depends on demand for the particular service and your assessed priority. We'll be honest with you about realistic timeframes rather than telling you what you'd like to hear, and we'll let you know as soon as we can start.",
+          },
+          {
+            question: "Can I have a Greek-speaking support worker?",
+            answer:
+              "Wherever possible, yes. A great deal of what makes support feel comfortable is being understood — so tell us your preference and we'll do our best to match you.",
+          },
+          {
+            question: "What if I need a service you don't provide?",
+            answer:
+              "We'll say so. GOCSA provides domestic assistance, cleaning and spring cleaning, home and garden maintenance, social support and group social support under CHSP. For anything else, we'll point you towards a provider who can help.",
+          },
+        ],
+      },
+      {
+        kind: "cta",
+        title: "Not sure whether CHSP is the right fit?",
+        body: "Have a chat with us. We'll help you work out whether CHSP, Support at Home or private care makes the most sense — with no pressure, and no cost to ask.",
+        primary: { label: "Speak with our team", href: "/contact" },
+        secondary: { label: "Compare funding options", href: "/funding" },
+      },
     ],
   },
 
@@ -1175,8 +1362,8 @@ const list: InteriorPage[] = [
         kind: "cards",
         heading: "Pathways to support",
         items: [
-          { title: "Support at Home", description: "The government's in-home aged care program, accessed through My Aged Care.", href: "/support-at-home" },
-          { title: "Government-funded pathways", description: "How assessment through My Aged Care leads to funded support.", href: "/support-at-home" },
+          { title: "Support at Home", description: "The government's in-home aged care program, for greater or more complex needs.", href: "/support-at-home" },
+          { title: "CHSP", description: "Entry-level support — a hand with one or two things, for people managing mostly well.", href: "/chsp" },
           { title: "Privately funded care", description: "Flexible support arranged directly with us, whether or not you're assessed.", href: "/private-care" },
         ],
       },
@@ -1739,7 +1926,7 @@ const list: InteriorPage[] = [
         items: [
           { title: "Privacy", description: "How we collect, use and protect your personal information.", href: "/policies/privacy" },
           { title: "Complaints & feedback", description: "How to raise a concern and how we respond.", href: "/policies/complaints" },
-          { title: "Client rights & responsibilities", description: "Your rights under the Charter of Aged Care Rights.", href: "/policies/client-rights" },
+          { title: "Client rights & responsibilities", description: "Your rights under the Statement of Rights.", href: "/policies/client-rights" },
           { title: "Safeguarding", description: "How we keep clients safe from harm, abuse and neglect.", href: "/policies/safeguarding" },
           { title: "Quality & governance", description: "How we uphold the Aged Care Quality Standards.", href: "/policies/quality" },
           { title: "Advocacy & consent", description: "Your right to an advocate and to make informed choices.", href: "/policies/advocacy" },
@@ -1872,7 +2059,7 @@ const list: InteriorPage[] = [
   policyPage({
     slug: "policies/client-rights",
     title: "Client rights & responsibilities",
-    lead: "Your rights as a person receiving care — reflecting the Charter of Aged Care Rights — and how we work together.",
+    lead: "Your rights as a person receiving care — reflecting the Statement of Rights — and how we work together.",
     body: [
       {
         kind: "prose",
@@ -1883,7 +2070,7 @@ const list: InteriorPage[] = [
       {
         kind: "checklist",
         heading: "Your rights",
-        intro: "Reflecting the Charter of Aged Care Rights, you have the right to:",
+        intro: "Reflecting the Statement of Rights, you have the right to:",
         items: [
           { title: "Safe, quality care", description: "Care and services that are safe and right for you." },
           { title: "Dignity & respect", description: "To be treated with dignity, respect and kindness." },

@@ -190,6 +190,59 @@ export function Block({ block, index }: { block: PageBlock; index: number }) {
         </Section>
       );
 
+    case "notice":
+      return (
+        <Section bg={alt ? "surface" : "page"} size="base">
+          <Reveal>
+            <div className="rounded-xl border-hair border-divider bg-info-surface p-6 shadow-1 md:p-8">
+              {block.title ? (
+                <Heading level={2} size={4} className="text-ink">
+                  {block.title}
+                </Heading>
+              ) : null}
+              <Paragraph measure={false} className={block.title ? "mt-2 text-ink" : "text-ink"}>
+                {block.body}
+              </Paragraph>
+              {block.actions?.length ? (
+                <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  {block.actions.map((a) =>
+                    a.external ? (
+                      <a
+                        key={a.href}
+                        href={a.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-body font-semibold text-link underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus"
+                      >
+                        {a.label}
+                        <svg viewBox="0 0 24 24" aria-hidden className="h-4 w-4" fill="none">
+                          <path
+                            d="M14 5h5v5M19 5l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="sr-only">(opens in a new tab)</span>
+                      </a>
+                    ) : (
+                      <a
+                        key={a.href}
+                        href={a.href}
+                        className="font-body font-semibold text-link underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus"
+                      >
+                        {a.label}
+                      </a>
+                    ),
+                  )}
+                </div>
+              ) : null}
+            </div>
+          </Reveal>
+        </Section>
+      );
+
     case "media":
       return (
         <Section bg={alt ? "surface" : "page"} size="wide">

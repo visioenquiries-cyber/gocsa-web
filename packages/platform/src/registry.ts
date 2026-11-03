@@ -9,7 +9,7 @@ import { getEnv, type Env } from "@gocsa/env";
 import { ProviderNotImplementedError } from "./types";
 import { LocalStorageProvider, type StorageProvider } from "./storage";
 import { LocalMediaProvider, type MediaProvider } from "./media";
-import { ConsoleEmailProvider, type EmailProvider } from "./email";
+import { ConsoleEmailProvider, ResendEmailProvider, type EmailProvider } from "./email";
 import { NoopAnalyticsProvider, type AnalyticsProvider } from "./analytics";
 import { MemorySearchProvider, type SearchProvider } from "./search";
 import { MemoryCacheProvider, type CacheProvider } from "./cache";
@@ -40,12 +40,36 @@ function createStorage(env: Env): StorageProvider {
   }
 }
 
+/**
+ * Build just the email adapter. Exported so callers that only need to send mail (e.g. the
+ * website enquiry form) don't have to construct the whole provider set — otherwise an
+ * unrelated unimplemented adapter, such as search, would throw and mask the real result.
+ */
+export function createEmailProvider(env: Env = getEnv()): EmailProvider {
+  return createEmail(env);
+}
+
 function createEmail(env: Env): EmailProvider {
-  switch (env.EMAIL_PROVIDER) {
+  // `EMAIL_PROVIDER` defaults to "console" (which only logs). Supplying an API key is an
+  // unambiguous signal that real delivery is wanted, so honour it without also requiring
+  // EMAIL_PROVIDER to be set — one missing variable shouldn't silently drop enquiries.
+  const provider =
+    env.EMAIL_PROVIDER === "console" && env.EMAIL_PROVIDER_API_KEY ? "resend" : env.EMAIL_PROVIDER;
+
+  switch (provider) {
     case "console":
       return new ConsoleEmailProvider({ defaultFrom: env.EMAIL_FROM });
+    case "resend": {
+      if (!env.EMAIL_PROVIDER_API_KEY) {
+        throw new Error("EMAIL_PROVIDER=resend requires EMAIL_PROVIDER_API_KEY.");
+      }
+      return new ResendEmailProvider({
+        apiKey: env.EMAIL_PROVIDER_API_KEY,
+        defaultFrom: env.EMAIL_FROM,
+      });
+    }
     default:
-      throw new ProviderNotImplementedError("email", env.EMAIL_PROVIDER);
+      throw new ProviderNotImplementedError("email", provider);
   }
 }
 

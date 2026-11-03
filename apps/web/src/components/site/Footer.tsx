@@ -13,12 +13,14 @@ export function Footer({ chrome }: { chrome: SiteChrome }) {
             <Text size="sm" className="max-w-xs text-ink-muted">
               {chrome.footer.acknowledgement}
             </Text>
-            <Link
-              href={chrome.footer.rghaCrossLink.href}
-              className="font-body text-sm text-primary underline underline-offset-2 hover:opacity-80"
-            >
-              {chrome.footer.rghaCrossLink.label}
-            </Link>
+            {chrome.footer.rghaCrossLink ? (
+              <Link
+                href={chrome.footer.rghaCrossLink.href}
+                className="font-body text-sm text-primary underline underline-offset-2 hover:opacity-80"
+              >
+                {chrome.footer.rghaCrossLink.label}
+              </Link>
+            ) : null}
           </div>
 
           {chrome.footer.columns.map((col) => (

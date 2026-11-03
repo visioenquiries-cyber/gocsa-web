@@ -225,7 +225,8 @@ export interface SiteChrome {
     columns: FooterColumn[];
     org: string;
     acknowledgement: string;
-    rghaCrossLink: Cta;
+    /** Optional sister-site link. Omitted on GOCSA now that RGHA is a separate site. */
+    rghaCrossLink?: Cta;
   };
 }
 

@@ -14,6 +14,7 @@ export const siteChrome: SiteChrome = {
   },
   nav: [
     { label: "Support at Home", href: "/support-at-home" },
+    { label: "CHSP", href: "/chsp" },
     {
       label: "Our Services",
       href: "/services",
@@ -49,6 +50,7 @@ export const siteChrome: SiteChrome = {
         heading: "Community Care",
         links: [
           { label: "Support at Home", href: "/support-at-home" },
+          { label: "CHSP", href: "/chsp" },
           { label: "Our Services", href: "/services" },
           { label: "Short-term pathways", href: "/pathways" },
           { label: "Funding & Access", href: "/funding" },
@@ -87,7 +89,6 @@ export const siteChrome: SiteChrome = {
     org: "Greek Orthodox Community of South Australia Incorporated",
     acknowledgement:
       "We acknowledge the Traditional Owners of the land on which we live and work, and pay our respects to Elders past and present.",
-    rghaCrossLink: { label: "Ridleyton Greek Home for the Aged", href: "/rgha", kind: "internal" },
   },
 };
 

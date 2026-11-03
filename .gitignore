@@ -42,3 +42,6 @@ Thumbs.db
 
 # Payload / uploads (local dev media)
 /apps/web/media/
+
+# Local export bundles (not part of the app)
+_export/
