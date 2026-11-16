@@ -45,3 +45,6 @@ Thumbs.db
 
 # Local export bundles (not part of the app)
 _export/
+
+# Internal test reports and client drafts — not part of the site.
+_reports/

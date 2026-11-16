@@ -24,9 +24,12 @@ function clean(value: FormDataEntryValue | null): string {
 
 /**
  * Handle a contact enquiry. Validates server-side, then routes the message to the GOCSA
- * inbox via the EmailProvider abstraction. In preview (no email credentials) this uses the
- * ConsoleEmailProvider, which logs the enquiry instead of sending — so nothing real is
- * dispatched until a production provider (SMTP/Resend/SES) is configured by env (DEC-021).
+ * inbox via the EmailProvider abstraction (DEC-021); the adapter is chosen by env.
+ *
+ * In production the enquiry is only ever reported as received once an adapter that actually
+ * delivers has accepted it. If the configured adapter only logs, the person is asked to phone
+ * instead — a false confirmation would leave someone seeking aged care waiting for a reply
+ * that was never coming. Outside production the console adapter keeps the form testable.
  */
 export async function submitEnquiry(
   _prev: EnquiryState,

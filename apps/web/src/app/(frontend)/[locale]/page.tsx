@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getContentSource } from "../../../content/homepage/source";
 import { isLocale } from "@gocsa/cms";
 import { Hero } from "../../../components/home/Hero";
@@ -9,8 +10,11 @@ import { MediaChapter } from "../../../components/site/MediaChapter";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const loc = isLocale(locale) ? locale : "en";
-  const home = await getContentSource().getHomepage(loc);
+  // Paths the locale middleware skips (anything with a file extension) land here as a single
+  // segment. Without this guard an unknown "locale" silently fell back to en and served a
+  // duplicate of the homepage at 200 — e.g. /nope.txt — so unknown locales must 404.
+  if (!isLocale(locale)) notFound();
+  const home = await getContentSource().getHomepage(locale);
 
   return (
     <>

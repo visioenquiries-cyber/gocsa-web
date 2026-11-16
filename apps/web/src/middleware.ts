@@ -25,6 +25,16 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // Skip Payload (/admin, /api), Next internals, health check, and any file with an extension.
-  matcher: ["/((?!api|admin|_next|health|.*\\.).*)"],
+  /**
+   * Skip Payload (/admin, /api), Next internals, the health check, the two real asset
+   * directories in public/, and the generated robots/sitemap/favicon routes.
+   *
+   * Everything else is rewritten — including paths that carry a file extension. Those used to
+   * be skipped wholesale, which let a single-segment path like /nope.txt match [locale] and
+   * serve a duplicate of the homepage at HTTP 200. Routing them through the locale rewrite
+   * lands them in the interior catch-all, whose closed param set answers a true 404.
+   */
+  matcher: [
+    "/((?!api|admin|_next|health|brand/|photos/|robots\\.txt|sitemap\\.xml|favicon\\.ico).*)",
+  ],
 };

@@ -9,6 +9,14 @@ import { isReviewMode } from "../../../../lib/review";
 
 const LOCALES = ["en", "el"] as const;
 
+/**
+ * The page set is a closed, build-time list (see content/pages/pages.ts), so any slug outside
+ * generateStaticParams is genuinely not a page. Closing the param set makes Next answer those
+ * with a real HTTP 404 instead of rendering the not-found boundary and caching it as a 200 —
+ * a soft 404, which search engines index as a real page.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
     pageSource.allSlugs().map((slug) => ({ locale, slug: slug.split("/") })),
